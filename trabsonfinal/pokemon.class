@@ -62,42 +62,42 @@ class Pokemon{
     return this->speed_stat;
   }
   
-  void insert_name(insert){
+  void insert_name(string insert){
     this->name = insert;
   }
   
-  void insert_pokedex_number(insert){
+  void insert_pokedex_number(int insert){
     this->pokedex_number = insert;
   }
   
-  void insert_type1(insert){
+  void insert_type1(string insert){
     this->type1 = insert;
   }
   
-  void insert_type2(insert){
+  void insert_type2(string insert){
     this->type2 = insert;
   }
   
-  void insert_hp_stat(insert){
+  void insert_hp_stat(int insert){
     this->hp_stat = insert;
   }
   
-  void insert_attack_stat(insert){
+  void insert_attack_stat(int insert){
     this->attack_stat = insert;
   }
   
-  void insert_defense_stat(insert){
+  void insert_defense_stat(int insert){
     this->defense_stat = insert;
   }
   
-  void insert_special_attack_stat(insert){
+  void insert_special_attack_stat(int insert){
     this->special_attack_stat = insert;
   }
   
-  void insert_special_defense_stat(insert){
+  void insert_special_defense_stat(int insert){
     this->special_defense_stat = insert;
   }
   
-  void insert_speed_stat(){
+  void insert_speed_stat(int insert){
     this->speed_stat = insert;
   }
