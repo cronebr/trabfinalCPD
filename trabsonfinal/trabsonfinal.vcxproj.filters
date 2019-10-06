@@ -18,5 +18,13 @@
     <ClCompile Include="trabsonfinal.cpp">
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
+    <ClCompile Include="pokemon_class.cpp">
+      <Filter>Arquivos de Recurso</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pokemon_class.h">
+      <Filter>Arquivos de Cabeçalho</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

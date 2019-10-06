@@ -1,13 +1,15 @@
 // trabsonfinal.cpp : Este arquivo contém a função 'main'. A execução do programa começa e termina ali.
 //
-
 #include <iostream>
-#include "header.h"
+#include "pokemon_class.h"
+using namespace std;
+
 
 int main()
 {
-    dados_pokemon = ler_arquivo_de_dados();
-    std::cout << "Hello World!\n";
+	PokemonClass pokemon;//Objeto do tipo pokemon
+    //dados_pokemon = ler_arquivo_de_dados();
+    cout << "Hello World!\n";
 }
 
 // Executar programa: Ctrl + F5 ou Menu Depurar > Iniciar Sem Depuração

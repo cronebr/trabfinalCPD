@@ -151,7 +151,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="pokemon_class.cpp" />
     <ClCompile Include="trabsonfinal.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pokemon_class.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
