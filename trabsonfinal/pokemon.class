@@ -1,0 +1,12 @@
+class Pokemon{
+  string name;
+  int pokedex_number;
+  string type1;
+  string type2;
+  int hp_stat;
+  int attack_stat;
+  int defense_stat;
+  int specialattack_stat;
+  int specialdefense_stat;
+  int speed_stat;
+  }
