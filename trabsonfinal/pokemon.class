@@ -10,42 +10,42 @@ class Pokemon{
   private int special_defense_stat;
   private int speed_stat;
   
-  get_name();
+  string get_name();
     return name;
   }
   
-  get_pokedex_number();
+  int get_pokedex_number();
     return pokedex_number;
   }
   
-  get_type1();
+  string get_type1();
     return type1;
   }
   
-  get_type2();
+  string get_type2();
     return type2;
   }
   
-  get_hp_stat();
+  int get_hp_stat();
     return hp_stat;
   }
   
-  get_attack_stat();
+  int get_attack_stat();
     return attack_stat;
   }
   
-  get_defense_stat();
+  int get_defense_stat();
     return defense_stat;
   }
   
-  get_special_attack_stat();
+  int get_special_attack_stat();
     return special_attack_stat;
   }
   
-  get_special_defense_stat();
+  int get_special_defense_stat();
     return special_defense_stat;
   }
   
-  get_speed_stat();
+  int get_speed_stat();
     return speed_stat;
   }
