@@ -1,14 +1,14 @@
 class Pokemon{
-  private string name;
-  private int pokedex_number;
-  private string type1;
-  private string type2;
-  private int hp_stat;
-  private int attack_stat;
-  private int defense_stat;
-  private int special_attack_stat;
-  private int special_defense_stat;
-  private int speed_stat;
+  private: string name;
+  private: int pokedex_number;
+  private: string type1;
+  private: string type2;
+  private: int hp_stat;
+  private: int attack_stat;
+  private: int defense_stat;
+  private: int special_attack_stat;
+  private: int special_defense_stat;
+  private: int speed_stat;
   
   string get_name();
     return name;
