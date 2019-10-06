@@ -10,6 +10,18 @@ class Pokemon{
   private: int special_defense_stat;
   private: int speed_stat;
   
+  Pokemon::Pokemon(){
+    this->name = 0;
+    this->pokedex_number = 0;
+    this->type1 = 0;
+    this->type2 = 0;
+    this->hp_stat = 0;
+    this->attack_stat = 0;
+    this->defense_stat = 0;
+    this->special_attack_stat = 0;
+    this->special_defense_stat = 0;
+    this->speed_stat = 0;
+  
   string get_name(){
     return name;
   }
