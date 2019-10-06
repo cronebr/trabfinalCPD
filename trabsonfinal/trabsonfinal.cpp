@@ -5,6 +5,7 @@
 
 int main()
 {
+    dados_pokemon = ler_arquivo_de_dados();
     std::cout << "Hello World!\n";
 }
 
