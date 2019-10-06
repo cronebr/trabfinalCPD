@@ -10,42 +10,82 @@ class Pokemon{
   private: int special_defense_stat;
   private: int speed_stat;
   
-  string get_name();
+  string get_name(){
     return name;
   }
   
-  int get_pokedex_number();
+  int get_pokedex_number(){
     return pokedex_number;
   }
   
-  string get_type1();
+  string get_type1(){
     return type1;
   }
   
-  string get_type2();
+  string get_type2(){
     return type2;
   }
   
-  int get_hp_stat();
+  int get_hp_stat(){
     return hp_stat;
   }
   
-  int get_attack_stat();
+  int get_attack_stat(){
     return attack_stat;
   }
   
-  int get_defense_stat();
+  int get_defense_stat(){
     return defense_stat;
   }
   
-  int get_special_attack_stat();
+  int get_special_attack_stat(){
     return special_attack_stat;
   }
   
-  int get_special_defense_stat();
+  int get_special_defense_stat(){
     return special_defense_stat;
   }
   
-  int get_speed_stat();
+  int get_speed_stat(){
     return speed_stat;
+  }
+  
+  void insert_name(insert){
+    name = insert;
+  }
+  
+  void insert_pokedex_number(insert){
+    pokedex_number = insert;
+  }
+  
+  void insert_type1(insert){
+    type1 = insert;
+  }
+  
+  void insert_type2(insert){
+    type2 = insert;
+  }
+  
+  void insert_hp_stat(insert){
+    hp_stat = insert;
+  }
+  
+  void insert_attack_stat(insert){
+    attack_stat = insert;
+  }
+  
+  void insert_defense_stat(insert){
+    defense_stat = insert;
+  }
+  
+  void insert_special_attack_stat(insert){
+    special_attack_stat = insert;
+  }
+  
+  void insert_special_defense_stat(insert){
+    special_defense_stat = insert;
+  }
+  
+  void insert_speed_stat(){
+    speed_stat = insert;
   }
