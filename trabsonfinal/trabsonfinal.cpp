@@ -11,11 +11,11 @@
 #include <string>
 using namespace std;
 void abre_arq();
-void le_arq(fstream* file1);
+void le_arq(fstream* file);
 
 int main()
 {
-	setlocale(LC_ALL, "Portuguese_Brasil");
+	setlocale(LC_ALL, "en_US.UTF-8");
 	abre_arq();
 	PokemonClass pokemon;//Objeto do tipo pokemon
 	//dados_pokemon = ler_arquivo_de_dados();
@@ -28,7 +28,6 @@ int main()
 void abre_arq()
 {
 	fstream file;
-	string txt;
 	try
 	{
 		file.open(BANCO, ios::in);
@@ -41,12 +40,12 @@ void abre_arq()
 	file.close();
 }
 
-void le_arq(fstream* file1)
-{
+void le_arq(fstream* file)
+{	
 	string line, temp, palavra;
-	while (*file1 >> temp)
+	while (*file >> temp)
 	{
-		getline(*file1, line);
+		getline(*file, line);
 		cout << "\n" << line;
 		//cout << "\n" << line;
 		printf("\nDeu bom");
