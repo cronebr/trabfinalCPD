@@ -53,4 +53,14 @@ public:
 	string getPokemon();		//extrai a string do csv
 	PokemonClass validateString(string pokemonToInsert);//transforma a string em um objeto
 	void setPokemon(PokemonClass pokemon);	//seta o objeto da função main com o objeto que a validate string criou
+
+	string getname()
+	{
+		return this->name;
+	}
+
+	void insertnome(string name)
+	{
+		this->name = name;
+	}
 };
