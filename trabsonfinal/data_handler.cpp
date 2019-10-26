@@ -178,7 +178,7 @@ std::vector<std::string> Arquivos::matrixConstructor(std::string dataBaseName)//
 	std::vector<std::string> tokensCarrier;
 	std::string lineCleaned;
 	char line[ARRAYSIZE];
-	char chars[] = "[] '\"\'";
+	char chars[] = "[]'\"\'";
 	try
 	{
 		file.open(dataBaseName);			//				
