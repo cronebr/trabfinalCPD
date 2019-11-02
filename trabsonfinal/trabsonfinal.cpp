@@ -8,16 +8,16 @@
 #include <sstream>
 #include "pokemon_class.h"
 #include "type_class.h"
+#include "algoritmos_de_ordenacao.h"
 #include <locale.h>
 #include <string.h>
 #include <string>
 #include <windows.h>
 
 #define BANCO "pokebank.csv"
-
+#define ORDENADO "ordenado.csv"
 
 using namespace std;
-
 
 void abre_le_arq();
 void pokemonPreparator(string pokemonData);
@@ -28,6 +28,7 @@ int main()
 
 	setlocale(LC_ALL, "en_US.utf8");
 	abre_le_arq();
+    inicia_ordenacao(BANCO,ORDENADO,0);
 	PokemonClass pokemon;//Objeto do tipo pokemon
 	//dados_pokemon = ler_arquivo_de_dados();
 	pokemon.insertName("linoone");
