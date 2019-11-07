@@ -12,55 +12,66 @@
 //********************************************************************
 
 //************AREA DE CONSTANTES**************************************
-#define DATAARCHIVEPATH "./Arquivos/Dados/"
-#define INDEXARCHIVEPATH "./Arquivos/Index/"
-#define ABILITY			 "ability.csv"
-#define POKEMON			"pokemon.csv"
-#define TYPE			"type.csv"
-#define DELIMITER		 ','
-#define ABILITIESDELIMITER		 ';'
-#define ARRAYSIZE		 500
-#define LINESIZE		 1024
-#define COLUMNOFFSET	 40
+#define DATAARCHIVEPATH			"./Arquivos/Dados/"
+#define INDEXARCHIVEPATH		"./Arquivos/Index/"
+#define ABILITYTABLE			"ability.csv"
+#define POKEMONTABLE			"pokemon.csv"
+#define TYPETABLE				"type.csv"
+#define STATTABLE				"stat.csv"
+#define DELIMITER				','
+#define ABILITIESDELIMITER		';'
+#define ARRAYSIZE				200
+#define LINESIZE				1024
+#define COLUMNOFFSET			41
+#define ID						"id"
 
-#define AGAINSTBUG			1
-#define AGAINSTDARK			2
-#define AGAINSTDRAGON		3
-#define AGAINSTELECTRIC		4
-#define AGAINSTFAIRY		5
-#define AGAINSTFIGHT		6
-#define AGAINSTFIRE			7
-#define AGAINSTFLYING		8
-#define AGAINSTGHOST		9
-#define AGAINSTGRASS		10
-#define AGAINSTGROUND		11
-#define AGAINSTICE			12
-#define AGAINSTNORMAL		13
-#define AGAINSTPOISON		14
-#define AGAINSTPSYCHIC		15
-#define AGAINSTROCK			16
-#define AGAINSTSTEEL		17
-#define AGAINSTWATER		18
-#define TYPE1				35
-#define TYPE2				36
-#define NAME				29
-#define CAPTURERATE			23
-#define CLASSIFICATION		24
-#define POKEDEXNUMBER		31
-#define WEIGHTKG			37
-#define EXPERIENCEGROWTH	26
-#define HEIGHTM				27
-#define PERCENTAGEMALE		30
-#define GENERATION			38
-#define ISLEGENDARY			39
+#define ABILITIES				0
+#define AGAINSTBUG				1
+#define AGAINSTDARK				2
+#define AGAINSTDRAGON			3
+#define AGAINSTELECTRIC			4
+#define AGAINSTFAIRY			5
+#define AGAINSTFIGHT			6
+#define AGAINSTFIRE				7
+#define AGAINSTFLYING			8
+#define AGAINSTGHOST			9
+#define AGAINSTGRASS			10
+#define AGAINSTGROUND			11
+#define AGAINSTICE				12
+#define AGAINSTNORMAL			13
+#define AGAINSTPOISON			14
+#define AGAINSTPSYCHIC			15
+#define AGAINSTROCK				16
+#define AGAINSTSTEEL			17
+#define AGAINSTWATER			18
+#define ATTACK					19
+#define EGGSTEPS				20
+#define HAPINNES				21
+#define TOTALSTAT				22
+#define CAPTURERATE				23
+#define CLASSIFICATION			24
+#define DEFENSE					25
+#define EXPERIENCEGROWTH		26
+#define HEIGHTM					27
+#define HP						28
+#define NAME					29
+#define PERCENTAGEMALE			30
+#define POKEDEXNUMBER			31
+#define SPATTACK				32
+#define SPDEFENSE				33
+#define SPEED					34
+#define TYPE1					35
+#define TYPE2					36
+#define WEIGHTKG				37
+#define GENERATION				38
+#define ISLEGENDARY				39
+#define HASMEGA					40
 
 //********************************************************************
 
 
 int Arquivos::creationManager(std::string dataBaseName)
 {
-
-	std::vector<std::string> matrix;
 	
 	switch (this->createFolders(DATAARCHIVEPATH, INDEXARCHIVEPATH))	//testa se a pasta existe se n�o existe ela cria e baseado no que aconteceu escolhe o que fazer
 	{
@@ -69,8 +80,7 @@ int Arquivos::creationManager(std::string dataBaseName)
 			break;
 		case 1:			//pasta foi criada
 			std::cout << "Pastas foram criadas\n";
-			matrix = this->matrixConstructor(dataBaseName);//matriz com os pokemons
-			this->createDataTables(matrix);	//vai para a fun��o de cria��o das tabelas de dados
+			this->createDataTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
 			break;
 		case 2:		//cria a pasta de index pq a de dados existia
 			std::cout << "pasta de index criada\n";
@@ -90,36 +100,59 @@ int Arquivos::creationManager(std::string dataBaseName)
 
 
 //********************CRIA AS TABELAS DE ARQUIVOS**************************************
-void Arquivos::createDataTables(std::vector<std::string> matriz)
+void Arquivos::createDataTables(std::string dataBaseName)
 {
-	//this->createAbilityTable(matriz);
+	this->createAbilityTable(dataBaseName);//****************PAREI AQUI, AJUSTAR PARA MANDAR OS DADOS DE UM ARQUIVO PRO OUTRO SEM MATRIZ
 	//this->createPokemonTable(matriz);
-	this->createTypeTable(matriz);
+	//1this->createTypeTable(matriz);
+	//this->createStatTable(matriz);
 	std::cout << "espere aqui";
 }
 //**************************************************************************************
 //********************CRIA A TABELA DE HABILIDADES**************************************
-void Arquivos::createAbilityTable(std::vector<std::string> matriz)
+void Arquivos::createAbilityTable(std::string dataBaseName)
 {
-	std::fstream file;//objeto file(ponteiro do arquivo)
-	std::vector<std::string> abilities;
-	std::vector<std::string> tokensCarrier;
-	file.open(std::string(DATAARCHIVEPATH).append(ABILITY), std::fstream::out);//abre o arquivo
-	file << "id" << DELIMITER << "abilities";				//coloca o cabe�alho
-	for (int i = 40; i < matriz.size(); i+= COLUMNOFFSET)
+	std::fstream file;//objeto file(ponteiro do arquivo), arquivo final
+	std::string abilityAux;//string auxiliar para armazenar habilidades
+	int index = 1;//id das habilidades
+	bool firstTime = true;
+	std::string stringAux;
+	std::fstream databaseFonte;
+	std::string abilities;
+	char chars[] = "[]'\"\'";
+
+	databaseFonte.open(std::string(dataBaseName));//abre o arquivo original para leitura
+	file.open(std::string(DATAARCHIVEPATH).append(ABILITYTABLE), std::ios::in | std::ios::out | std::ios::app);//abre o arquivo de dados para escrita
+	file << ID << DELIMITER << "abilities";	//coloca o cabecalho
+	file.seekg(0, std::ios::beg);	//devolve o ponteiro para o inicio do arquivo
+	std::getline(databaseFonte, abilities);//le o cabecalho do csv do arquivo fonte
+	while (std::getline(databaseFonte, abilities,DELIMITER))	//pega a linha até o delimitador escolhido, se não tiver delimitador pega toda a linha
 	{
-		tokensCarrier = this->split(matriz[i], ABILITIESDELIMITER);									//divide os arrays em um vetor
-		abilities.insert(std::end(abilities), std::begin(tokensCarrier), std::end(tokensCarrier));	//insere os tokens em um vetor
+		abilities = this->lineCleaner(abilities, chars);//abilities tem as habilidades do pokemon
+		std::stringstream tokenStream(abilities);//transforma as habilidades em um stream para separacao
+		while (std::getline(tokenStream, stringAux, ABILITIESDELIMITER))//itera entre todas as habilidades dentro do toKenStream
+		{
+			std::getline(file, abilityAux);//captura o cabecalho
+			while (std::getline(file, abilityAux, DELIMITER) && firstTime)//itera nas habilidades que existem na tabela e diz se a atual ja foi inserida
+			{
+				std::getline(file, abilityAux);
+				abilityAux.erase(std::remove(abilityAux.begin(), abilityAux.end(), '\n'), abilityAux.end());//apaga o \n da string
+				if (abilityAux == stringAux) {
+					firstTime = false;
+				}
+			}
+			file.clear();//limpa as flags do objeto
+			if (firstTime)//se é a primeira vez da habilidade insere ela na tabela
+			{
+				file << "\n" << index << DELIMITER << stringAux;
+				index++;
+			}
+			firstTime = true;
+			file.seekg(0, std::ios::beg);
+		}
+		std::getline(databaseFonte, abilities);//pega o resto da linha, para a insertTypeTable receber só as habilidades
 	}
-
-	std::sort(abilities.begin(), abilities.end());											//elimina duplicatas
-	abilities.erase(std::unique(abilities.begin(), abilities.end()), abilities.end());			//
-
-	for (int i = 0; i < abilities.size(); i++)
-	{
-		file << "\n" << i+1 << DELIMITER << abilities[i];				//preenche o arquivo
-	}
-
+	databaseFonte.close();					//fecha o arquivo
 	file.close();					//fecha o arquivo
 }
 //**************************************************************************************
@@ -130,7 +163,7 @@ void Arquivos::createTypeTable(std::vector<std::string> matriz)
 	std::fstream file;//objeto file(ponteiro do arquivo)
 	std::vector<std::string> abilititypeNames;
 	std::vector<std::string> abilitityadvantages;
-	file.open(std::string(DATAARCHIVEPATH).append(TYPE), std::fstream::out);//abre o arquivo
+	file.open(std::string(DATAARCHIVEPATH).append(TYPETABLE), std::fstream::out);//abre o arquivo
 
 	file << "id" << DELIMITER << "name" << DELIMITER << "against_bug" << DELIMITER << "against_dark" << DELIMITER << "against_dragon";
 	file << DELIMITER << "against_electric" << DELIMITER << "against_fairy" << DELIMITER << "against_fight" << DELIMITER << "against_fire";
@@ -168,7 +201,7 @@ void Arquivos::createPokemonTable(std::vector<std::string> matriz)
 
 	std::fstream file;
 	long index = 0, idSerial = 1;
-	file.open(std::string(DATAARCHIVEPATH).append(POKEMON), std::fstream::out);//abre o arquivo
+	file.open(std::string(DATAARCHIVEPATH).append(POKEMONTABLE), std::fstream::out);//abre o arquivo
 	file << "id" << DELIMITER << "name" << DELIMITER << "capture_rate" << DELIMITER;
 	file << "classification" << DELIMITER << "pokedex_number" << DELIMITER << "weight_kg" << DELIMITER << "experience_growth";
 	file << DELIMITER << "height_m" << DELIMITER << "percentage_male" << DELIMITER << "generation" << DELIMITER << "is_legendary";
@@ -186,7 +219,21 @@ void Arquivos::createPokemonTable(std::vector<std::string> matriz)
 //********************CRIA A TABELA DE STATS********************************************
 void Arquivos::createStatTable(std::vector<std::string> matriz)
 {
-	std::cout << matriz[65];
+		std::fstream file;
+		long index = 0, idSerial = 1;
+		file.open(std::string(DATAARCHIVEPATH).append(POKEMONTABLE), std::fstream::out);//abre o arquivo
+		file << "id" << DELIMITER << "hp" << DELIMITER << "attack" << DELIMITER;
+		file << "defense" << DELIMITER << "sp_attack" << DELIMITER << "sp_defense" << DELIMITER << "speed";
+		file << DELIMITER << "base_egg_steps" << DELIMITER << "base_happiness" << DELIMITER << "base_total";
+		for (index = 40; index < matriz.size(); index += COLUMNOFFSET)
+		{
+			file << "\n" << idSerial << DELIMITER << matriz[((long long)index + NAME)] << DELIMITER << matriz[((long long)index + CAPTURERATE)] << DELIMITER;
+			file << matriz[((long long)index + CLASSIFICATION)] << DELIMITER << matriz[((long long)index + POKEDEXNUMBER)] << DELIMITER << matriz[((long long)index + WEIGHTKG)] << DELIMITER << matriz[((long long)index + EXPERIENCEGROWTH)];
+			file << DELIMITER << matriz[((long long)index + HEIGHTM)] << DELIMITER << matriz[((long long)index + PERCENTAGEMALE)] << DELIMITER << matriz[((long long)index + GENERATION)] << DELIMITER << matriz[((long long)index + ISLEGENDARY)];
+			idSerial++;
+		}
+
+		file.close();					//fecha o arquivo
 	std::cout << "espere aqui";
 }
 //**************************************************************************************
