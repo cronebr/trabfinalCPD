@@ -102,11 +102,12 @@ int Arquivos::creationManager(std::string dataBaseName)
 //********************CRIA AS TABELAS DE ARQUIVOS**************************************
 void Arquivos::createDataTables(std::string dataBaseName)
 {
-	this->createAbilityTable(dataBaseName);//****************PAREI AQUI, AJUSTAR PARA MANDAR OS DADOS DE UM ARQUIVO PRO OUTRO SEM MATRIZ
-	//this->createPokemonTable(matriz);
-	//1this->createTypeTable(matriz);
-	//this->createStatTable(matriz);
-	std::cout << "espere aqui";
+	this->createAbilityTable(dataBaseName);
+	this->createPokemonTable(dataBaseName);
+	this->createTypeTable(dataBaseName);
+	this->createStatTable(dataBaseName);
+	//*******************************************PAREI AQUI AS TABELAs DE ARQUIVOS ESTÃO PRONTAS FALTA AS DE RELACIONAMENTO E INDEX
+	return;
 }
 //**************************************************************************************
 //********************CRIA A TABELA DE HABILIDADES**************************************
@@ -154,88 +155,209 @@ void Arquivos::createAbilityTable(std::string dataBaseName)
 	}
 	databaseFonte.close();					//fecha o arquivo
 	file.close();					//fecha o arquivo
+	return;
 }
 //**************************************************************************************
 //********************CRIA A TABELAS DE TIPOS*******************************************
-void Arquivos::createTypeTable(std::vector<std::string> matriz)
+void Arquivos::createTypeTable(std::string dataBaseName)
 {
-
 	std::fstream file;//objeto file(ponteiro do arquivo)
-	std::vector<std::string> abilititypeNames;
-	std::vector<std::string> abilitityadvantages;
-	file.open(std::string(DATAARCHIVEPATH).append(TYPETABLE), std::fstream::out);//abre o arquivo
+	std::fstream databaseFonte;		//csv original
+	std::fstream vectorSubs;		//arquivo auxiliar para nao usar ponteiros
+	std::string typeFields;			//string para os campos do tipo no csv original
+	std::fstream typessearched;			//string para os campos do tipo no csv original
+	std::string typeFieldsvector;	// string pro arquivo auxiliar
+	int index = 1;					//indice dos tipos
+	bool keepIterating;				//bool pra parar de procurar os tipos
+	int coluna;						//variavel para saber que atributo esta carregando
 
+	file.open(std::string(DATAARCHIVEPATH).append(TYPETABLE), std::fstream::out);//abre o arquivo final
+	typessearched.open(std::string(DATAARCHIVEPATH).append("guardatipos.bin"), std::ios::in | std::ios::out | std::ios::app);//abre o arquivo 
+	databaseFonte.open(std::string(dataBaseName));	//abre o arquivo fonte
 	file << "id" << DELIMITER << "name" << DELIMITER << "against_bug" << DELIMITER << "against_dark" << DELIMITER << "against_dragon";
 	file << DELIMITER << "against_electric" << DELIMITER << "against_fairy" << DELIMITER << "against_fight" << DELIMITER << "against_fire";
 	file << DELIMITER << "against_flying" << DELIMITER << "against_ghost" << DELIMITER << "against_grass" << DELIMITER << "against_ground";
 	file << DELIMITER << "against_ice" << DELIMITER << "against_normal" << DELIMITER << "against_poison" << DELIMITER << "against_psychic";
 	file << DELIMITER << "against_rock" << DELIMITER << "against_steel" << DELIMITER << "against_water";				//coloca o cabe�alho
-
-	for (int i = 35; i < matriz.size(); i += COLUMNOFFSET)
+	std::getline(databaseFonte, typeFields);
+	while (std::getline(databaseFonte, typeFields))//itera no arquivo original 
 	{
-		if (matriz[(long long)i+1] == "") {
-			abilititypeNames.push_back(matriz[i] + DELIMITER + matriz[(long long)i - 34] + DELIMITER + matriz[(long long)i - 33] 
-			+ DELIMITER + matriz[(long long)i - 32] + DELIMITER + matriz[(long long)i - 31] + DELIMITER + matriz[(long long)i - 30] 
-			+ DELIMITER + matriz[(long long)i - 29] + DELIMITER + matriz[(long long)i - 28] + DELIMITER + matriz[(long long)i - 27] 
-			+ DELIMITER + matriz[(long long)i - 26] + DELIMITER + matriz[(long long)i - 25] + DELIMITER + matriz[(long long)i - 24]
-			+ DELIMITER + matriz[(long long)i - 23] + DELIMITER + matriz[(long long)i - 22] + DELIMITER + matriz[(long long)i - 21]
-			+ DELIMITER + matriz[(long long)i - 20] + DELIMITER + matriz[(long long)i - 19] + DELIMITER + matriz[(long long)i - 18]
-			+ DELIMITER + matriz[(long long)i - 17]);
+		vectorSubs.open(std::string(DATAARCHIVEPATH).append("helper.bin"), std::ios::in | std::ios::out | std::ios::app);//abre o arquivo auxiliar
+		coluna = 0;
+		keepIterating = true;
+		typeFields.erase(std::remove(typeFields.begin(), typeFields.end(), '\n'), typeFields.end());//apaga o \n
+		std::stringstream tokenStream(typeFields);//transforma as habilidades em um stream para separacao
+		while (std::getline(tokenStream, typeFields, DELIMITER) && keepIterating)//procura as vantagens  dentro do toKenStream
+		{
+			switch (coluna)
+			{
+				case AGAINSTBUG:
+				case AGAINSTDARK:
+				case AGAINSTDRAGON:
+				case AGAINSTELECTRIC:
+				case AGAINSTFAIRY:
+				case AGAINSTFIGHT:
+				case AGAINSTFIRE:
+				case AGAINSTFLYING:
+				case AGAINSTGHOST:
+				case AGAINSTGRASS:
+				case AGAINSTGROUND:
+				case AGAINSTICE:
+				case AGAINSTNORMAL:
+				case AGAINSTPOISON:
+				case AGAINSTPSYCHIC:
+				case AGAINSTROCK:
+				case AGAINSTSTEEL:
+				case AGAINSTWATER:
+					vectorSubs << DELIMITER << typeFields;//guarda o valor no arquivo temporario
+					break;
+			}
+			if (coluna== TYPE1) {
+				keepIterating = false;
+				getline(tokenStream, typeFieldsvector, DELIMITER);
+				if (typeFieldsvector == "" && !(this->searchArchive(&typessearched, typeFields)))// se o segundo tipo for nulo guarda no arquivo
+				{
+					file << "\n" << index << DELIMITER << typeFields;
+					vectorSubs.seekg(0, std::ios::beg);//volta pro inicio do arquivo auxiliar
+					std::getline(vectorSubs, typeFieldsvector);
+					file << typeFieldsvector;
+					index++;
+				}
+			}
+			coluna++;
+		}
+		vectorSubs.close();
+		remove(std::string(DATAARCHIVEPATH).append("helper.bin").c_str());//deleta arquivo ajudante
+	}
+	//fecha o arquivo
+	typessearched.close();					//fecha o arquivo
+	remove(std::string(DATAARCHIVEPATH).append("guardatipos.bin").c_str());//deleta arquivo ajudante
+	file.close();					//fecha o arquivo
+	databaseFonte.close();					//fecha o arquivo
+	return;
+}
+//*************************************************************************************
+//******************PROCURA UMA STRING EM UM ARQUIVO DE UMA PALAvRA POR LINHA**********
+bool Arquivos::searchArchive(std::fstream* file, std::string word)
+{
+	bool response = false;
+	bool typeIsThere = false;
+	std::string currentWord;
+	while (std::getline(*file, currentWord) && !response)//procura as vantagens  dentro do toKenStream
+	{
+		currentWord.erase(std::remove(currentWord.begin(), currentWord.end(), '\n'), currentWord.end());//apaga o \n
+		if (currentWord == word) 
+		{
+			response = true;
+			typeIsThere = true;
 		}
 	}
-
-	std::sort(abilititypeNames.begin(), abilititypeNames.end());											//elimina duplicatas
-	abilititypeNames.erase(std::unique(abilititypeNames.begin(), abilititypeNames.end()), abilititypeNames.end());			//
-	
-	for (int i = 0; i < abilititypeNames.size(); i ++)
+	(*file).clear();
+	if (!typeIsThere)
 	{
-		file << "\n" << i + 1 << DELIMITER << abilititypeNames[i];				//preenche o arquivo
+		*file << word << "\n";
 	}
-
-	file.close();					//fecha o arquivo
+	(*file).seekg(0, std::ios::beg);//volta pro inicio do arquivo auxiliar
+	return response;
 }
-//**************************************************************************************
+//*************************************************************************************
 //********************CRIA AS TABELAS DE POKEMONS**************************************
-void Arquivos::createPokemonTable(std::vector<std::string> matriz)
+void Arquivos::createPokemonTable(std::string dataBaseName)
 {
+	std::fstream pokemonTable;
+	std::fstream databaseFonte;
+	std::string pokemons;
+	std::string stringAux;
+	int index = 1;
+	int coluna;
 
-	std::fstream file;
-	long index = 0, idSerial = 1;
-	file.open(std::string(DATAARCHIVEPATH).append(POKEMONTABLE), std::fstream::out);//abre o arquivo
-	file << "id" << DELIMITER << "name" << DELIMITER << "capture_rate" << DELIMITER;
-	file << "classification" << DELIMITER << "pokedex_number" << DELIMITER << "weight_kg" << DELIMITER << "experience_growth";
-	file << DELIMITER << "height_m" << DELIMITER << "percentage_male" << DELIMITER << "generation" << DELIMITER << "is_legendary";
-	for (index = 40; index < matriz.size(); index += COLUMNOFFSET)
+	databaseFonte.open(std::string(dataBaseName));//abre o arquivo original para leitura
+	pokemonTable.open(std::string(DATAARCHIVEPATH).append(POKEMONTABLE), std::fstream::out);//abre o arquivo
+	pokemonTable << "id"<< DELIMITER << "capture_rate" << DELIMITER << "classification" << DELIMITER;
+	pokemonTable << "experience_growth" << DELIMITER << "height_m" << DELIMITER << "name" << DELIMITER << "percentage_male";
+	pokemonTable << DELIMITER << "pokedex_number" << DELIMITER << "weight_kg" << DELIMITER << "generation" << DELIMITER << "is_legendary" ;
+	pokemonTable << DELIMITER << "has_mega";
+	std::getline(databaseFonte, pokemons);//le o cabecalho do csv do arquivo fonte
+	while (std::getline(databaseFonte, pokemons))
 	{
-		file << "\n" << idSerial << DELIMITER << matriz[((long long)index + NAME)] << DELIMITER << matriz[((long long)index + CAPTURERATE)] << DELIMITER;
-		file << matriz[((long long)index + CLASSIFICATION)] << DELIMITER << matriz[((long long)index + POKEDEXNUMBER)] << DELIMITER << matriz[((long long)index + WEIGHTKG)] << DELIMITER << matriz[((long long)index + EXPERIENCEGROWTH)];
-		file << DELIMITER << matriz[((long long)index + HEIGHTM)] << DELIMITER << matriz[((long long)index + PERCENTAGEMALE)] << DELIMITER << matriz[((long long)index + GENERATION)] << DELIMITER << matriz[((long long)index + ISLEGENDARY)];
-		idSerial++;
+		coluna = 0;
+		pokemons.erase(std::remove(pokemons.begin(), pokemons.end(), '\n'), pokemons.end());
+		std::stringstream tokenStream(pokemons);//transforma as habilidades em um stream para separacao
+		pokemonTable << "\n" << index;
+		while (std::getline(tokenStream, stringAux, DELIMITER))//itera entre todas as habilidades dentro do toKenStream
+		{
+			switch (coluna)
+			{
+				case CAPTURERATE:
+				case CLASSIFICATION:
+				case EXPERIENCEGROWTH:
+				case HEIGHTM:
+				case NAME:
+				case PERCENTAGEMALE:
+				case POKEDEXNUMBER:
+				case WEIGHTKG:
+				case GENERATION:
+				case ISLEGENDARY:
+				case HASMEGA:
+					pokemonTable << DELIMITER << stringAux;
+					break;
+			}
+			coluna++;
+		}
+		index++;
 	}
-
-	file.close();					//fecha o arquivo
+	databaseFonte.close();					//fecha o arquivo
+	pokemonTable.close();					//fecha o arquivo
+	return;
 }
 //**************************************************************************************
 //********************CRIA A TABELA DE STATS********************************************
-void Arquivos::createStatTable(std::vector<std::string> matriz)
+void Arquivos::createStatTable(std::string dataBaseName)
 {
 		std::fstream file;
-		long index = 0, idSerial = 1;
-		file.open(std::string(DATAARCHIVEPATH).append(POKEMONTABLE), std::fstream::out);//abre o arquivo
-		file << "id" << DELIMITER << "hp" << DELIMITER << "attack" << DELIMITER;
-		file << "defense" << DELIMITER << "sp_attack" << DELIMITER << "sp_defense" << DELIMITER << "speed";
-		file << DELIMITER << "base_egg_steps" << DELIMITER << "base_happiness" << DELIMITER << "base_total";
-		for (index = 40; index < matriz.size(); index += COLUMNOFFSET)
+		std::fstream databaseFonte;
+		long index = 1, coluna = 0;
+		std::string statLine;
+		std::string stat;
+
+		file.open(std::string(DATAARCHIVEPATH).append(STATTABLE), std::fstream::out);//abre o arquivo
+		databaseFonte.open(std::string(dataBaseName));//abre o arquivo original para leitura
+		file << "id" << DELIMITER << "attack" << DELIMITER << "egg_steps" << DELIMITER;
+		file << "happiness" << DELIMITER << "total" << DELIMITER << "defense" << DELIMITER << "hp";
+		file << DELIMITER << "sp_attack" << DELIMITER << "sp_defense" << DELIMITER << "speed";
+		std::getline(databaseFonte, statLine);//le o cabecalho do csv do arquivo fonte
+		while (std::getline(databaseFonte, statLine))
 		{
-			file << "\n" << idSerial << DELIMITER << matriz[((long long)index + NAME)] << DELIMITER << matriz[((long long)index + CAPTURERATE)] << DELIMITER;
-			file << matriz[((long long)index + CLASSIFICATION)] << DELIMITER << matriz[((long long)index + POKEDEXNUMBER)] << DELIMITER << matriz[((long long)index + WEIGHTKG)] << DELIMITER << matriz[((long long)index + EXPERIENCEGROWTH)];
-			file << DELIMITER << matriz[((long long)index + HEIGHTM)] << DELIMITER << matriz[((long long)index + PERCENTAGEMALE)] << DELIMITER << matriz[((long long)index + GENERATION)] << DELIMITER << matriz[((long long)index + ISLEGENDARY)];
-			idSerial++;
+			coluna = 0;
+			statLine.erase(std::remove(statLine.begin(), statLine.end(), '\n'), statLine.end());
+			std::stringstream tokenStream(statLine);//transforma as habilidades em um stream para separacao
+			file << "\n" << index;
+			while (std::getline(tokenStream, stat, DELIMITER))//itera entre todas as habilidades dentro do toKenStream
+			{
+				switch (coluna)
+				{
+				case ATTACK:
+				case EGGSTEPS:
+				case HAPINNES:
+				case TOTALSTAT:
+				case DEFENSE:
+				case HP:
+				case SPATTACK:
+				case SPDEFENSE:
+				case SPEED:
+					file << DELIMITER << stat;
+					break;
+				}
+				coluna++;
+			}
+			index++;
 		}
 
+		databaseFonte.close();					//fecha o arquivo
 		file.close();					//fecha o arquivo
-	std::cout << "espere aqui";
-}
+		std::cout << "espere aqui";
+		return;
+}	
 //**************************************************************************************
 
 //*****************SEPARA UMA STRING EM VETORES**************
@@ -296,40 +418,6 @@ int Arquivos::createFolders(std::string dataFolder, std::string indexFolder)
 	{
 		resposta = -1;
 	}
-	return resposta;
-}
-//**************************************************************************************
-
-//********************RETORNA O VETOR DE STRINGS COM A MATRIZ***************************
-std::vector<std::string> Arquivos::matrixConstructor(std::string dataBaseName)// tratamento de 1 linha por vez
-{
-
-	std::fstream file;
-	std::vector<std::string> resposta;
-	std::vector<std::string> tokensCarrier;
-	std::string lineCleaned;
-	char line[ARRAYSIZE];
-	char chars[] = "[]'\"\'";
-	try
-	{
-		file.open(dataBaseName);			//				
-		file.getline(line, LINESIZE);	//
-		resposta = this->split(line, DELIMITER);
-		while (!file.eof()) {
-
-			file.getline(line, LINESIZE);
-			lineCleaned = this->lineCleaner(line,chars);
-			tokensCarrier = this->split(lineCleaned, DELIMITER);
-			resposta.insert(std::end(resposta), std::begin(tokensCarrier), std::end(tokensCarrier));
-		}
-	}
-	catch (std::string error)
-	{
-		std::cout << "Erro no arquivo" << "\n";
-		std::cout << "Erro :" << error << "\n";
-	}
-
-	file.close();
 	return resposta;
 }
 //**************************************************************************************
