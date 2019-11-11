@@ -1,0 +1,853 @@
+id,capture_rate,classification,experience_growth,height_m,name,percentage_male,pokedex_number,weight_kg,generation,is_legendary,has_mega
+1,45,Seed Pokémon,1059860,0.7,Bulbasaur,88.1,1,6.9,1,0,0
+2,45,Seed Pokémon,1059860,1.0,Ivysaur,88.1,2,13.0,1,0,0
+3,45,Seed Pokémon,1059860,2.0,Venusaur,88.1,3,100.0,1,0,1
+4,45,Lizard Pokémon,1059860,0.6,Charmander,88.1,4,8.5,1,0,0
+5,45,Flame Pokémon,1059860,1.1,Charmeleon,88.1,5,19.0,1,0,0
+6,45,Flame Pokémon,1059860,1.7,Charizard,88.1,6,90.5,1,0,1
+7,45,Tiny Turtle Pokémon,1059860,0.5,Squirtle,88.1,7,9.0,1,0,0
+8,45,Turtle Pokémon,1059860,1.0,Wartortle,88.1,8,22.5,1,0,0
+9,45,Shellfish Pokémon,1059860,1.6,Blastoise,88.1,9,85.5,1,0,1
+10,255,Worm Pokémon,1000000,0.3,Caterpie,50,10,2.9,1,0,0
+11,120,Cocoon Pokémon,1000000,0.7,Metapod,50,11,9.9,1,0,0
+12,45,Butterfly Pokémon,1000000,1.1,Butterfree,50,12,32.0,1,0,0
+13,255,Hairy Pokémon,1000000,0.3,Weedle,50,13,3.2,1,0,0
+14,120,Cocoon Pokémon,1000000,0.6,Kakuna,50,14,10.0,1,0,0
+15,45,Poison Bee Pokémon,1000000,1.0,Beedrill,50,15,29.5,1,0,1
+16,255,Tiny Bird Pokémon,1059860,0.3,Pidgey,50,16,1.8,1,0,0
+17,120,Bird Pokémon,1059860,1.1,Pidgeotto,50,17,30.0,1,0,0
+18,45,Bird Pokémon,1059860,1.5,Pidgeot,50,18,39.5,1,0,1
+19,255,Mouse Pokémon,1000000,,Rattata,50,19,,1,0,0
+20,127,Mouse Pokémon,1000000,,Raticate,50,20,,1,0,0
+21,255,Tiny Bird Pokémon,1000000,0.3,Spearow,50,21,2.0,1,0,0
+22,90,Beak Pokémon,1000000,1.2,Fearow,50,22,38.0,1,0,0
+23,255,Snake Pokémon,1000000,2.0,Ekans,50,23,6.9,1,0,0
+24,90,Cobra Pokémon,1000000,3.5,Arbok,50,24,65.0,1,0,0
+25,190,Mouse Pokémon,1000000,0.4,Pikachu,50,25,6.0,1,0,0
+26,75,Mouse Pokémon,1000000,,Raichu,50,26,,1,0,0
+27,255,Mouse Pokémon,1000000,,Sandshrew,50,27,,1,0,0
+28,90,Mouse Pokémon,1000000,,Sandslash,50,28,,1,0,0
+29,235,Poison Pin Pokémon,1059860,0.4,Nidoran♀,0,29,7.0,1,0,0
+30,120,Poison Pin Pokémon,1059860,0.8,Nidorina,0,30,20.0,1,0,0
+31,45,Drill Pokémon,1059860,1.3,Nidoqueen,0,31,60.0,1,0,0
+32,235,Poison Pin Pokémon,1059860,0.5,Nidoran♂,100,32,9.0,1,0,0
+33,120,Poison Pin Pokémon,1059860,0.9,Nidorino,100,33,19.5,1,0,0
+34,45,Drill Pokémon,1059860,1.4,Nidoking,100,34,62.0,1,0,0
+35,150,Fairy Pokémon,800000,0.6,Clefairy,24.6,35,7.5,1,0,0
+36,25,Fairy Pokémon,800000,1.3,Clefable,24.6,36,40.0,1,0,0
+37,190,Fox Pokémon,1000000,,Vulpix,24.6,37,,1,0,0
+38,75,Fox Pokémon,1000000,,Ninetales,24.6,38,,1,0,0
+39,170,Balloon Pokémon,800000,0.5,Jigglypuff,24.6,39,5.5,1,0,0
+40,50,Balloon Pokémon,800000,1.0,Wigglytuff,24.6,40,12.0,1,0,0
+41,255,Bat Pokémon,1000000,0.8,Zubat,50,41,7.5,1,0,0
+42,90,Bat Pokémon,1000000,1.6,Golbat,50,42,55.0,1,0,0
+43,255,Weed Pokémon,1059860,0.5,Oddish,50,43,5.4,1,0,0
+44,120,Weed Pokémon,1059860,0.8,Gloom,50,44,8.6,1,0,0
+45,45,Flower Pokémon,1059860,1.2,Vileplume,50,45,18.6,1,0,0
+46,190,Mushroom Pokémon,1000000,0.3,Paras,50,46,5.4,1,0,0
+47,75,Mushroom Pokémon,1000000,1.0,Parasect,50,47,29.5,1,0,0
+48,190,Insect Pokémon,1000000,1.0,Venonat,50,48,30.0,1,0,0
+49,75,Poison Moth Pokémon,1000000,1.5,Venomoth,50,49,12.5,1,0,0
+50,255,Mole Pokémon,1000000,,Diglett,50,50,,1,0,0
+51,50,Mole Pokémon,1000000,,Dugtrio,50,51,,1,0,0
+52,255,Scratch Cat Pokémon,1000000,,Meowth,50,52,,1,0,0
+53,90,Classy Cat Pokémon,1000000,,Persian,50,53,,1,0,0
+54,190,Duck Pokémon,1000000,0.8,Psyduck,50,54,19.6,1,0,0
+55,75,Duck Pokémon,1000000,1.7,Golduck,50,55,76.6,1,0,0
+56,190,Pig Monkey Pokémon,1000000,0.5,Mankey,50,56,28.0,1,0,0
+57,75,Pig Monkey Pokémon,1000000,1.0,Primeape,50,57,32.0,1,0,0
+58,190,Puppy Pokémon,1250000,0.7,Growlithe,75.4,58,19.0,1,0,0
+59,75,Legendary Pokémon,1250000,1.9,Arcanine,75.4,59,155.0,1,0,0
+60,255,Tadpole Pokémon,1059860,0.6,Poliwag,50,60,12.4,1,0,0
+61,120,Tadpole Pokémon,1059860,1.0,Poliwhirl,50,61,20.0,1,0,0
+62,45,Tadpole Pokémon,1059860,1.3,Poliwrath,50,62,54.0,1,0,0
+63,200,Psi Pokémon,1059860,0.9,Abra,75.4,63,19.5,1,0,0
+64,100,Psi Pokémon,1059860,1.3,Kadabra,75.4,64,56.5,1,0,0
+65,50,Psi Pokémon,1059860,1.5,Alakazam,75.4,65,48.0,1,0,1
+66,180,Superpower Pokémon,1059860,0.8,Machop,75.4,66,19.5,1,0,0
+67,90,Superpower Pokémon,1059860,1.5,Machoke,75.4,67,70.5,1,0,0
+68,45,Superpower Pokémon,1059860,1.6,Machamp,75.4,68,130.0,1,0,0
+69,255,Flower Pokémon,1059860,0.7,Bellsprout,50,69,4.0,1,0,0
+70,120,Flycatcher Pokémon,1059860,1.0,Weepinbell,50,70,6.4,1,0,0
+71,45,Flycatcher Pokémon,1059860,1.7,Victreebel,50,71,15.5,1,0,0
+72,190,Jellyfish Pokémon,1250000,0.9,Tentacool,50,72,45.5,1,0,0
+73,60,Jellyfish Pokémon,1250000,1.6,Tentacruel,50,73,55.0,1,0,0
+74,255,Rock Pokémon,1059860,,Geodude,50,74,,1,0,0
+75,120,Rock Pokémon,1059860,,Graveler,50,75,,1,0,0
+76,45,Megaton Pokémon,1059860,,Golem,50,76,,1,0,0
+77,190,Fire Horse Pokémon,1000000,1.0,Ponyta,50,77,30.0,1,0,0
+78,60,Fire Horse Pokémon,1000000,1.7,Rapidash,50,78,95.0,1,0,0
+79,190,Dopey Pokémon,1000000,1.2,Slowpoke,50,79,36.0,1,0,0
+80,75,Hermit Crab Pokémon,1000000,1.6,Slowbro,50,80,78.5,1,0,1
+81,190,Magnet Pokémon,1000000,0.3,Magnemite,,81,6.0,1,0,0
+82,60,Magnet Pokémon,1000000,1.0,Magneton,,82,60.0,1,0,0
+83,45,Wild Duck Pokémon,1000000,0.8,Farfetch'd,50,83,15.0,1,0,0
+84,190,Twin Bird Pokémon,1000000,1.4,Doduo,50,84,39.2,1,0,0
+85,45,Triple Bird Pokémon,1000000,1.8,Dodrio,50,85,85.2,1,0,0
+86,190,Sea Lion Pokémon,1000000,1.1,Seel,50,86,90.0,1,0,0
+87,75,Sea Lion Pokémon,1000000,1.7,Dewgong,50,87,120.0,1,0,0
+88,190,Sludge Pokémon,1000000,,Grimer,50,88,,1,0,0
+89,75,Sludge Pokémon,1000000,,Muk,50,89,,1,0,0
+90,190,Bivalve Pokémon,1250000,0.3,Shellder,50,90,4.0,1,0,0
+91,60,Bivalve Pokémon,1250000,1.5,Cloyster,50,91,132.5,1,0,0
+92,190,Gas Pokémon,1059860,1.3,Gastly,50,92,0.1,1,0,0
+93,90,Gas Pokémon,1059860,1.6,Haunter,50,93,0.1,1,0,0
+94,45,Shadow Pokémon,1059860,1.5,Gengar,50,94,40.5,1,0,1
+95,45,Rock Snake Pokémon,1000000,8.8,Onix,50,95,210.0,1,0,0
+96,190,Hypnosis Pokémon,1000000,1.0,Drowzee,50,96,32.4,1,0,0
+97,75,Hypnosis Pokémon,1000000,1.6,Hypno,50,97,75.6,1,0,0
+98,225,River Crab Pokémon,1000000,0.4,Krabby,50,98,6.5,1,0,0
+99,60,Pincer Pokémon,1000000,1.3,Kingler,50,99,60.0,1,0,0
+100,190,Ball Pokémon,1000000,0.5,Voltorb,,100,10.4,1,0,0
+101,60,Ball Pokémon,1000000,1.2,Electrode,,101,66.6,1,0,0
+102,90,Egg Pokémon,1250000,0.4,Exeggcute,50,102,2.5,1,0,0
+103,45,Coconut Pokémon,1250000,,Exeggutor,50,103,,1,0,0
+104,190,Lonely Pokémon,1000000,0.4,Cubone,50,104,6.5,1,0,0
+105,75,Bone Keeper Pokémon,1000000,,Marowak,50,105,,1,0,0
+106,45,Kicking Pokémon,1000000,1.5,Hitmonlee,100,106,49.8,1,0,0
+107,45,Punching Pokémon,1000000,1.4,Hitmonchan,100,107,50.2,1,0,0
+108,45,Licking Pokémon,1000000,1.2,Lickitung,50,108,65.5,1,0,0
+109,190,Poison Gas Pokémon,1000000,0.6,Koffing,50,109,1.0,1,0,0
+110,60,Poison Gas Pokémon,1000000,1.2,Weezing,50,110,9.5,1,0,0
+111,120,Spikes Pokémon,1250000,1.0,Rhyhorn,50,111,115.0,1,0,0
+112,60,Drill Pokémon,1250000,1.9,Rhydon,50,112,120.0,1,0,0
+113,30,Egg Pokémon,800000,1.1,Chansey,0,113,34.6,1,0,0
+114,45,Vine Pokémon,1000000,1.0,Tangela,50,114,35.0,1,0,0
+115,45,Parent Pokémon,1000000,2.2,Kangaskhan,0,115,80.0,1,0,1
+116,225,Dragon Pokémon,1000000,0.4,Horsea,50,116,8.0,1,0,0
+117,75,Dragon Pokémon,1000000,1.2,Seadra,50,117,25.0,1,0,0
+118,225,Goldfish Pokémon,1000000,0.6,Goldeen,50,118,15.0,1,0,0
+119,60,Goldfish Pokémon,1000000,1.3,Seaking,50,119,39.0,1,0,0
+120,225,Starshape Pokémon,1250000,0.8,Staryu,,120,34.5,1,0,0
+121,60,Mysterious Pokémon,1250000,1.1,Starmie,,121,80.0,1,0,0
+122,45,Barrier Pokémon,1000000,1.3,Mr. Mime,50,122,54.5,1,0,0
+123,45,Mantis Pokémon,1000000,1.5,Scyther,50,123,56.0,1,0,0
+124,45,Humanshape Pokémon,1000000,1.4,Jynx,0,124,40.6,1,0,0
+125,45,Electric Pokémon,1000000,1.1,Electabuzz,75.4,125,30.0,1,0,0
+126,45,Spitfire Pokémon,1000000,1.3,Magmar,75.4,126,44.5,1,0,0
+127,45,Stagbeetle Pokémon,1250000,1.5,Pinsir,50,127,55.0,1,0,1
+128,45,Wild Bull Pokémon,1250000,1.4,Tauros,100,128,88.4,1,0,0
+129,255,Fish Pokémon,1250000,0.9,Magikarp,50,129,10.0,1,0,0
+130,45,Atrocious Pokémon,1250000,6.5,Gyarados,50,130,235.0,1,0,1
+131,45,Transport Pokémon,1250000,2.5,Lapras,50,131,220.0,1,0,0
+132,35,Transform Pokémon,1000000,0.3,Ditto,,132,4.0,1,0,0
+133,45,Evolution Pokémon,1000000,0.3,Eevee,88.1,133,6.5,1,0,0
+134,45,Bubble Jet Pokémon,1000000,1.0,Vaporeon,88.1,134,29.0,1,0,0
+135,45,Lightning Pokémon,1000000,0.8,Jolteon,88.1,135,24.5,1,0,0
+136,45,Flame Pokémon,1000000,0.9,Flareon,88.1,136,25.0,1,0,0
+137,45,Virtual Pokémon,1000000,0.8,Porygon,,137,36.5,1,0,0
+138,45,Spiral Pokémon,1000000,0.4,Omanyte,88.1,138,7.5,1,0,0
+139,45,Spiral Pokémon,1000000,1.0,Omastar,88.1,139,35.0,1,0,0
+140,45,Shellfish Pokémon,1000000,0.5,Kabuto,88.1,140,11.5,1,0,0
+141,45,Shellfish Pokémon,1000000,1.3,Kabutops,88.1,141,40.5,1,0,0
+142,45,Fossil Pokémon,1250000,1.8,Aerodactyl,88.1,142,59.0,1,0,1
+143,25,Sleeping Pokémon,1250000,2.1,Snorlax,88.1,143,460.0,1,0,0
+144,3,Freeze Pokémon,1250000,1.7,Articuno,,144,55.4,1,1,0
+145,3,Electric Pokémon,1250000,1.6,Zapdos,,145,52.6,1,1,0
+146,3,Flame Pokémon,1250000,2.0,Moltres,,146,60.0,1,1,0
+147,45,Dragon Pokémon,1250000,1.8,Dratini,50,147,3.3,1,0,0
+148,45,Dragon Pokémon,1250000,4.0,Dragonair,50,148,16.5,1,0,0
+149,45,Dragon Pokémon,1250000,2.2,Dragonite,50,149,210.0,1,0,0
+150,3,Genetic Pokémon,1250000,2.0,Mewtwo,,150,122.0,1,1,1
+151,45,New Species Pokémon,1059860,0.4,Mew,,151,4.0,1,1,0
+152,45,Leaf Pokémon,1059860,0.9,Chikorita,88.1,152,6.4,2,0,0
+153,45,Leaf Pokémon,1059860,1.2,Bayleef,88.1,153,15.8,2,0,0
+154,45,Herb Pokémon,1059860,1.8,Meganium,88.1,154,100.5,2,0,0
+155,45,Fire Mouse Pokémon,1059860,0.5,Cyndaquil,88.1,155,7.9,2,0,0
+156,45,Volcano Pokémon,1059860,0.9,Quilava,88.1,156,19.0,2,0,0
+157,45,Volcano Pokémon,1059860,1.7,Typhlosion,88.1,157,79.5,2,0,0
+158,45,Big Jaw Pokémon,1059860,0.6,Totodile,88.1,158,9.5,2,0,0
+159,45,Big Jaw Pokémon,1059860,1.1,Croconaw,88.1,159,25.0,2,0,0
+160,45,Big Jaw Pokémon,1059860,2.3,Feraligatr,88.1,160,88.8,2,0,0
+161,255,Scout Pokémon,1000000,0.8,Sentret,50,161,6.0,2,0,0
+162,90,Long Body Pokémon,1000000,1.8,Furret,50,162,32.5,2,0,0
+163,255,Owl Pokémon,1000000,0.7,Hoothoot,50,163,21.2,2,0,0
+164,90,Owl Pokémon,1000000,1.6,Noctowl,50,164,40.8,2,0,0
+165,255,Five Star Pokémon,800000,1.0,Ledyba,50,165,10.8,2,0,0
+166,90,Five Star Pokémon,800000,1.4,Ledian,50,166,35.6,2,0,0
+167,255,String Spit Pokémon,800000,0.5,Spinarak,50,167,8.5,2,0,0
+168,90,Long Leg Pokémon,800000,1.1,Ariados,50,168,33.5,2,0,0
+169,90,Bat Pokémon,1000000,1.8,Crobat,50,169,75.0,2,0,0
+170,190,Angler Pokémon,1250000,0.5,Chinchou,50,170,12.0,2,0,0
+171,75,Light Pokémon,1250000,1.2,Lanturn,50,171,22.5,2,0,0
+172,190,Tiny Mouse Pokémon,1000000,0.3,Pichu,50,172,2.0,2,0,0
+173,150,Star Shape Pokémon,800000,0.3,Cleffa,24.6,173,3.0,2,0,0
+174,170,Balloon Pokémon,800000,0.3,Igglybuff,24.6,174,1.0,2,0,0
+175,190,Spike Ball Pokémon,800000,0.3,Togepi,88.1,175,1.5,2,0,0
+176,75,Happiness Pokémon,800000,0.6,Togetic,88.1,176,3.2,2,0,0
+177,190,Little Bird Pokémon,1000000,0.2,Natu,50,177,2.0,2,0,0
+178,75,Mystic Pokémon,1000000,1.5,Xatu,50,178,15.0,2,0,0
+179,235,Wool Pokémon,1059860,0.6,Mareep,50,179,7.8,2,0,0
+180,120,Wool Pokémon,1059860,0.8,Flaaffy,50,180,13.3,2,0,0
+181,45,Light Pokémon,1059860,1.4,Ampharos,50,181,61.5,2,0,1
+182,45,Flower Pokémon,1059860,0.4,Bellossom,50,182,5.8,2,0,0
+183,190,Aquamouse Pokémon,800000,0.4,Marill,50,183,8.5,2,0,0
+184,75,Aquarabbit Pokémon,800000,0.8,Azumarill,50,184,28.5,2,0,0
+185,65,Imitation Pokémon,1000000,1.2,Sudowoodo,50,185,38.0,2,0,0
+186,45,Frog Pokémon,1059860,1.1,Politoed,50,186,33.9,2,0,0
+187,255,Cottonweed Pokémon,1059860,0.4,Hoppip,50,187,0.5,2,0,0
+188,120,Cottonweed Pokémon,1059860,0.6,Skiploom,50,188,1.0,2,0,0
+189,45,Cottonweed Pokémon,1059860,0.8,Jumpluff,50,189,3.0,2,0,0
+190,45,Long Tail Pokémon,800000,0.8,Aipom,50,190,11.5,2,0,0
+191,235,Seed Pokémon,1059860,0.3,Sunkern,50,191,1.8,2,0,0
+192,120,Sun Pokémon,1059860,0.8,Sunflora,50,192,8.5,2,0,0
+193,75,Clear Wing Pokémon,1000000,1.2,Yanma,50,193,38.0,2,0,0
+194,255,Water Fish Pokémon,1000000,0.4,Wooper,50,194,8.5,2,0,0
+195,90,Water Fish Pokémon,1000000,1.4,Quagsire,50,195,75.0,2,0,0
+196,45,Sun Pokémon,1000000,0.9,Espeon,88.1,196,26.5,2,0,0
+197,45,Moonlight Pokémon,1000000,1.0,Umbreon,88.1,197,27.0,2,0,0
+198,30,Darkness Pokémon,1059860,0.5,Murkrow,50,198,2.1,2,0,0
+199,70,Royal Pokémon,1000000,2.0,Slowking,50,199,79.5,2,0,0
+200,45,Screech Pokémon,800000,0.7,Misdreavus,50,200,1.0,2,0,0
+201,225,Symbol Pokémon,1000000,0.5,Unown,,201,5.0,2,0,0
+202,45,Patient Pokémon,1000000,1.3,Wobbuffet,50,202,28.5,2,0,0
+203,60,Long Neck Pokémon,1000000,1.5,Girafarig,50,203,41.5,2,0,0
+204,190,Bagworm Pokémon,1000000,0.6,Pineco,50,204,7.2,2,0,0
+205,75,Bagworm Pokémon,1000000,1.2,Forretress,50,205,125.8,2,0,0
+206,190,Land Snake Pokémon,1000000,1.5,Dunsparce,50,206,14.0,2,0,0
+207,60,Flyscorpion Pokémon,1059860,1.1,Gligar,50,207,64.8,2,0,0
+208,25,Iron Snake Pokémon,1000000,9.2,Steelix,50,208,400.0,2,0,1
+209,190,Fairy Pokémon,800000,0.6,Snubbull,24.6,209,7.8,2,0,0
+210,75,Fairy Pokémon,800000,1.4,Granbull,24.6,210,48.7,2,0,0
+211,45,Balloon Pokémon,1000000,0.5,Qwilfish,50,211,3.9,2,0,0
+212,25,Pincer Pokémon,1000000,1.8,Scizor,50,212,118.0,2,0,1
+213,190,Mold Pokémon,1059860,0.6,Shuckle,50,213,20.5,2,0,0
+214,45,Singlehorn Pokémon,1250000,1.5,Heracross,50,214,54.0,2,0,1
+215,60,Sharp Claw Pokémon,1059860,0.9,Sneasel,50,215,28.0,2,0,0
+216,120,Little Bear Pokémon,1000000,0.6,Teddiursa,50,216,8.8,2,0,0
+217,60,Hibernator Pokémon,1000000,1.8,Ursaring,50,217,125.8,2,0,0
+218,190,Lava Pokémon,1000000,0.7,Slugma,50,218,35.0,2,0,0
+219,75,Lava Pokémon,1000000,0.8,Magcargo,50,219,55.0,2,0,0
+220,225,Pig Pokémon,1250000,0.4,Swinub,50,220,6.5,2,0,0
+221,75,Swine Pokémon,1250000,1.1,Piloswine,50,221,55.8,2,0,0
+222,60,Coral Pokémon,800000,0.6,Corsola,24.6,222,5.0,2,0,0
+223,190,Jet Pokémon,1000000,0.6,Remoraid,50,223,12.0,2,0,0
+224,75,Jet Pokémon,1000000,0.9,Octillery,50,224,28.5,2,0,0
+225,45,Delivery Pokémon,800000,0.9,Delibird,50,225,16.0,2,0,0
+226,25,Kite Pokémon,1250000,2.1,Mantine,50,226,220.0,2,0,0
+227,25,Armor Bird Pokémon,1250000,1.7,Skarmory,50,227,50.5,2,0,0
+228,120,Dark Pokémon,1250000,0.6,Houndour,50,228,10.8,2,0,0
+229,45,Dark Pokémon,1250000,1.4,Houndoom,50,229,35.0,2,0,1
+230,45,Dragon Pokémon,1000000,1.8,Kingdra,50,230,152.0,2,0,0
+231,120,Long Nose Pokémon,1000000,0.5,Phanpy,50,231,33.5,2,0,0
+232,60,Armor Pokémon,1000000,1.1,Donphan,50,232,120.0,2,0,0
+233,45,Virtual Pokémon,1000000,0.6,Porygon2,,233,32.5,2,0,0
+234,45,Big Horn Pokémon,1250000,1.4,Stantler,50,234,71.2,2,0,0
+235,45,Painter Pokémon,800000,1.2,Smeargle,50,235,58.0,2,0,0
+236,75,Scuffle Pokémon,1000000,0.7,Tyrogue,100,236,21.0,2,0,0
+237,45,Handstand Pokémon,1000000,1.4,Hitmontop,100,237,48.0,2,0,0
+238,45,Kiss Pokémon,1000000,0.4,Smoochum,0,238,6.0,2,0,0
+239,45,Electric Pokémon,1000000,0.6,Elekid,75.4,239,23.5,2,0,0
+240,45,Live Coal Pokémon,1000000,0.7,Magby,75.4,240,21.4,2,0,0
+241,45,Milk Cow Pokémon,1250000,1.2,Miltank,0,241,75.5,2,0,0
+242,30,Happiness Pokémon,800000,1.5,Blissey,0,242,46.8,2,0,0
+243,3,Thunder Pokémon,1250000,1.9,Raikou,,243,178.0,2,1,0
+244,3,Volcano Pokémon,1250000,2.1,Entei,,244,198.0,2,1,0
+245,3,Aurora Pokémon,1250000,2.0,Suicune,,245,187.0,2,1,0
+246,45,Rock Skin Pokémon,1250000,0.6,Larvitar,50,246,72.0,2,0,0
+247,45,Hard Shell Pokémon,1250000,1.2,Pupitar,50,247,152.0,2,0,0
+248,45,Armor Pokémon,1250000,2.0,Tyranitar,50,248,202.0,2,0,1
+249,3,Diving Pokémon,1250000,5.2,Lugia,,249,216.0,2,1,0
+250,3,Rainbow Pokémon,1250000,3.8,Ho-Oh,,250,199.0,2,1,0
+251,45,Time Travel Pokémon,1059860,0.6,Celebi,,251,5.0,2,1,0
+252,45,Wood Gecko Pokémon,1059860,0.5,Treecko,88.1,252,5.0,3,0,0
+253,45,Wood Gecko Pokémon,1059860,0.9,Grovyle,88.1,253,21.6,3,0,0
+254,45,Forest Pokémon,1059860,1.7,Sceptile,88.1,254,52.2,3,0,1
+255,45,Chick Pokémon,1059860,0.4,Torchic,88.1,255,2.5,3,0,0
+256,45,Young Fowl Pokémon,1059860,0.9,Combusken,88.1,256,19.5,3,0,0
+257,45,Blaze Pokémon,1059860,1.9,Blaziken,88.1,257,52.0,3,0,1
+258,45,Mud Fish Pokémon,1059860,0.4,Mudkip,88.1,258,7.6,3,0,0
+259,45,Mud Fish Pokémon,1059860,0.7,Marshtomp,88.1,259,28.0,3,0,0
+260,45,Mud Fish Pokémon,1059860,1.5,Swampert,88.1,260,81.9,3,0,1
+261,255,Bite Pokémon,1000000,0.5,Poochyena,50,261,13.6,3,0,0
+262,127,Bite Pokémon,1000000,1.0,Mightyena,50,262,37.0,3,0,0
+263,255,Tiny Racoon Pokémon,1000000,0.4,Zigzagoon,50,263,17.5,3,0,0
+264,90,Rush Pokémon,1000000,0.5,Linoone,50,264,32.5,3,0,0
+265,255,Worm Pokémon,1000000,0.3,Wurmple,50,265,3.6,3,0,0
+266,120,Cocoon Pokémon,1000000,0.6,Silcoon,50,266,10.0,3,0,0
+267,45,Butterfly Pokémon,1000000,1.0,Beautifly,50,267,28.4,3,0,0
+268,120,Cocoon Pokémon,1000000,0.7,Cascoon,50,268,11.5,3,0,0
+269,45,Poison Moth Pokémon,1000000,1.2,Dustox,50,269,31.6,3,0,0
+270,255,Water Weed Pokémon,1059860,0.5,Lotad,50,270,2.6,3,0,0
+271,120,Jolly Pokémon,1059860,1.2,Lombre,50,271,32.5,3,0,0
+272,45,Carefree Pokémon,1059860,1.5,Ludicolo,50,272,55.0,3,0,0
+273,255,Acorn Pokémon,1059860,0.5,Seedot,50,273,4.0,3,0,0
+274,120,Wily Pokémon,1059860,1.0,Nuzleaf,50,274,28.0,3,0,0
+275,45,Wickid Pokémon,1059860,1.3,Shiftry,50,275,59.6,3,0,0
+276,200,TinySwallow Pokémon,1059860,0.3,Taillow,50,276,2.3,3,0,0
+277,45,Swallow Pokémon,1059860,0.7,Swellow,50,277,19.8,3,0,0
+278,190,Seagull Pokémon,1000000,0.6,Wingull,50,278,9.5,3,0,0
+279,45,Water Bird Pokémon,1000000,1.2,Pelipper,50,279,28.0,3,0,0
+280,235,Feeling Pokémon,1250000,0.4,Ralts,50,280,6.6,3,0,0
+281,120,Emotion Pokémon,1250000,0.8,Kirlia,50,281,20.2,3,0,0
+282,45,Embrace Pokémon,1250000,1.6,Gardevoir,50,282,48.4,3,0,1
+283,200,Pond Skater Pokémon,1000000,0.5,Surskit,50,283,1.7,3,0,0
+284,75,Eyeball Pokémon,1000000,0.8,Masquerain,50,284,3.6,3,0,0
+285,255,Mushroom Pokémon,1640000,0.4,Shroomish,50,285,4.5,3,0,0
+286,90,Mushroom Pokémon,1640000,1.2,Breloom,50,286,39.2,3,0,0
+287,255,Slacker Pokémon,1250000,0.8,Slakoth,50,287,24.0,3,0,0
+288,120,Wild Monkey Pokémon,1250000,1.4,Vigoroth,50,288,46.5,3,0,0
+289,45,Lazy Pokémon,1250000,2.0,Slaking,50,289,130.5,3,0,0
+290,255,Trainee Pokémon,600000,0.5,Nincada,50,290,5.5,3,0,0
+291,120,Ninja Pokémon,600000,0.8,Ninjask,50,291,12.0,3,0,0
+292,45,Shed Pokémon,600000,0.8,Shedinja,,292,1.2,3,0,0
+293,190,Whisper Pokémon,1059860,0.6,Whismur,50,293,16.3,3,0,0
+294,120,Big Voice Pokémon,1059860,1.0,Loudred,50,294,40.5,3,0,0
+295,45,Loud Noise Pokémon,1059860,1.5,Exploud,50,295,84.0,3,0,0
+296,180,Guts Pokémon,1640000,1.0,Makuhita,75.4,296,86.4,3,0,0
+297,200,Arm Thrust Pokémon,1640000,2.3,Hariyama,75.4,297,253.8,3,0,0
+298,150,Polka Dot Pokémon,800000,0.2,Azurill,24.6,298,2.0,3,0,0
+299,255,Compass Pokémon,1000000,1.0,Nosepass,50,299,97.0,3,0,0
+300,255,Kitten Pokémon,800000,0.6,Skitty,24.6,300,11.0,3,0,0
+301,60,Prim Pokémon,800000,1.1,Delcatty,24.6,301,32.6,3,0,0
+302,45,Darkness Pokémon,1059860,0.5,Sableye,50,302,11.0,3,0,1
+303,45,Deceiver Pokémon,800000,0.6,Mawile,50,303,11.5,3,0,1
+304,180,Iron Armor Pokémon,1250000,0.4,Aron,50,304,60.0,3,0,0
+305,90,Iron Armor Pokémon,1250000,0.9,Lairon,50,305,120.0,3,0,0
+306,45,Iron Armor Pokémon,1250000,2.1,Aggron,50,306,360.0,3,0,1
+307,180,Meditate Pokémon,1000000,0.6,Meditite,50,307,11.2,3,0,0
+308,90,Meditate Pokémon,1000000,1.3,Medicham,50,308,31.5,3,0,1
+309,120,Lightning Pokémon,1250000,0.6,Electrike,50,309,15.2,3,0,0
+310,45,Discharge Pokémon,1250000,1.5,Manectric,50,310,40.2,3,0,1
+311,200,Cheering Pokémon,1000000,0.4,Plusle,50,311,4.2,3,0,0
+312,200,Cheering Pokémon,1000000,0.4,Minun,50,312,4.2,3,0,0
+313,150,Firefly Pokémon,600000,0.7,Volbeat,100,313,17.7,3,0,0
+314,150,Firefly Pokémon,1640000,0.6,Illumise,0,314,17.7,3,0,0
+315,150,Thorn Pokémon,1059860,0.3,Roselia,50,315,2.0,3,0,0
+316,225,Stomach Pokémon,1640000,0.4,Gulpin,50,316,10.3,3,0,0
+317,75,Poison Bag Pokémon,1640000,1.7,Swalot,50,317,80.0,3,0,0
+318,225,Savage Pokémon,1250000,0.8,Carvanha,50,318,20.8,3,0,0
+319,60,Brutal Pokémon,1250000,1.8,Sharpedo,50,319,88.8,3,0,1
+320,125,Ball Whale Pokémon,1640000,2.0,Wailmer,50,320,130.0,3,0,0
+321,60,Float Whale Pokémon,1640000,14.5,Wailord,50,321,398.0,3,0,0
+322,255,Numb Pokémon,1000000,0.7,Numel,50,322,24.0,3,0,0
+323,150,Eruption Pokémon,1000000,1.9,Camerupt,50,323,220.0,3,0,1
+324,90,Coal Pokémon,1000000,0.5,Torkoal,50,324,80.4,3,0,0
+325,255,Bounce Pokémon,800000,0.7,Spoink,50,325,30.6,3,0,0
+326,60,Manipulate Pokémon,800000,0.9,Grumpig,50,326,71.5,3,0,0
+327,255,Spot Panda Pokémon,800000,1.1,Spinda,50,327,5.0,3,0,0
+328,255,Ant Pit Pokémon,1059860,0.7,Trapinch,50,328,15.0,3,0,0
+329,120,Vibration Pokémon,1059860,1.1,Vibrava,50,329,15.3,3,0,0
+330,45,Mystic Pokémon,1059860,2.0,Flygon,50,330,82.0,3,0,0
+331,190,Cactus Pokémon,1059860,0.4,Cacnea,50,331,51.3,3,0,0
+332,60,Scarecrow Pokémon,1059860,1.3,Cacturne,50,332,77.4,3,0,0
+333,255,Cotton Bird Pokémon,600000,0.4,Swablu,50,333,1.2,3,0,0
+334,45,Humming Pokémon,600000,1.1,Altaria,50,334,20.6,3,0,1
+335,90,Cat Ferret Pokémon,600000,1.3,Zangoose,50,335,40.3,3,0,0
+336,90,Fang Snake Pokémon,1640000,2.7,Seviper,50,336,52.5,3,0,0
+337,45,Meteorite Pokémon,800000,1.0,Lunatone,,337,168.0,3,0,0
+338,45,Meteorite Pokémon,800000,1.2,Solrock,,338,154.0,3,0,0
+339,190,Whiskers Pokémon,1000000,0.4,Barboach,50,339,1.9,3,0,0
+340,75,Whiskers Pokémon,1000000,0.9,Whiscash,50,340,23.6,3,0,0
+341,205,Ruffian Pokémon,1640000,0.6,Corphish,50,341,11.5,3,0,0
+342,155,Rogue Pokémon,1640000,1.1,Crawdaunt,50,342,32.8,3,0,0
+343,255,Clay Doll Pokémon,1000000,0.5,Baltoy,,343,21.5,3,0,0
+344,90,Clay Doll Pokémon,1000000,1.5,Claydol,,344,108.0,3,0,0
+345,45,Sea Lily Pokémon,600000,1.0,Lileep,88.1,345,23.8,3,0,0
+346,45,Barnacle Pokémon,600000,1.5,Cradily,88.1,346,60.4,3,0,0
+347,45,Old Shrimp Pokémon,600000,0.7,Anorith,88.1,347,12.5,3,0,0
+348,45,Plate Pokémon,600000,1.5,Armaldo,88.1,348,68.2,3,0,0
+349,255,Fish Pokémon,600000,0.6,Feebas,50,349,7.4,3,0,0
+350,60,Tender Pokémon,600000,6.2,Milotic,50,350,162.0,3,0,0
+351,45,Weather Pokémon,1000000,0.3,Castform,50,351,0.8,3,0,0
+352,200,Color Swap Pokémon,1059860,1.0,Kecleon,50,352,22.0,3,0,0
+353,225,Puppet Pokémon,800000,0.6,Shuppet,50,353,2.3,3,0,0
+354,45,Marionette Pokémon,800000,1.1,Banette,50,354,12.5,3,0,1
+355,190,Requiem Pokémon,800000,0.8,Duskull,50,355,15.0,3,0,0
+356,90,Beckon Pokémon,800000,1.6,Dusclops,50,356,30.6,3,0,0
+357,200,Fruit Pokémon,1250000,2.0,Tropius,50,357,100.0,3,0,0
+358,45,Wind Chime Pokémon,800000,0.6,Chimecho,50,358,1.0,3,0,0
+359,30,Disaster Pokémon,1059860,1.2,Absol,50,359,47.0,3,0,1
+360,125,Bright Pokémon,1000000,0.6,Wynaut,50,360,14.0,3,0,0
+361,190,Snow Hat Pokémon,1000000,0.7,Snorunt,50,361,16.8,3,0,0
+362,75,Face Pokémon,1000000,1.5,Glalie,50,362,256.5,3,0,1
+363,255,Clap Pokémon,1059860,0.8,Spheal,50,363,39.5,3,0,0
+364,120,Ball Roll Pokémon,1059860,1.1,Sealeo,50,364,87.6,3,0,0
+365,45,Ice Break Pokémon,1059860,1.4,Walrein,50,365,150.6,3,0,0
+366,255,Bivalve Pokémon,600000,0.4,Clamperl,50,366,52.5,3,0,0
+367,60,Deep Sea Pokémon,600000,1.7,Huntail,50,367,27.0,3,0,0
+368,60,South Sea Pokémon,600000,1.8,Gorebyss,50,368,22.6,3,0,0
+369,25,Longevity Pokémon,1250000,1.0,Relicanth,88.1,369,23.4,3,0,0
+370,225,Rendezvous Pokémon,800000,0.6,Luvdisc,24.6,370,8.7,3,0,0
+371,45,Rock Head Pokémon,1250000,0.6,Bagon,50,371,42.1,3,0,0
+372,45,Endurance Pokémon,1250000,1.1,Shelgon,50,372,110.5,3,0,0
+373,45,Dragon Pokémon,1250000,1.5,Salamence,50,373,102.6,3,0,1
+374,3,Iron Ball Pokémon,1250000,0.6,Beldum,,374,95.2,3,0,0
+375,3,Iron Claw Pokémon,1250000,1.2,Metang,,375,202.5,3,0,0
+376,3,Iron Leg Pokémon,1250000,1.6,Metagross,,376,550.0,3,0,1
+377,3,Rock Peak Pokémon,1250000,1.7,Regirock,,377,230.0,3,1,0
+378,3,Iceberg Pokémon,1250000,1.8,Regice,,378,175.0,3,1,0
+379,3,Iron Pokémon,1250000,1.9,Registeel,,379,205.0,3,1,0
+380,3,Eon Pokémon,1250000,1.4,Latias,0,380,40.0,3,1,1
+381,3,Eon Pokémon,1250000,2.0,Latios,100,381,60.0,3,1,1
+382,3,Sea Basin Pokémon,1250000,4.5,Kyogre,,382,352.0,3,1,1
+383,3,Continent Pokémon,1250000,3.5,Groudon,,383,950.0,3,1,1
+384,45,Sky High Pokémon,1250000,7.0,Rayquaza,,384,206.5,3,1,1
+385,3,Wish Pokémon,1250000,0.3,Jirachi,,385,1.1,3,1,0
+386,3,DNA Pokémon,1250000,1.7,Deoxys,,386,60.8,3,1,0
+387,45,Tiny Leaf Pokémon,1059860,0.4,Turtwig,88.1,387,10.2,4,0,0
+388,45,Grove Pokémon,1059860,1.1,Grotle,88.1,388,97.0,4,0,0
+389,45,Continent Pokémon,1059860,2.2,Torterra,88.1,389,310.0,4,0,0
+390,45,Chimp Pokémon,1059860,0.5,Chimchar,88.1,390,6.2,4,0,0
+391,45,Playful Pokémon,1059860,0.9,Monferno,88.1,391,22.0,4,0,0
+392,45,Flame Pokémon,1059860,1.2,Infernape,88.1,392,55.0,4,0,0
+393,45,Penguin Pokémon,1059860,0.4,Piplup,88.1,393,5.2,4,0,0
+394,45,Penguin Pokémon,1059860,0.8,Prinplup,88.1,394,23.0,4,0,0
+395,45,Emperor Pokémon,1059860,1.7,Empoleon,88.1,395,84.5,4,0,0
+396,255,Starling Pokémon,1059860,0.3,Starly,50,396,2.0,4,0,0
+397,120,Starling Pokémon,1059860,0.6,Staravia,50,397,15.5,4,0,0
+398,45,Predator Pokémon,1059860,1.2,Staraptor,50,398,24.9,4,0,0
+399,255,Plump Mouse Pokémon,1000000,0.5,Bidoof,50,399,20.0,4,0,0
+400,127,Beaver Pokémon,1000000,1.0,Bibarel,50,400,31.5,4,0,0
+401,255,Cricket Pokémon,1059860,0.3,Kricketot,50,401,2.2,4,0,0
+402,45,Cricket Pokémon,1059860,1.0,Kricketune,50,402,25.5,4,0,0
+403,235,Flash Pokémon,1059860,0.5,Shinx,50,403,9.5,4,0,0
+404,120,Spark Pokémon,1059860,0.9,Luxio,50,404,30.5,4,0,0
+405,45,Gleam Eyes Pokémon,1059860,1.4,Luxray,50,405,42.0,4,0,0
+406,255,Bud Pokémon,1059860,0.2,Budew,50,406,1.2,4,0,0
+407,75,Bouquet Pokémon,1059860,0.9,Roserade,50,407,14.5,4,0,0
+408,45,Head Butt Pokémon,600000,0.9,Cranidos,88.1,408,31.5,4,0,0
+409,45,Head Butt Pokémon,600000,1.6,Rampardos,88.1,409,102.5,4,0,0
+410,45,Shield Pokémon,600000,0.5,Shieldon,88.1,410,57.0,4,0,0
+411,45,Shield Pokémon,600000,1.3,Bastiodon,88.1,411,149.5,4,0,0
+412,120,Bagworm Pokémon,1000000,0.2,Burmy,50,412,3.4,4,0,0
+413,45,Bagworm Pokémon,1000000,0.5,Wormadam,0,413,6.5,4,0,0
+414,45,Moth Pokémon,1000000,0.9,Mothim,100,414,23.3,4,0,0
+415,120,Tiny Bee Pokémon,1059860,0.3,Combee,88.1,415,5.5,4,0,0
+416,45,Beehive Pokémon,1059860,1.2,Vespiquen,0,416,38.5,4,0,0
+417,200,EleSquirrel Pokémon,1000000,0.4,Pachirisu,50,417,3.9,4,0,0
+418,190,Sea Weasel Pokémon,1000000,0.7,Buizel,50,418,29.5,4,0,0
+419,75,Sea Weasel Pokémon,1000000,1.1,Floatzel,50,419,33.5,4,0,0
+420,190,Cherry Pokémon,1000000,0.4,Cherubi,50,420,3.3,4,0,0
+421,75,Blossom Pokémon,1000000,0.5,Cherrim,50,421,9.3,4,0,0
+422,190,Sea Slug Pokémon,1000000,0.3,Shellos,50,422,6.3,4,0,0
+423,75,Sea Slug Pokémon,1000000,0.9,Gastrodon,50,423,29.9,4,0,0
+424,45,Long Tail Pokémon,800000,1.2,Ambipom,50,424,20.3,4,0,0
+425,125,Balloon Pokémon,1640000,0.4,Drifloon,50,425,1.2,4,0,0
+426,60,Blimp Pokémon,1640000,1.2,Drifblim,50,426,15.0,4,0,0
+427,190,Rabbit Pokémon,1000000,0.4,Buneary,50,427,5.5,4,0,0
+428,60,Rabbit Pokémon,1000000,1.2,Lopunny,50,428,33.3,4,0,1
+429,45,Magical Pokémon,800000,0.9,Mismagius,50,429,4.4,4,0,0
+430,30,Big Boss Pokémon,1059860,0.9,Honchkrow,50,430,27.3,4,0,0
+431,190,Catty Pokémon,800000,0.5,Glameow,24.6,431,3.9,4,0,0
+432,75,Tiger Cat Pokémon,800000,1.0,Purugly,24.6,432,43.8,4,0,0
+433,120,Bell Pokémon,800000,0.2,Chingling,50,433,0.6,4,0,0
+434,225,Skunk Pokémon,1000000,0.4,Stunky,50,434,19.2,4,0,0
+435,60,Skunk Pokémon,1000000,1.0,Skuntank,50,435,38.0,4,0,0
+436,255,Bronze Pokémon,1000000,0.5,Bronzor,,436,60.5,4,0,0
+437,90,Bronze Bell Pokémon,1000000,1.3,Bronzong,,437,187.0,4,0,0
+438,255,Bonsai Pokémon,1000000,0.5,Bonsly,50,438,15.0,4,0,0
+439,145,Mime Pokémon,1000000,0.6,Mime Jr.,50,439,13.0,4,0,0
+440,130,Playhouse Pokémon,800000,0.6,Happiny,0,440,24.4,4,0,0
+441,30,Music Note Pokémon,1059860,0.5,Chatot,50,441,1.9,4,0,0
+442,100,Forbidden Pokémon,1000000,1.0,Spiritomb,50,442,108.0,4,0,0
+443,45,Land Shark Pokémon,1250000,0.7,Gible,50,443,20.5,4,0,0
+444,45,Cave Pokémon,1250000,1.4,Gabite,50,444,56.0,4,0,0
+445,45,Mach Pokémon,1250000,1.9,Garchomp,50,445,95.0,4,0,1
+446,50,Big Eater Pokémon,1250000,0.6,Munchlax,88.1,446,105.0,4,0,0
+447,75,Emanation Pokémon,1059860,0.7,Riolu,88.1,447,20.2,4,0,0
+448,45,Aura Pokémon,1059860,1.2,Lucario,88.1,448,54.0,4,0,1
+449,140,Hippo Pokémon,1250000,0.8,Hippopotas,50,449,49.5,4,0,0
+450,60,Heavyweight Pokémon,1250000,2.0,Hippowdon,50,450,300.0,4,0,0
+451,120,Scorpion Pokémon,1250000,0.8,Skorupi,50,451,12.0,4,0,0
+452,45,Ogre Scorp Pokémon,1250000,1.3,Drapion,50,452,61.5,4,0,0
+453,140,Toxic Mouth Pokémon,1000000,0.7,Croagunk,50,453,23.0,4,0,0
+454,75,Toxic Mouth Pokémon,1000000,1.3,Toxicroak,50,454,44.4,4,0,0
+455,200,Bug Catcher Pokémon,1250000,1.4,Carnivine,50,455,27.0,4,0,0
+456,190,Wing Fish Pokémon,600000,0.4,Finneon,50,456,7.0,4,0,0
+457,75,Neon Pokémon,600000,1.2,Lumineon,50,457,24.0,4,0,0
+458,25,Kite Pokémon,1250000,1.0,Mantyke,50,458,65.0,4,0,0
+459,120,Frosted Tree Pokémon,1250000,1.0,Snover,50,459,50.5,4,0,0
+460,60,Frosted Tree Pokémon,1250000,2.2,Abomasnow,50,460,135.5,4,0,1
+461,45,Sharp Claw Pokémon,1059860,1.1,Weavile,50,461,34.0,4,0,0
+462,30,Magnet Area Pokémon,1000000,1.2,Magnezone,,462,180.0,4,0,0
+463,30,Licking Pokémon,1000000,1.7,Lickilicky,50,463,140.0,4,0,0
+464,30,Drill Pokémon,1250000,2.4,Rhyperior,50,464,282.8,4,0,0
+465,30,Vine Pokémon,1000000,2.0,Tangrowth,50,465,128.6,4,0,0
+466,30,Thunderbolt Pokémon,1000000,1.8,Electivire,75.4,466,138.6,4,0,0
+467,30,Blast Pokémon,1000000,1.6,Magmortar,75.4,467,68.0,4,0,0
+468,30,Jubilee Pokémon,800000,1.5,Togekiss,88.1,468,38.0,4,0,0
+469,30,Ogre Darner Pokémon,1000000,1.9,Yanmega,50,469,51.5,4,0,0
+470,45,Verdant Pokémon,1000000,1.0,Leafeon,88.1,470,25.5,4,0,0
+471,45,Fresh Snow Pokémon,1000000,0.8,Glaceon,88.1,471,25.9,4,0,0
+472,30,Fang Scorp Pokémon,1059860,2.0,Gliscor,50,472,42.5,4,0,0
+473,50,Twin Tusk Pokémon,1250000,2.5,Mamoswine,50,473,291.0,4,0,0
+474,30,Virtual Pokémon,1000000,0.9,Porygon-Z,,474,34.0,4,0,0
+475,45,Blade Pokémon,1250000,1.6,Gallade,100,475,52.0,4,0,1
+476,60,Compass Pokémon,1000000,1.4,Probopass,50,476,340.0,4,0,0
+477,45,Gripper Pokémon,800000,2.2,Dusknoir,50,477,106.6,4,0,0
+478,75,Snow Land Pokémon,1000000,1.3,Froslass,0,478,26.6,4,0,0
+479,45,Plasma Pokémon,1000000,0.3,Rotom,,479,0.3,4,0,0
+480,3,Knowledge Pokémon,1250000,0.3,Uxie,,480,0.3,4,1,0
+481,3,Emotion Pokémon,1250000,0.3,Mesprit,,481,0.3,4,1,0
+482,3,Willpower Pokémon,1250000,0.3,Azelf,,482,0.3,4,1,0
+483,3,Temporal Pokémon,1250000,5.4,Dialga,,483,683.0,4,1,0
+484,3,Spatial Pokémon,1250000,4.2,Palkia,,484,336.0,4,1,0
+485,3,Lava Dome Pokémon,1250000,1.7,Heatran,50,485,430.0,4,1,0
+486,3,Colossal Pokémon,1250000,3.7,Regigigas,,486,420.0,4,1,0
+487,3,Renegade Pokémon,1250000,4.5,Giratina,,487,750.0,4,1,0
+488,3,Lunar Pokémon,1250000,1.5,Cresselia,0,488,85.6,4,1,0
+489,30,Sea Drifter Pokémon,1250000,0.4,Phione,,489,3.1,4,0,0
+490,3,Seafaring Pokémon,1250000,0.3,Manaphy,,490,1.4,4,1,0
+491,3,Pitch-Black Pokémon,1250000,1.5,Darkrai,,491,50.5,4,1,0
+492,45,Gratitude Pokémon,1059860,0.2,Shaymin,,492,2.1,4,1,0
+493,3,Alpha Pokémon,1250000,3.2,Arceus,,493,320.0,4,1,0
+494,3,Victory Pokémon,1250000,0.4,Victini,,494,4.0,5,1,0
+495,45,Grass Snake Pokémon,1059860,0.6,Snivy,88.1,495,8.1,5,0,0
+496,45,Grass Snake Pokémon,1059860,0.8,Servine,88.1,496,16.0,5,0,0
+497,45,Regal Pokémon,1059860,3.3,Serperior,88.1,497,63.0,5,0,0
+498,45,Fire Pig Pokémon,1059860,0.5,Tepig,88.1,498,9.9,5,0,0
+499,45,Fire Pig Pokémon,1059860,1.0,Pignite,88.1,499,55.5,5,0,0
+500,45,Mega Fire Pig Pokémon,1059860,1.6,Emboar,88.1,500,150.0,5,0,0
+501,45,Sea Otter Pokémon,1059860,0.5,Oshawott,88.1,501,5.9,5,0,0
+502,45,Discipline Pokémon,1059860,0.8,Dewott,88.1,502,24.5,5,0,0
+503,45,Formidable Pokémon,1059860,1.5,Samurott,88.1,503,94.6,5,0,0
+504,255,Scout Pokémon,1000000,0.5,Patrat,50,504,11.6,5,0,0
+505,255,Lookout Pokémon,1000000,1.1,Watchog,50,505,27.0,5,0,0
+506,255,Puppy Pokémon,1059860,0.4,Lillipup,50,506,4.1,5,0,0
+507,120,Loyal Dog Pokémon,1059860,0.9,Herdier,50,507,14.7,5,0,0
+508,45,Big-Hearted Pokémon,1059860,1.2,Stoutland,50,508,61.0,5,0,0
+509,255,Devious Pokémon,1000000,0.4,Purrloin,50,509,10.1,5,0,0
+510,90,Cruel Pokémon,1000000,1.1,Liepard,50,510,37.5,5,0,0
+511,190,Grass Monkey Pokémon,1000000,0.6,Pansage,88.1,511,10.5,5,0,0
+512,75,Thorn Monkey Pokémon,1000000,1.1,Simisage,88.1,512,30.5,5,0,0
+513,190,High Temp Pokémon,1000000,0.6,Pansear,88.1,513,11.0,5,0,0
+514,75,Ember Pokémon,1000000,1.0,Simisear,88.1,514,28.0,5,0,0
+515,190,Spray Pokémon,1000000,0.6,Panpour,88.1,515,13.5,5,0,0
+516,75,Geyser Pokémon,1000000,1.0,Simipour,88.1,516,29.0,5,0,0
+517,190,Dream Eater Pokémon,800000,0.6,Munna,50,517,23.3,5,0,0
+518,75,Drowsing Pokémon,800000,1.1,Musharna,50,518,60.5,5,0,0
+519,255,Tiny Pigeon Pokémon,1059860,0.3,Pidove,50,519,2.1,5,0,0
+520,120,Wild Pigeon Pokémon,1059860,0.6,Tranquill,50,520,15.0,5,0,0
+521,45,Proud Pokémon,1059860,1.2,Unfezant,50,521,29.0,5,0,0
+522,190,Electrified Pokémon,1000000,0.8,Blitzle,50,522,29.8,5,0,0
+523,75,Thunderbolt Pokémon,1000000,1.6,Zebstrika,50,523,79.5,5,0,0
+524,255,Mantle Pokémon,1059860,0.4,Roggenrola,50,524,18.0,5,0,0
+525,120,Ore Pokémon,1059860,0.9,Boldore,50,525,102.0,5,0,0
+526,45,Compressed Pokémon,1059860,1.7,Gigalith,50,526,260.0,5,0,0
+527,190,Bat Pokémon,1000000,0.4,Woobat,50,527,2.1,5,0,0
+528,45,Courting Pokémon,1000000,0.9,Swoobat,50,528,10.5,5,0,0
+529,120,Mole Pokémon,1000000,0.3,Drilbur,50,529,8.5,5,0,0
+530,60,Subterrene Pokémon,1000000,0.7,Excadrill,50,530,40.4,5,0,0
+531,255,Hearing Pokémon,800000,1.1,Audino,50,531,31.0,5,0,1
+532,180,Muscular Pokémon,1059860,0.6,Timburr,75.4,532,12.5,5,0,0
+533,90,Muscular Pokémon,1059860,1.2,Gurdurr,75.4,533,40.0,5,0,0
+534,45,Muscular Pokémon,1059860,1.4,Conkeldurr,75.4,534,87.0,5,0,0
+535,255,Tadpole Pokémon,1059860,0.5,Tympole,50,535,4.5,5,0,0
+536,120,Vibration Pokémon,1059860,0.8,Palpitoad,50,536,17.0,5,0,0
+537,45,Vibration Pokémon,1059860,1.5,Seismitoad,50,537,62.0,5,0,0
+538,45,Judo Pokémon,1000000,1.3,Throh,100,538,55.5,5,0,0
+539,45,Karate Pokémon,1000000,1.4,Sawk,100,539,51.0,5,0,0
+540,255,Sewing Pokémon,1059860,0.3,Sewaddle,50,540,2.5,5,0,0
+541,120,Leaf-Wrapped Pokémon,1059860,0.5,Swadloon,50,541,7.3,5,0,0
+542,45,Nurturing Pokémon,1059860,1.2,Leavanny,50,542,20.5,5,0,0
+543,255,Centipede Pokémon,1059860,0.4,Venipede,50,543,5.3,5,0,0
+544,120,Curlipede Pokémon,1059860,1.2,Whirlipede,50,544,58.5,5,0,0
+545,45,Megapede Pokémon,1059860,2.5,Scolipede,50,545,200.5,5,0,0
+546,190,Cotton Puff Pokémon,1000000,0.3,Cottonee,50,546,0.6,5,0,0
+547,75,Windveiled Pokémon,1000000,0.7,Whimsicott,50,547,6.6,5,0,0
+548,190,Bulb Pokémon,1000000,0.5,Petilil,0,548,6.6,5,0,0
+549,75,Flowering Pokémon,1000000,1.1,Lilligant,0,549,16.3,5,0,0
+550,25,Hostile Pokémon,1000000,1.0,Basculin,50,550,18.0,5,0,0
+551,180,Desert Croc Pokémon,1059860,0.7,Sandile,50,551,15.2,5,0,0
+552,90,Desert Croc Pokémon,1059860,1.0,Krokorok,50,552,33.4,5,0,0
+553,45,Intimidation Pokémon,1059860,1.5,Krookodile,50,553,96.3,5,0,0
+554,120,Zen Charm Pokémon,1059860,0.6,Darumaka,50,554,37.5,5,0,0
+555,60,Blazing Pokémon,1059860,1.3,Darmanitan,50,555,92.9,5,0,0
+556,255,Cactus Pokémon,1000000,1.0,Maractus,50,556,28.0,5,0,0
+557,190,Rock Inn Pokémon,1000000,0.3,Dwebble,50,557,14.5,5,0,0
+558,75,Stone Home Pokémon,1000000,1.4,Crustle,50,558,200.0,5,0,0
+559,180,Shedding Pokémon,1000000,0.6,Scraggy,50,559,11.8,5,0,0
+560,90,Hoodlum Pokémon,1000000,1.1,Scrafty,50,560,30.0,5,0,0
+561,45,Avianoid Pokémon,1000000,1.4,Sigilyph,50,561,14.0,5,0,0
+562,190,Spirit Pokémon,1000000,0.5,Yamask,50,562,1.5,5,0,0
+563,90,Coffin Pokémon,1000000,1.7,Cofagrigus,50,563,76.5,5,0,0
+564,45,Prototurtle Pokémon,1000000,0.7,Tirtouga,88.1,564,16.5,5,0,0
+565,45,Prototurtle Pokémon,1000000,1.2,Carracosta,88.1,565,81.0,5,0,0
+566,45,First Bird Pokémon,1000000,0.5,Archen,88.1,566,9.5,5,0,0
+567,45,First Bird Pokémon,1000000,1.4,Archeops,88.1,567,32.0,5,0,0
+568,190,Trash Bag Pokémon,1000000,0.6,Trubbish,50,568,31.0,5,0,0
+569,60,Trash Heap Pokémon,1000000,1.9,Garbodor,50,569,107.3,5,0,0
+570,75,Tricky Fox Pokémon,1059860,0.7,Zorua,88.1,570,12.5,5,0,0
+571,45,Illusion Fox Pokémon,1059860,1.6,Zoroark,88.1,571,81.1,5,0,0
+572,255,Chinchilla Pokémon,800000,0.4,Minccino,24.6,572,5.8,5,0,0
+573,60,Scarf Pokémon,800000,0.5,Cinccino,24.6,573,7.5,5,0,0
+574,200,Fixation Pokémon,1059860,0.4,Gothita,24.6,574,5.8,5,0,0
+575,100,Manipulate Pokémon,1059860,0.7,Gothorita,24.6,575,18.0,5,0,0
+576,50,Astral Body Pokémon,1059860,1.5,Gothitelle,24.6,576,44.0,5,0,0
+577,200,Cell Pokémon,1059860,0.3,Solosis,50,577,1.0,5,0,0
+578,100,Mitosis Pokémon,1059860,0.6,Duosion,50,578,8.0,5,0,0
+579,50,Multiplying Pokémon,1059860,1.0,Reuniclus,50,579,20.1,5,0,0
+580,190,Water Bird Pokémon,1000000,0.5,Ducklett,50,580,5.5,5,0,0
+581,45,White Bird Pokémon,1000000,1.3,Swanna,50,581,24.2,5,0,0
+582,255,Fresh Snow Pokémon,1250000,0.4,Vanillite,50,582,5.7,5,0,0
+583,120,Icy Snow Pokémon,1250000,1.1,Vanillish,50,583,41.0,5,0,0
+584,45,Snowstorm Pokémon,1250000,1.3,Vanilluxe,50,584,57.5,5,0,0
+585,190,Season Pokémon,1000000,0.6,Deerling,50,585,19.5,5,0,0
+586,75,Season Pokémon,1000000,1.9,Sawsbuck,50,586,92.5,5,0,0
+587,200,Sky Squirrel Pokémon,1000000,0.4,Emolga,50,587,5.0,5,0,0
+588,200,Clamping Pokémon,1000000,0.5,Karrablast,50,588,5.9,5,0,0
+589,75,Cavalry Pokémon,1000000,1.0,Escavalier,50,589,33.0,5,0,0
+590,190,Mushroom Pokémon,1000000,0.2,Foongus,50,590,1.0,5,0,0
+591,75,Mushroom Pokémon,1000000,0.6,Amoonguss,50,591,10.5,5,0,0
+592,190,Floating Pokémon,1000000,1.2,Frillish,50,592,33.0,5,0,0
+593,60,Floating Pokémon,1000000,2.2,Jellicent,50,593,135.0,5,0,0
+594,75,Caring Pokémon,800000,1.2,Alomomola,50,594,31.6,5,0,0
+595,190,Attaching Pokémon,1000000,0.1,Joltik,50,595,0.6,5,0,0
+596,75,EleSpider Pokémon,1000000,0.8,Galvantula,50,596,14.3,5,0,0
+597,255,Thorn Seed Pokémon,1000000,0.6,Ferroseed,50,597,18.8,5,0,0
+598,90,Thorn Pod Pokémon,1000000,1.0,Ferrothorn,50,598,110.0,5,0,0
+599,130,Gear Pokémon,1059860,0.3,Klink,,599,21.0,5,0,0
+600,60,Gear Pokémon,1059860,0.6,Klang,,600,51.0,5,0,0
+601,30,Gear Pokémon,1059860,0.6,Klinklang,,601,81.0,5,0,0
+602,190,EleFish Pokémon,1250000,0.2,Tynamo,50,602,0.3,5,0,0
+603,60,EleFish Pokémon,1250000,1.2,Eelektrik,50,603,22.0,5,0,0
+604,30,EleFish Pokémon,1250000,2.1,Eelektross,50,604,80.5,5,0,0
+605,255,Cerebral Pokémon,1000000,0.5,Elgyem,50,605,9.0,5,0,0
+606,90,Cerebral Pokémon,1000000,1.0,Beheeyem,50,606,34.5,5,0,0
+607,190,Candle Pokémon,1059860,0.3,Litwick,50,607,3.1,5,0,0
+608,90,Lamp Pokémon,1059860,0.6,Lampent,50,608,13.0,5,0,0
+609,45,Luring Pokémon,1059860,1.0,Chandelure,50,609,34.3,5,0,0
+610,75,Tusk Pokémon,1250000,0.6,Axew,50,610,18.0,5,0,0
+611,60,Axe Jaw Pokémon,1250000,1.0,Fraxure,50,611,36.0,5,0,0
+612,45,Axe Jaw Pokémon,1250000,1.8,Haxorus,50,612,105.5,5,0,0
+613,120,Chill Pokémon,1000000,0.5,Cubchoo,50,613,8.5,5,0,0
+614,60,Freezing Pokémon,1000000,2.6,Beartic,50,614,260.0,5,0,0
+615,25,Crystallizing Pokémon,1000000,1.1,Cryogonal,,615,148.0,5,0,0
+616,200,Snail Pokémon,1000000,0.4,Shelmet,50,616,7.7,5,0,0
+617,75,Shell Out Pokémon,1000000,0.8,Accelgor,50,617,25.3,5,0,0
+618,75,Trap Pokémon,1000000,0.7,Stunfisk,50,618,11.0,5,0,0
+619,180,Martial Arts Pokémon,1059860,0.9,Mienfoo,50,619,20.0,5,0,0
+620,45,Martial Arts Pokémon,1059860,1.4,Mienshao,50,620,35.5,5,0,0
+621,45,Cave Pokémon,1000000,1.6,Druddigon,50,621,139.0,5,0,0
+622,190,Automaton Pokémon,1000000,1.0,Golett,,622,92.0,5,0,0
+623,90,Automaton Pokémon,1000000,2.8,Golurk,,623,330.0,5,0,0
+624,120,Sharp Blade Pokémon,1000000,0.5,Pawniard,50,624,10.2,5,0,0
+625,45,Sword Blade Pokémon,1000000,1.6,Bisharp,50,625,70.0,5,0,0
+626,45,Bash Buffalo Pokémon,1000000,1.6,Bouffalant,50,626,94.6,5,0,0
+627,190,Eaglet Pokémon,1250000,0.5,Rufflet,100,627,10.5,5,0,0
+628,60,Valiant Pokémon,1250000,1.5,Braviary,100,628,41.0,5,0,0
+629,190,Diapered Pokémon,1250000,0.5,Vullaby,0,629,9.0,5,0,0
+630,60,Bone Vulture Pokémon,1250000,1.2,Mandibuzz,0,630,39.5,5,0,0
+631,90,Anteater Pokémon,1000000,1.4,Heatmor,50,631,58.0,5,0,0
+632,90,Iron Ant Pokémon,1000000,0.3,Durant,50,632,33.0,5,0,0
+633,45,Irate Pokémon,1250000,0.8,Deino,50,633,17.3,5,0,0
+634,45,Hostile Pokémon,1250000,1.4,Zweilous,50,634,50.0,5,0,0
+635,45,Brutal Pokémon,1250000,1.8,Hydreigon,50,635,160.0,5,0,0
+636,45,Torch Pokémon,1250000,1.1,Larvesta,50,636,28.8,5,0,0
+637,15,Sun Pokémon,1250000,1.6,Volcarona,50,637,46.0,5,0,0
+638,3,Iron Will Pokémon,1250000,2.1,Cobalion,,638,250.0,5,1,0
+639,3,Cavern Pokémon,1250000,1.9,Terrakion,,639,260.0,5,1,0
+640,3,Grassland Pokémon,1250000,2.0,Virizion,,640,200.0,5,1,0
+641,3,Cyclone Pokémon,1250000,1.5,Tornadus,100,641,63.0,5,1,0
+642,3,Bolt Strike Pokémon,1250000,1.5,Thundurus,100,642,61.0,5,1,0
+643,3,Vast White Pokémon,1250000,3.2,Reshiram,,643,330.0,5,1,0
+644,3,Deep Black Pokémon,1250000,2.9,Zekrom,,644,345.0,5,1,0
+645,3,Abundance Pokémon,1250000,1.5,Landorus,100,645,68.0,5,1,0
+646,3,Boundary Pokémon,1250000,3.0,Kyurem,,646,325.0,5,1,0
+647,3,Colt Pokémon,1250000,1.4,Keldeo,,647,48.5,5,1,0
+648,3,Melody Pokémon,1250000,0.6,Meloetta,,648,6.5,5,1,0
+649,3,Paleozoic Pokémon,1250000,1.5,Genesect,,649,82.5,5,1,0
+650,45,Spiky Nut Pokémon,1059860,0.4,Chespin,88.1,650,9.0,6,0,0
+651,45,Spiny Armor Pokémon,1059860,0.7,Quilladin,88.1,651,29.0,6,0,0
+652,45,Spiny Armor Pokémon,1059860,1.6,Chesnaught,88.1,652,90.0,6,0,0
+653,45,Fox Pokémon,1059860,0.4,Fennekin,88.1,653,9.4,6,0,0
+654,45,Fox Pokémon,1059860,1.0,Braixen,88.1,654,14.5,6,0,0
+655,45,Fox Pokémon,1059860,1.5,Delphox,88.1,655,39.0,6,0,0
+656,45,Bubble Frog Pokémon,1059860,0.3,Froakie,88.1,656,7.0,6,0,0
+657,45,Bubble Frog Pokémon,1059860,0.6,Frogadier,88.1,657,10.9,6,0,0
+658,45,Ninja Pokémon,1059860,1.5,Greninja,88.1,658,40.0,6,0,0
+659,255,Digging Pokémon,1000000,0.4,Bunnelby,50,659,5.0,6,0,0
+660,127,Digging Pokémon,1000000,1.0,Diggersby,50,660,42.4,6,0,0
+661,255,Tiny Robin Pokémon,1059860,0.3,Fletchling,50,661,1.7,6,0,0
+662,120,Ember Pokémon,1059860,0.7,Fletchinder,50,662,16.0,6,0,0
+663,45,Scorching Pokémon,1059860,1.2,Talonflame,50,663,24.5,6,0,0
+664,255,Scatterdust Pokémon,1000000,0.3,Scatterbug,50,664,2.5,6,0,0
+665,120,Scatterdust Pokémon,1000000,0.3,Spewpa,50,665,8.4,6,0,0
+666,45,Scale Pokémon,1000000,1.2,Vivillon,50,666,17.0,6,0,0
+667,220,Lion Cub Pokémon,1059860,0.6,Litleo,11.2,667,13.5,6,0,0
+668,65,Royal Pokémon,1059860,1.5,Pyroar,11.2,668,81.5,6,0,0
+669,225,Single Bloom Pokémon,1000000,0.1,Flabébé,0,669,0.1,6,0,0
+670,120,Fairy Pokémon,1000000,0.2,Floette,0,670,0.9,6,0,0
+671,45,Garden Pokémon,1000000,1.1,Florges,0,671,10.0,6,0,0
+672,200,Mount Pokémon,1000000,0.9,Skiddo,50,672,31.0,6,0,0
+673,45,Mount Pokémon,1000000,1.7,Gogoat,50,673,91.0,6,0,0
+674,220,Playful Pokémon,1000000,0.6,Pancham,50,674,8.0,6,0,0
+675,65,Daunting Pokémon,1000000,2.1,Pangoro,50,675,136.0,6,0,0
+676,160,Poodle Pokémon,1000000,1.2,Furfrou,50,676,28.0,6,0,0
+677,190,Restraint Pokémon,1000000,0.3,Espurr,50,677,3.5,6,0,0
+678,75,Constraint Pokémon,1000000,0.6,Meowstic,50,678,8.5,6,0,0
+679,180,Sword Pokémon,1000000,0.8,Honedge,50,679,2.0,6,0,0
+680,90,Sword Pokémon,1000000,0.8,Doublade,50,680,4.5,6,0,0
+681,45,Royal Sword Pokémon,1000000,1.7,Aegislash,50,681,53.0,6,0,0
+682,200,Perfume Pokémon,1000000,0.2,Spritzee,50,682,0.5,6,0,0
+683,140,Fragrance Pokémon,1000000,0.8,Aromatisse,50,683,15.5,6,0,0
+684,200,Cotton Candy Pokémon,1000000,0.4,Swirlix,50,684,3.5,6,0,0
+685,140,Meringue Pokémon,1000000,0.8,Slurpuff,50,685,5.0,6,0,0
+686,190,Revolving Pokémon,1000000,0.4,Inkay,50,686,3.5,6,0,0
+687,80,Overturning Pokémon,1000000,1.5,Malamar,50,687,47.0,6,0,0
+688,120,Two-Handed Pokémon,1000000,0.5,Binacle,50,688,31.0,6,0,0
+689,45,Collective Pokémon,1000000,1.3,Barbaracle,50,689,96.0,6,0,0
+690,225,Mock Kelp Pokémon,1000000,0.5,Skrelp,50,690,7.3,6,0,0
+691,55,Mock Kelp Pokémon,1000000,1.8,Dragalge,50,691,81.5,6,0,0
+692,225,Water Gun Pokémon,1250000,0.5,Clauncher,50,692,8.3,6,0,0
+693,55,Howitzer Pokémon,1250000,1.3,Clawitzer,50,693,35.3,6,0,0
+694,190,Generator Pokémon,1000000,0.5,Helioptile,50,694,6.0,6,0,0
+695,75,Generator Pokémon,1000000,1.0,Heliolisk,50,695,21.0,6,0,0
+696,45,Royal Heir Pokémon,1000000,0.8,Tyrunt,88.1,696,26.0,6,0,0
+697,45,Despot Pokémon,1000000,2.5,Tyrantrum,88.1,697,270.0,6,0,0
+698,45,Tundra Pokémon,1000000,1.3,Amaura,88.1,698,25.2,6,0,0
+699,45,Tundra Pokémon,1000000,2.7,Aurorus,88.1,699,225.0,6,0,0
+700,45,Intertwining Pokémon,1000000,1.0,Sylveon,88.1,700,23.5,6,0,0
+701,100,Wrestling Pokémon,1000000,0.8,Hawlucha,50,701,21.5,6,0,0
+702,180,Antenna Pokémon,1000000,0.2,Dedenne,50,702,2.2,6,0,0
+703,60,Jewel Pokémon,1250000,0.3,Carbink,,703,5.7,6,0,0
+704,45,Soft Tissue Pokémon,1250000,0.3,Goomy,50,704,2.8,6,0,0
+705,45,Soft Tissue Pokémon,1250000,0.8,Sliggoo,50,705,17.5,6,0,0
+706,45,Dragon Pokémon,1250000,2.0,Goodra,50,706,150.5,6,0,0
+707,75,Key Ring Pokémon,800000,0.2,Klefki,50,707,3.0,6,0,0
+708,120,Stump Pokémon,1000000,0.4,Phantump,50,708,7.0,6,0,0
+709,60,Elder Tree Pokémon,1000000,1.5,Trevenant,50,709,71.0,6,0,0
+710,120,Pumpkin Pokémon,1000000,0.8,Pumpkaboo,50,710,15.0,6,0,0
+711,60,Pumpkin Pokémon,1000000,1.7,Gourgeist,50,711,39.0,6,0,0
+712,190,Ice Chunk Pokémon,1000000,1.0,Bergmite,50,712,99.5,6,0,0
+713,55,Iceberg Pokémon,1000000,2.0,Avalugg,50,713,505.0,6,0,0
+714,190,Sound Wave Pokémon,1000000,0.5,Noibat,50,714,8.0,6,0,0
+715,45,Sound Wave Pokémon,1000000,1.5,Noivern,50,715,85.0,6,0,0
+716,45,Life Pokémon,1250000,3.0,Xerneas,,716,215.0,6,1,0
+717,45,Destruction Pokémon,1250000,5.8,Yveltal,,717,203.0,6,1,0
+718,3,Order Pokémon,1250000,5.0,Zygarde,,718,284.6,6,1,0
+719,3,Jewel Pokémon,1250000,0.7,Diancie,,719,8.8,6,1,1
+720,3,Mischief Pokémon (Confined)Djinn Pokémonn (Unbound),1250000,,Hoopa,,720,,6,1,0
+721,3,Steam Pokémon,1250000,1.7,Volcanion,,721,195.0,6,1,0
+722,45,Grass Quill Pokémon,1059860,0.3,Rowlet,88.1,722,1.5,7,0,0
+723,45,Blade Quill Pokémon,1059860,0.7,Dartrix,88.1,723,16.0,7,0,0
+724,45,Arrow Quill Pokémon,1059860,1.6,Decidueye,88.1,724,36.6,7,0,0
+725,45,Fire Cat Pokémon,1059860,0.4,Litten,88.1,725,4.3,7,0,0
+726,45,Fire Cat Pokémon,1059860,0.7,Torracat,88.1,726,25.0,7,0,0
+727,45,Heel Pokémon,1059860,1.8,Incineroar,88.1,727,83.0,7,0,0
+728,45,Sea Lion Pokémon,1059860,0.4,Popplio,88.1,728,7.5,7,0,0
+729,45,Pop Star Pokémon,1059860,0.6,Brionne,88.1,729,17.5,7,0,0
+730,45,Soloist Pokémon,1059860,1.8,Primarina,88.1,730,44.0,7,0,0
+731,255,Woodpecker Pokémon,1000000,0.3,Pikipek,50,731,1.2,7,0,0
+732,120,Bugle Beak Pokémon,1000000,0.6,Trumbeak,50,732,14.8,7,0,0
+733,45,Cannon Pokémon,1000000,1.1,Toucannon,50,733,26.0,7,0,0
+734,255,Loitering Pokémon,1000000,0.4,Yungoos,50,734,6.0,7,0,0
+735,127,Stakeout Pokémon,1000000,0.7,Gumshoos,50,735,14.2,7,0,0
+736,255,Larva Pokémon,1000000,0.4,Grubbin,50,736,4.4,7,0,0
+737,120,Battery Pokémon,1000000,0.5,Charjabug,50,737,10.5,7,0,0
+738,45,Stag Beetle Pokémon,1000000,1.5,Vikavolt,50,738,45.0,7,0,0
+739,225,Boxing Pokémon,1000000,0.6,Crabrawler,50,739,7.0,7,0,0
+740,60,Woolly Crab Pokémon,1000000,1.7,Crabominable,50,740,180.0,7,0,0
+741,45,Dancing Pokémon,1000000,0.6,Oricorio,24.6,741,3.4,7,0,0
+742,190,Bee Fly Pokémon,1000000,0.1,Cutiefly,50,742,0.2,7,0,0
+743,75,Bee Fly Pokémon,1000000,0.2,Ribombee,50,743,0.5,7,0,0
+744,190,Puppy Pokémon,1000000,0.5,Rockruff,50,744,9.2,7,0,0
+745,90,Wolf Pokémon,1000000,,Lycanroc,50,745,,7,0,0
+746,60,Small Fry Pokémon,800000,0.2,Wishiwashi,50,746,0.3,7,0,0
+747,190,Brutal Star Pokémon,1000000,0.4,Mareanie,50,747,8.0,7,0,0
+748,75,Brutal Star Pokémon,1000000,0.7,Toxapex,50,748,14.5,7,0,0
+749,190,Donkey Pokémon,1000000,1.0,Mudbray,50,749,110.0,7,0,0
+750,60,Draft Horse Pokémon,1000000,2.5,Mudsdale,50,750,920.0,7,0,0
+751,200,Water Bubble Pokémon,1000000,0.3,Dewpider,50,751,4.0,7,0,0
+752,100,Water Bubble Pokémon,1000000,1.8,Araquanid,50,752,82.0,7,0,0
+753,190,Sickle Grass Pokémon,1000000,0.3,Fomantis,50,753,1.5,7,0,0
+754,75,Bloom Sickle Pokémon,1000000,0.9,Lurantis,50,754,18.5,7,0,0
+755,190,Illuminating Pokémon,1000000,0.2,Morelull,50,755,1.5,7,0,0
+756,75,Illuminating Pokémon,1000000,1.0,Shiinotic,50,756,11.5,7,0,0
+757,120,Toxic Lizard Pokémon,1000000,0.6,Salandit,88.1,757,4.8,7,0,0
+758,45,Toxic Lizard Pokémon,1000000,1.2,Salazzle,0,758,22.2,7,0,0
+759,140,Flailing Pokémon,1000000,0.5,Stufful,50,759,6.8,7,0,0
+760,70,Strong Arm Pokémon,1000000,2.1,Bewear,50,760,135.0,7,0,0
+761,235,Fruit Pokémon,1059860,0.3,Bounsweet,0,761,3.2,7,0,0
+762,120,Fruit Pokémon,1059860,0.7,Steenee,0,762,8.2,7,0,0
+763,45,Fruit Pokémon,1059860,1.2,Tsareena,0,763,21.4,7,0,0
+764,60,Posy Picker Pokémon,800000,0.1,Comfey,24.6,764,0.3,7,0,0
+765,45,Sage Pokémon,1250000,1.5,Oranguru,50,765,76.0,7,0,0
+766,45,Teamwork Pokémon,1250000,2.0,Passimian,50,766,82.8,7,0,0
+767,90,Turn Tail Pokémon,1000000,0.5,Wimpod,50,767,12.0,7,0,0
+768,45,Hard Scale Pokémon,1000000,2.0,Golisopod,50,768,108.0,7,0,0
+769,140,Sand Heap Pokémon,1000000,0.5,Sandygast,50,769,70.0,7,0,0
+770,60,Sand Castle Pokémon,1000000,1.3,Palossand,50,770,250.0,7,0,0
+771,60,Sea Cucumber Pokémon,800000,0.3,Pyukumuku,50,771,1.2,7,0,0
+772,3,Synthetic Pokémon,1250000,1.9,Type: Null,,772,120.5,7,0,0
+773,3,Synthetic Pokémon,1250000,2.3,Silvally,,773,100.5,7,0,0
+774,30 (Meteorite)255 (Core),Meteor Pokémon,1059860,0.3,Minior,,774,40.0,7,0,0
+775,45,Drowsing Pokémon,1250000,0.4,Komala,50,775,19.9,7,0,0
+776,70,Blast Turtle Pokémon,1000000,2.0,Turtonator,50,776,212.0,7,0,0
+777,180,Roly-Poly Pokémon,1000000,0.3,Togedemaru,50,777,3.3,7,0,0
+778,45,Disguise Pokémon,1000000,0.2,Mimikyu,50,778,0.7,7,0,0
+779,80,Gnash Teeth Pokémon,1000000,0.9,Bruxish,50,779,19.0,7,0,0
+780,70,Placid Pokémon,1000000,3.0,Drampa,50,780,185.0,7,0,0
+781,25,Sea Creeper Pokémon,1000000,3.9,Dhelmise,,781,210.0,7,0,0
+782,45,Scaly Pokémon,1250000,0.6,Jangmo-o,50,782,29.7,7,0,0
+783,45,Scaly Pokémon,1250000,1.2,Hakamo-o,50,783,47.0,7,0,0
+784,45,Scaly Pokémon,1250000,1.6,Kommo-o,50,784,78.2,7,0,0
+785,3,Land Spirit Pokémon,1250000,1.8,Tapu Koko,,785,20.5,7,1,0
+786,3,Land Spirit Pokémon,1250000,1.2,Tapu Lele,,786,18.6,7,1,0
+787,3,Land Spirit Pokémon,1250000,1.9,Tapu Bulu,,787,45.5,7,1,0
+788,3,Land Spirit Pokémon,1250000,1.3,Tapu Fini,,788,21.2,7,1,0
+789,45,Nebula Pokémon,1250000,0.2,Cosmog,,789,0.1,7,1,0
+790,45,Protostar Pokémon,1250000,0.1,Cosmoem,,790,999.9,7,1,0
+791,45,Sunne Pokémon,1250000,3.4,Solgaleo,,791,230.0,7,1,0
+792,45,Moone Pokémon,1250000,4.0,Lunala,,792,120.0,7,1,0
+793,45,Parasite Pokémon,1250000,1.2,Nihilego,,793,55.5,7,1,0
+794,25,Swollen Pokémon,1250000,2.4,Buzzwole,,794,333.6,7,1,0
+795,255,Lissome Pokémon,1250000,1.8,Pheromosa,,795,25.0,7,1,0
+796,30,Glowing Pokémon,1250000,3.8,Xurkitree,,796,100.0,7,1,0
+797,25,Launch Pokémon,1250000,9.2,Celesteela,,797,999.9,7,1,0
+798,255,Drawn Sword Pokémon,1250000,0.3,Kartana,,798,0.1,7,1,0
+799,15,Junkivore Pokémon,1250000,5.5,Guzzlord,,799,888.0,7,1,0
+800,3,Prism Pokémon,1250000,2.4,Necrozma,,800,230.0,7,1,0
+801,3,Artificial Pokémon,1250000,1.0,Magearna,,801,80.5,7,1,0
+802,3,Gloomdweller Pokemon ,1250000,0.7,Marshadow ,,802,22.2,7,1,0
+803,45,Discharge Pokémon,1250000,1.8,Mega Manectric,50,310,44,6,0,0
+804,45,Aura Pokémon,1059860,1.3,Mega Lucario,87.5,448,57.5,6,0,0
+805,45,Deceiver Pokémon,800000,1,Mega Mawile,50,303,23.5,6,0,0
+806,90,Meditate Pokémon,1000000,1.3,Mega Medicham,50,308,31.5,6,0,0
+807,3,Genetic Pokémon,1250000,2.3,Mega Mewtwo X,,150,127,6,1,0
+808,3,Genetic Pokémon,1250000,1.5,Mega Mewtwo Y,,150,33,6,1,0
+809,45,Stagbeetle Pokémon,1250000,1.7,Mega Pinsir,50,127,59,6,0,0
+810,25,Pincer Pokémon,1000000,2,Mega Scizor,50,212,125,6,0,0
+811,45,Armor Pokémon,1250000,2.5,Mega Tyranitar,50,248,255,6,0,0
+812,45,Seed Pokémon,1059860,2.4,Mega Venusaur,87.5,3,155.5,6,0,0
+813,45,Mud Fish Pokémon,1059860,1.9,Mega Swampert,87.5,260,102,6,0,0
+814,45,Forest Pokémon,1059860,1.9,Mega Sceptile,87.5,254,55.2,6,0,0
+815,3,Jewel Pokémon,1250000,1.1,Mega Diancie,,719,27.8,6,1,0
+816,45,Darkness Pokémon,1059862,0.5,Mega Sableye,50,302,161,6,0,0
+817,45,Humming Pokémon,600000,1.5,Mega Altaria ,50,334,20.6,6,0,0
+818,45,Dragon Pokémon,1250000,1.8,Mega Salamance,50,373,112.6,6,0,0
+819,60,Rabbit Pokémon,1000000,1.3,Mega Lopunny,50,428,28.3,6,0,0
+820,3,Iron Leg Pokémon,1250000,2.5,Mega Metagross,,376,942.9,6,0,0
+821,255,Hearing Pokémon,800000,1.5,Mega Audino,50,531,32,6,0,0
+822,75,Hermit Crab Pokémon,1000000,2,Mega Slowbro,50,80,120,6,0,0
+823,150,Eruption Pokémon,1000000,2.5,Mega Camerupt,50,323,320.5,6,0,0
+824,60,Brutal Pokémon,1250000,2.5,Mega Sharpedo,50,319,130.3,6,0,0
+825,45,Blade Pokémon,1250000,1.6,Mega Gallade,100,475,56.4,6,0,0
+826,45,Poison Bee Pokémon,1000000,1.4,Mega Beedrill,50,15,40.5,6,0,0
+827,45,Bird Pokémon,1059862,2.2,Mega Pidgeot,50,18,50.5,6,0,0
+828,25,Iron Snake Pokémon,1000000,10.5,Mega Steelix,50,208,740,6,0,0
+829,75,Face Pokémon,1000000,2.1,Mega Glaile,50,362,350.2,6,0,0
+830,3,Eon Pokémon,1250000,2.3,Mega Latios ,100,381,70,6,1,0
+831,3,Eon Pokémon,1250000,1.8,Mega Latias ,0,380,52,6,1,0
+832,45,Sky High Pokémon,1250000,10.8,Mega Rayquaza,,384,392,6,1,0
+833,3,Continent Pokémon,1250000,5,Primal Groudon,,383,999.7,6,1,0
+834,3,Sea Basin Pokémon,1250000,9.8,Primal Kyogre,,382,430,6,1,0
+835,60,Frosted Tree Pokémon,1250000,2.7,Mega Abomasnow ,50,460,185,6,0,0
+836,30,Disaster Pokémon,1059862,1.2,Mega Absol ,50,359,49,6,0,0
+837,45,Fossil Pokémon ,1250000,2.1,Mega Aerodactyl ,88.1,142,79,6,0,0
+838,45,Iron Armor Pokémon ,1250000,2.2,Mega Aggron ,50,306,395,6,0,0
+839,50,Psi Pokémon ,1059862,1.2,Mega Alakazam ,75.4,65,48,6,0,0
+840,45,Light Pokémon,1059862,1.4,Mega Ampharos,50,181,61.5,6,0,0
+841,45,Marionette Pokémon,800000,1.2,Mega Banette,50,354,13,6,0,0
+842,45,Shellfish Pokémon ,1059860,1.6,Mega Blastoise,87.5,9,101.1,6,0,0
+843,45,Blaze Pokémon ,1059860,1.9,Mega Blaziken,87.5,257,52,6,0,0
+844,45,Flame Pokémon,1059860,1.7,Mega Charizard X,87.5,6,110.5,6,0,0
+845,45,Flame Pokémon,1059860,1.7,Mega Charizard Y,87.5,6,100.5,6,0,0
+846,45,Mach Pékemon,1250000,1.9,Mega Garchomp,50,445,95,6,0,0
+847,45,Embrace Pokémon,1250000,1.6,Mega Gardevoir,50,282,48.4,6,0,0
+848,45,Shadow Pokémon,1059860,1.4,Mega Gengar,50,94,40.5,6,0,0
+849,45,Singlehorn Pokémon,1250000,1.7,Mega Heracross,50,214,62.5,6,0,0
+850,45,Atrocious Pokémon,1250000,6.5,Mega Gyarados,50,130,305,6,0,0
+851,45,Parent Pokémon,1000000,2.2,Mega Kangaskhan,0,115,100,6,0,0
+852,45,Dark Pokémon,1250000,1.9,Mega Houndoom,50,229,49.5,6,0,0

@@ -2,7 +2,7 @@
 #include <sstream>
 #include <iostream>
 #include <vector>
-#include <filesystem>
+//#include <filesystem>
 #include <algorithm>
 #include <fstream>
 //********************************************************************
@@ -72,8 +72,8 @@
 
 int Arquivos::creationManager(std::string dataBaseName)
 {
-	
-	switch (this->createFolders(DATAARCHIVEPATH, INDEXARCHIVEPATH))	//testa se a pasta existe se n�o existe ela cria e baseado no que aconteceu escolhe o que fazer
+	this->createDataTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
+	/*switch (this->createFolders(DATAARCHIVEPATH, INDEXARCHIVEPATH))	//testa se a pasta existe se n�o existe ela cria e baseado no que aconteceu escolhe o que fazer
 	{
 		case -1:		//exce��o aconteceu
 			std::cout << "Erro na cria��o\n";
@@ -90,7 +90,7 @@ int Arquivos::creationManager(std::string dataBaseName)
 			break;
 		default:	//pasta existe
 			std::cout << "Pastas existiam\n";
-	}
+	}*/
 
 
 	return 0;
@@ -386,7 +386,7 @@ std::string Arquivos::lineCleaner(std::string lineData, char chars[])// tratamen
 //**************************************************************************************
 
 
-//********************CRIA A PASTA PARA AS TABELAS DE ARQUIVOS***************************
+/*/********************CRIA A PASTA PARA AS TABELAS DE ARQUIVOS***************************
 int Arquivos::createFolders(std::string dataFolder, std::string indexFolder)
 {
 	namespace fs = std::filesystem;
@@ -420,4 +420,4 @@ int Arquivos::createFolders(std::string dataFolder, std::string indexFolder)
 	}
 	return resposta;
 }
-//**************************************************************************************
+*///**************************************************************************************
