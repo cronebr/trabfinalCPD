@@ -495,21 +495,21 @@ std::string Arquivos::getById(std::string stringForSearch, int tabelaToSearch)
 		file.open(std::string(DATAARCHIVEPATH).append(TYPETABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
 		break;
 	}
-	std::getline(file, stringSearcher);
-	while (std::getline(file, stringSearcher) && !isTerminateIt)
+	std::getline(file, stringSearcher);//retira o cabecalho
+	while (std::getline(file, stringSearcher) && !isTerminateIt)//faz o laco enquanto deve
 	{
-		resposta = stringSearcher;
-		std::stringstream tokenStream(stringSearcher);
-		while (std::getline(tokenStream, stringSearcher, DELIMITER) && !isFoundIt)
+		resposta = stringSearcher;		//atribui a linha, que talvez seja a resposta 
+		std::stringstream tokenStream(stringSearcher);//pega o stream
+		while (std::getline(tokenStream, stringSearcher, DELIMITER) && !isFoundIt)// vai pegando as partes do stream ate a ,
 		{
-			if (stringForSearch == stringSearcher)
+			if (stringForSearch == stringSearcher)// se encontrou o id, para de procurar
 			{
 				isTerminateIt = true;
 				isFoundIt = true;
 			}
 			else
 			{
-				isFoundIt = true;
+				isFoundIt = true;//senão verifica o proximo id
 			}
 		}
 		isFoundIt = false;
@@ -532,8 +532,8 @@ void Arquivos::createIndexTables(std::string dataBaseName)//********************
 //****************CRIA O RELACIONAMENTO ENTRE POKEMONS E HABILIDADES********************
 void Arquivos::createPokemon_AbilityTable(std::string dataBaseName)
 {
-	std::fstream fileDestiny;
-	std::fstream abilityTable;
+	std::fstream fileDestiny;//tabela de destino
+	std::fstream abilityTable;//tabela de habilidades
 	std::fstream databaseFonte;
 	char chars[] = "[]'\"\'";
 	std::string stringLine;
@@ -541,8 +541,8 @@ void Arquivos::createPokemon_AbilityTable(std::string dataBaseName)
 	int index = 1, pokemonId = 0;
 
 	fileDestiny.open(std::string(INDEXARCHIVEPATH).append(POKEMONABILITYTABLE), std::fstream::out);//abre o arquivo
-	databaseFonte.open(std::string(dataBaseName));//abre o arquivo original para leitura
-	abilityTable.open(std::string(dataBaseName));//abre o arquivo original para leitura
+	databaseFonte.open(std::string(dataBaseName));//abre o arquivopara leitura
+	abilityTable.open(std::string(dataBaseName));//abre o arquivo para leitura
 	fileDestiny << POKEMONABILITYHEADER;
 	std::getline(databaseFonte, stringLine);
 	while (std::getline(databaseFonte, stringLine, DELIMITER))	//pega a linha até o delimitador escolhido, se não tiver delimitador pega toda a linha
@@ -552,7 +552,7 @@ void Arquivos::createPokemon_AbilityTable(std::string dataBaseName)
 		std::stringstream tokenStream(stringLine);
 		while (std::getline(tokenStream, partLine, ABILITIESDELIMITER))
 		{
-			fileDestiny << "\n" << index << DELIMITER << pokemonId << DELIMITER << this->getId(partLine, ABILITY);
+			fileDestiny << "\n" << index << DELIMITER << pokemonId << DELIMITER << this->getId(partLine, ABILITY);//carrega no arquivo, os pokemons em sequencia com o id do tipo
 			index++;
 	 	}
 		std::getline(databaseFonte, stringLine);//pega o resto da linha, para a insertTypeTable receber só as habilidades
@@ -589,9 +589,9 @@ void Arquivos::createPokemon_TypeTable(std::string dataBaseName)
 		{
 			if (column==TYPE1) 
 			{
-				fileDestiny << "\n" << index << DELIMITER << pokemonId << DELIMITER << this->getId(stringLine,TYPE);
-				std::getline(tokenStream, stringLine, DELIMITER);
-				if (stringLine != "") 
+				fileDestiny << "\n" << index << DELIMITER << pokemonId << DELIMITER << this->getId(stringLine,TYPE);//carrega no arquivo o tipo 1
+				std::getline(tokenStream, stringLine, DELIMITER);//verifica se existe tipo 2
+				if (stringLine != "") //se tiver carrega no arquivo senão segue o programa
 				{
 					index++;
 					fileDestiny << "\n" << index << DELIMITER << pokemonId << DELIMITER << this->getId(stringLine, TYPE);
@@ -624,7 +624,7 @@ void Arquivos::createPokemon_StatTable(std::string dataBaseName)
 	databaseFont.open(std::string(dataBaseName));//abre o arquivo original para leitura
 	fileDestiny << POKEMONSTATHEADER;
 	std::getline(databaseFont, stringLine);
-	while (std::getline(databaseFont, stringLine))
+	while (std::getline(databaseFont, stringLine))//como durante a criação dos arquivos de stats e pokemons o programa segue a ordem do arquivo, os indices são i para i. Ou seja são iguais
 	{
 		fileDestiny << "\n" << index << DELIMITER << idPokemon << DELIMITER << idStat;
 		index++;
