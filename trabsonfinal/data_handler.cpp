@@ -14,16 +14,27 @@
 //************AREA DE CONSTANTES**************************************
 #define DATAARCHIVEPATH			"./Arquivos/Dados/"
 #define INDEXARCHIVEPATH		"./Arquivos/Index/"
-#define ABILITYTABLE			"ability.csv"
 #define POKEMONTABLE			"pokemon.csv"
+#define ABILITYTABLE			"ability.csv"
 #define TYPETABLE				"type.csv"
 #define STATTABLE				"stat.csv"
+#define POKEMONABILITYTABLE		"pokemon_ability.csv"
+#define POKEMONTYPETABLE		"pokemon_type.csv"
+#define POKEMONSTATTABLE		"pokemon_stat.csv"
 #define DELIMITER				','
 #define ABILITIESDELIMITER		';'
-#define ARRAYSIZE				200
-#define LINESIZE				1024
 #define COLUMNOFFSET			41
-#define ID						"id"
+#define ABILITYHEADER			"id,abilities"
+#define TYPEHEADER				"id,name,against_bug,against_dark,against_dragon,against_electric,against_fairy,against_fight,against_fire,against_flying,against_ghost,against_grass,against_ground,against_ice,against_normal,against_poison,against_psychic,against_rock,against_steel,against_water"
+#define STATHEADER				"id,attack,egg_steps,happiness,total,defense,hp,sp_attack,sp_defense,speed"
+#define POKEMONHEADER			"id,capture_rate,classification,experience_growth,height_m,name,percentage_male,pokedex_number,weight_kg,generation,is_legendary,has_mega"
+#define POKEMONABILITYHEADER	"id,id_pokemon,id_ability"
+#define POKEMONTYPEHEADER		"id,id_pokemon,id_type"
+#define POKEMONSTATHEADER		"id,id_pokemon,id_stat"
+#define ABILITY					1
+#define POKEMON					2
+#define STAT					3
+#define TYPE					4
 
 #define ABILITIES				0
 #define AGAINSTBUG				1
@@ -73,6 +84,7 @@
 int Arquivos::creationManager(std::string dataBaseName)
 {
 	this->createDataTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
+	this->createIndexTables(dataBaseName);
 	/*switch (this->createFolders(DATAARCHIVEPATH, INDEXARCHIVEPATH))	//testa se a pasta existe se n�o existe ela cria e baseado no que aconteceu escolhe o que fazer
 	{
 		case -1:		//exce��o aconteceu
@@ -80,7 +92,8 @@ int Arquivos::creationManager(std::string dataBaseName)
 			break;
 		case 1:			//pasta foi criada
 			std::cout << "Pastas foram criadas\n";
-			this->createDataTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
+			//this->createDataTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
+			//this->createIndexTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
 			break;
 		case 2:		//cria a pasta de index pq a de dados existia
 			std::cout << "pasta de index criada\n";
@@ -90,6 +103,7 @@ int Arquivos::creationManager(std::string dataBaseName)
 			break;
 		default:	//pasta existe
 			std::cout << "Pastas existiam\n";
+			this->createIndexTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
 	}*/
 
 
@@ -106,7 +120,6 @@ void Arquivos::createDataTables(std::string dataBaseName)
 	this->createPokemonTable(dataBaseName);
 	this->createTypeTable(dataBaseName);
 	this->createStatTable(dataBaseName);
-	//*******************************************PAREI AQUI AS TABELAs DE ARQUIVOS ESTÃO PRONTAS FALTA AS DE RELACIONAMENTO E INDEX
 	return;
 }
 //**************************************************************************************
@@ -124,7 +137,7 @@ void Arquivos::createAbilityTable(std::string dataBaseName)
 
 	databaseFonte.open(std::string(dataBaseName));//abre o arquivo original para leitura
 	file.open(std::string(DATAARCHIVEPATH).append(ABILITYTABLE), std::ios::in | std::ios::out | std::ios::app);//abre o arquivo de dados para escrita
-	file << ID << DELIMITER << "abilities";	//coloca o cabecalho
+	file << ABILITYHEADER;	//coloca o cabecalho
 	file.seekg(0, std::ios::beg);	//devolve o ponteiro para o inicio do arquivo
 	std::getline(databaseFonte, abilities);//le o cabecalho do csv do arquivo fonte
 	while (std::getline(databaseFonte, abilities,DELIMITER))	//pega a linha até o delimitador escolhido, se não tiver delimitador pega toda a linha
@@ -174,11 +187,7 @@ void Arquivos::createTypeTable(std::string dataBaseName)
 	file.open(std::string(DATAARCHIVEPATH).append(TYPETABLE), std::fstream::out);//abre o arquivo final
 	typessearched.open(std::string(DATAARCHIVEPATH).append("guardatipos.bin"), std::ios::in | std::ios::out | std::ios::app);//abre o arquivo 
 	databaseFonte.open(std::string(dataBaseName));	//abre o arquivo fonte
-	file << "id" << DELIMITER << "name" << DELIMITER << "against_bug" << DELIMITER << "against_dark" << DELIMITER << "against_dragon";
-	file << DELIMITER << "against_electric" << DELIMITER << "against_fairy" << DELIMITER << "against_fight" << DELIMITER << "against_fire";
-	file << DELIMITER << "against_flying" << DELIMITER << "against_ghost" << DELIMITER << "against_grass" << DELIMITER << "against_ground";
-	file << DELIMITER << "against_ice" << DELIMITER << "against_normal" << DELIMITER << "against_poison" << DELIMITER << "against_psychic";
-	file << DELIMITER << "against_rock" << DELIMITER << "against_steel" << DELIMITER << "against_water";				//coloca o cabe�alho
+	file << TYPEHEADER;				//coloca o cabe�alho
 	std::getline(databaseFonte, typeFields);
 	while (std::getline(databaseFonte, typeFields))//itera no arquivo original 
 	{
@@ -237,7 +246,7 @@ void Arquivos::createTypeTable(std::string dataBaseName)
 	return;
 }
 //*************************************************************************************
-//******************PROCURA UMA STRING EM UM ARQUIVO DE UMA PALAvRA POR LINHA**********
+//******************PROCURA UMA STRING EM UM ARQUIVO DE UMA PALAVRA POR LINHA**********
 bool Arquivos::searchArchive(std::fstream* file, std::string word)
 {
 	bool response = false;
@@ -273,10 +282,7 @@ void Arquivos::createPokemonTable(std::string dataBaseName)
 
 	databaseFonte.open(std::string(dataBaseName));//abre o arquivo original para leitura
 	pokemonTable.open(std::string(DATAARCHIVEPATH).append(POKEMONTABLE), std::fstream::out);//abre o arquivo
-	pokemonTable << "id"<< DELIMITER << "capture_rate" << DELIMITER << "classification" << DELIMITER;
-	pokemonTable << "experience_growth" << DELIMITER << "height_m" << DELIMITER << "name" << DELIMITER << "percentage_male";
-	pokemonTable << DELIMITER << "pokedex_number" << DELIMITER << "weight_kg" << DELIMITER << "generation" << DELIMITER << "is_legendary" ;
-	pokemonTable << DELIMITER << "has_mega";
+	pokemonTable << POKEMONHEADER;
 	std::getline(databaseFonte, pokemons);//le o cabecalho do csv do arquivo fonte
 	while (std::getline(databaseFonte, pokemons))
 	{
@@ -322,9 +328,7 @@ void Arquivos::createStatTable(std::string dataBaseName)
 
 		file.open(std::string(DATAARCHIVEPATH).append(STATTABLE), std::fstream::out);//abre o arquivo
 		databaseFonte.open(std::string(dataBaseName));//abre o arquivo original para leitura
-		file << "id" << DELIMITER << "attack" << DELIMITER << "egg_steps" << DELIMITER;
-		file << "happiness" << DELIMITER << "total" << DELIMITER << "defense" << DELIMITER << "hp";
-		file << DELIMITER << "sp_attack" << DELIMITER << "sp_defense" << DELIMITER << "speed";
+		file << STATHEADER;
 		std::getline(databaseFonte, statLine);//le o cabecalho do csv do arquivo fonte
 		while (std::getline(databaseFonte, statLine))
 		{
@@ -366,7 +370,7 @@ std::vector<std::string> Arquivos::split(std::string s, char delimiter)
 	std::vector<std::string> tokens;
 	std::string token;
 	std::stringstream tokenStream(s);
-	while (getline(tokenStream, token, delimiter))
+	while (std::getline(tokenStream, token, delimiter))
 	{
 		tokens.push_back(token);
 	}
@@ -421,3 +425,214 @@ int Arquivos::createFolders(std::string dataFolder, std::string indexFolder)
 	return resposta;
 }
 *///**************************************************************************************
+//******************RECUPERA O ID DE UMA STRING DE UMA TABELA***************************
+int Arquivos::getId(std::string stringForSearch, int tabelaToSearch)// SE RETORNAR -1 O ID NÃO EXISTE, RETORNA O ID DA PRIMEIRA APARIÇÃO DA STRING PROCURADA NAO RECOMENDADA PARA BUSCA PARA STAT
+{
+	std::fstream file;
+	int resposta = 0;
+	std::string stringSearcher;
+	bool isFoundIt = false;
+
+	switch (tabelaToSearch)
+	{
+		case ABILITY:
+			file.open(std::string(DATAARCHIVEPATH).append(ABILITYTABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+			break;
+		case POKEMON:
+			file.open(std::string(DATAARCHIVEPATH).append(POKEMONTABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+			break;
+		case STAT:
+			file.open(std::string(DATAARCHIVEPATH).append(STATTABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+			break;
+		case TYPE:
+			file.open(std::string(DATAARCHIVEPATH).append(TYPETABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+			break;
+	}
+	std::getline(file, stringSearcher);
+	while (std::getline(file, stringSearcher) && !isFoundIt)
+	{
+		resposta++;
+		std::stringstream tokenStream(stringSearcher);
+		while (std::getline(tokenStream, stringSearcher, DELIMITER))
+		{
+			stringSearcher.erase(std::remove(stringSearcher.begin(), stringSearcher.end(), '\n'), stringSearcher.end());//apaga o \n da string.erase(std::remove(abilityAux.begin(), abilityAux.end(), '\n'), abilityAux.end());//apaga o \n da string
+			if (stringForSearch == stringSearcher) 
+			{
+				isFoundIt = true;
+			}
+
+		}
+	}
+	file.close();
+	if (isFoundIt == false)
+	{
+		resposta = -1;//a palavra não existe na tabela
+	}
+	return resposta;
+}
+//**************************************************************************************
+//******************BUSCA STRING NA TABELA BASEADO NO ID***********************
+std::string Arquivos::getById(std::string stringForSearch, int tabelaToSearch)
+{
+	std::string resposta;
+	std::fstream file;
+	std::string stringSearcher;
+	bool isFoundIt = false;
+	bool isTerminateIt = false;
+
+	switch (tabelaToSearch)
+	{
+	case 1:
+		file.open(std::string(DATAARCHIVEPATH).append(ABILITYTABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		break;
+	case 2:
+		file.open(std::string(DATAARCHIVEPATH).append(POKEMONTABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		break;
+	case 3:
+		file.open(std::string(DATAARCHIVEPATH).append(STATTABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		break;
+	case 4:
+		file.open(std::string(DATAARCHIVEPATH).append(TYPETABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		break;
+	}
+	std::getline(file, stringSearcher);
+	while (std::getline(file, stringSearcher) && !isTerminateIt)
+	{
+		resposta = stringSearcher;
+		std::stringstream tokenStream(stringSearcher);
+		while (std::getline(tokenStream, stringSearcher, DELIMITER) && !isFoundIt)
+		{
+			if (stringForSearch == stringSearcher)
+			{
+				isTerminateIt = true;
+				isFoundIt = true;
+			}
+			else
+			{
+				isFoundIt = true;
+			}
+		}
+		isFoundIt = false;
+	}
+	file.close();
+
+
+	return resposta;
+}
+//**************************************************************************************
+//*****************CRIA AS TABELAS DE INDEX/RELACIONAMENTOS*****************************
+void Arquivos::createIndexTables(std::string dataBaseName)//*****************************PAREI AQUI, TERMINAR OS RELACIONAMENTOS 
+{
+	this->createPokemon_AbilityTable(dataBaseName);//id,id_Pokemon,id_Ability
+	this->createPokemon_TypeTable(dataBaseName);//id,id_Pokemon,id_Type
+	this->createPokemon_StatTable(dataBaseName);////id,id_Pokemon,id_Stat
+	return;
+}
+//**************************************************************************************
+//****************CRIA O RELACIONAMENTO ENTRE POKEMONS E HABILIDADES********************
+void Arquivos::createPokemon_AbilityTable(std::string dataBaseName)
+{
+	std::fstream fileDestiny;
+	std::fstream abilityTable;
+	std::fstream databaseFonte;
+	char chars[] = "[]'\"\'";
+	std::string stringLine;
+	std::string partLine;
+	int index = 1, pokemonId = 0;
+
+	fileDestiny.open(std::string(INDEXARCHIVEPATH).append(POKEMONABILITYTABLE), std::fstream::out);//abre o arquivo
+	databaseFonte.open(std::string(dataBaseName));//abre o arquivo original para leitura
+	abilityTable.open(std::string(dataBaseName));//abre o arquivo original para leitura
+	fileDestiny << POKEMONABILITYHEADER;
+	std::getline(databaseFonte, stringLine);
+	while (std::getline(databaseFonte, stringLine, DELIMITER))	//pega a linha até o delimitador escolhido, se não tiver delimitador pega toda a linha
+	{
+		pokemonId++;
+		stringLine = this->lineCleaner(stringLine, chars);
+		std::stringstream tokenStream(stringLine);
+		while (std::getline(tokenStream, partLine, ABILITIESDELIMITER))
+		{
+			fileDestiny << "\n" << index << DELIMITER << pokemonId << DELIMITER << this->getId(partLine, ABILITY);
+			index++;
+	 	}
+		std::getline(databaseFonte, stringLine);//pega o resto da linha, para a insertTypeTable receber só as habilidades
+	}
+
+	abilityTable.close();
+	fileDestiny.close();
+	databaseFonte.close();
+	return;
+}
+//**************************************************************************************
+//***********CRIA O RELACIONAMENTO ENTRE POKEMONS E TIPOS*******************************
+void Arquivos::createPokemon_TypeTable(std::string dataBaseName)
+{
+	std::fstream fileDestiny;
+	std::fstream typeTable;
+	std::fstream databaseFonte;
+	std::string stringLine;
+	int column = 0, pokemonId = 0, index = 1;
+	bool isStop = false;
+
+	fileDestiny.open(std::string(INDEXARCHIVEPATH).append(POKEMONTYPETABLE), std::fstream::out);//abre o arquivo
+	databaseFonte.open(std::string(dataBaseName));//abre o arquivo original para leitura
+	typeTable.open(std::string(dataBaseName));//abre o arquivo original para leitura
+	fileDestiny << POKEMONTYPEHEADER;
+	std::getline(databaseFonte, stringLine);
+	while (std::getline(databaseFonte, stringLine))
+	{
+		column = 0;
+		isStop = false;
+		pokemonId++;
+		std::stringstream tokenStream(stringLine);
+		while (std::getline(tokenStream, stringLine, DELIMITER) && !isStop)
+		{
+			if (column==TYPE1) 
+			{
+				fileDestiny << "\n" << index << DELIMITER << pokemonId << DELIMITER << this->getId(stringLine,TYPE);
+				std::getline(tokenStream, stringLine, DELIMITER);
+				if (stringLine != "") 
+				{
+					index++;
+					fileDestiny << "\n" << index << DELIMITER << pokemonId << DELIMITER << this->getId(stringLine, TYPE);
+				}
+				isStop = true;
+			}
+			else
+			{
+				column++;
+			}
+		}
+
+		index++;
+	}
+	typeTable.close();
+	fileDestiny.close();
+	databaseFonte.close();
+	return;
+}
+//**************************************************************************************
+//*********************CRIA O RELACIONAMENTO ENTRE POKEMONS E STATS*********************
+void Arquivos::createPokemon_StatTable(std::string dataBaseName)
+{
+	std::fstream fileDestiny;
+	std::fstream databaseFont;
+	std::string stringLine;
+	int index = 1, idPokemon = 1, idStat = 1;
+
+	fileDestiny.open(std::string(INDEXARCHIVEPATH).append(POKEMONSTATTABLE), std::fstream::out);//abre o arquivo
+	databaseFont.open(std::string(dataBaseName));//abre o arquivo original para leitura
+	fileDestiny << POKEMONSTATHEADER;
+	std::getline(databaseFont, stringLine);
+	while (std::getline(databaseFont, stringLine))
+	{
+		fileDestiny << "\n" << index << DELIMITER << idPokemon << DELIMITER << idStat;
+		index++;
+		idPokemon++;
+		idStat++;
+	}
+	fileDestiny.close();
+	databaseFont.close();
+	return;
+}
+//**************************************************************************************
