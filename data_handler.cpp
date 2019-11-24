@@ -2,7 +2,7 @@
 #include <sstream>
 #include <iostream>
 #include <vector>
-//#include <filesystem>
+#include <filesystem>
 #include <algorithm>
 #include <fstream>
 //********************************************************************
@@ -83,28 +83,28 @@
 
 int Arquivos::creationManager(std::string dataBaseName)
 {
-	this->createDataTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
-	this->createIndexTables(dataBaseName);
-	/*switch (this->createFolders(DATAARCHIVEPATH, INDEXARCHIVEPATH))	//testa se a pasta existe se n�o existe ela cria e baseado no que aconteceu escolhe o que fazer
+	
+	switch (this->createFolders(DATAARCHIVEPATH, INDEXARCHIVEPATH))	//testa se a pasta existe se n�o existe ela cria e baseado no que aconteceu escolhe o que fazer
 	{
 		case -1:		//exce��o aconteceu
 			std::cout << "Erro na cria��o\n";
 			break;
 		case 1:			//pasta foi criada
 			std::cout << "Pastas foram criadas\n";
-			//this->createDataTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
-			//this->createIndexTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
+			this->createDataTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
+			this->createIndexTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
 			break;
 		case 2:		//cria a pasta de index pq a de dados existia
+			this->createIndexTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
 			std::cout << "pasta de index criada\n";
 			break;
 		case 3:			//cria a pasta de dados pq a de index existia
+			this->createDataTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
 			std::cout << "pasta de dados criada";
 			break;
 		default:	//pasta existe
 			std::cout << "Pastas existiam\n";
-			this->createIndexTables(dataBaseName);	//vai para a fun��o de cria��o das tabelas de dados
-	}*/
+	}
 
 
 	return 0;
@@ -390,7 +390,7 @@ std::string Arquivos::lineCleaner(std::string lineData, char chars[])// tratamen
 //**************************************************************************************
 
 
-/*/********************CRIA A PASTA PARA AS TABELAS DE ARQUIVOS***************************
+//********************CRIA A PASTA PARA AS TABELAS DE ARQUIVOS***************************
 int Arquivos::createFolders(std::string dataFolder, std::string indexFolder)
 {
 	namespace fs = std::filesystem;
@@ -424,7 +424,7 @@ int Arquivos::createFolders(std::string dataFolder, std::string indexFolder)
 	}
 	return resposta;
 }
-*///**************************************************************************************
+//**************************************************************************************
 //******************RECUPERA O ID DE UMA STRING DE UMA TABELA***************************
 int Arquivos::getId(std::string stringForSearch, int tabelaToSearch)// SE RETORNAR -1 O ID NÃO EXISTE, RETORNA O ID DA PRIMEIRA APARIÇÃO DA STRING PROCURADA NAO RECOMENDADA PARA BUSCA PARA STAT
 {
@@ -460,7 +460,6 @@ int Arquivos::getId(std::string stringForSearch, int tabelaToSearch)// SE RETORN
 			{
 				isFoundIt = true;
 			}
-
 		}
 	}
 	file.close();
@@ -515,8 +514,6 @@ std::string Arquivos::getById(std::string stringForSearch, int tabelaToSearch)
 		isFoundIt = false;
 	}
 	file.close();
-
-
 	return resposta;
 }
 //**************************************************************************************
@@ -557,7 +554,6 @@ void Arquivos::createPokemon_AbilityTable(std::string dataBaseName)
 	 	}
 		std::getline(databaseFonte, stringLine);//pega o resto da linha, para a insertTypeTable receber só as habilidades
 	}
-
 	abilityTable.close();
 	fileDestiny.close();
 	databaseFonte.close();
