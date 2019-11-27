@@ -104,7 +104,7 @@ void heapify(fstream& file, double elemento, double heap_size, double coluna){
     }
     if(filho_esquerdo<heap_size && str_maior_elemento.compare(str_filho_esquerdo)<0){
         maior_elemento = filho_esquerdo;
-		str_maior_elemento = str_filho_esquerdo;
+	str_maior_elemento = str_filho_esquerdo;
     }
     if(filho_direito<heap_size && str_maior_elemento.compare(str_filho_direito)<0){
         maior_elemento = filho_direito;
