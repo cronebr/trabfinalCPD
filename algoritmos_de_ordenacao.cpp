@@ -48,7 +48,7 @@ void heapsort(string arq,double coluna, double heap_size){
     heap_size_aux = heap_size;
     qtd_elementos = heap_size_aux-1;
     file.open(arq.c_str());
-    build_heap(file,coluna,heap_size_aux);
+    build_heap(file,coluna,heap_size_aux,heap_size);
 
     for(qtd_elementos;qtd_elementos>0;qtd_elementos--){
         file.seekg(0,file.beg);
@@ -61,20 +61,20 @@ void heapsort(string arq,double coluna, double heap_size){
         file.seekg(conta,file.beg);
         file << line0;
         heap_size_aux = heap_size_aux - 1;
-        heapify(file,0,heap_size_aux,coluna);
+        heapify(file,0,heap_size_aux,coluna,heap_size);
     }
     file.close();
 }
 
-void build_heap(fstream& file,double coluna,double heap_size_aux){
+void build_heap(fstream& file,double coluna,double heap_size_aux,double numero_de_linhas){
     double ultimo_pai;
     ultimo_pai = floor(heap_size_aux/2)-1;
     for (ultimo_pai;ultimo_pai>-1;ultimo_pai--){
-        heapify(file,ultimo_pai,heap_size_aux,coluna);
+        heapify(file,ultimo_pai,heap_size_aux,coluna,numero_de_linhas);
     }
 }
 
-void heapify(fstream& file, double elemento, double heap_size, double coluna){
+void heapify(fstream& file, double elemento, double heap_size, double coluna, double numero_de_linhas){
     double maior_elemento,filho_esquerdo,filho_direito,coluna_aux,conta1,conta2,conta3,conta4;
     string line,backup_M_E,backup_F_E,backup_F_D,str_maior_elemento,str_filho_esquerdo,str_filho_direito;
     maior_elemento = elemento;
@@ -86,14 +86,18 @@ void heapify(fstream& file, double elemento, double heap_size, double coluna){
     file.seekg(conta1,file.beg);
     getline(file,line);
     backup_M_E = line;
-    file.seekg(conta2,file.beg);
-    getline(file,line);
-    backup_F_E = line;
-    file.seekg(conta3,file.beg);
-    getline(file,line);
-    backup_F_D = line;
+	if (filho_esquerdo < numero_de_linhas) {
+		file.seekg(conta2, file.beg);
+		getline(file, line);
+		backup_F_E = line;
+	}
+	if (filho_direito < numero_de_linhas) {
+		file.seekg(conta3, file.beg);
+		getline(file, line);
+		backup_F_D = line;
+	}
     stringstream tokenStreamM_E(backup_M_E);
-    stringstream tokenStreamF_E(backup_F_E);
+	stringstream tokenStreamF_E(backup_F_E);
     stringstream tokenStreamF_D(backup_F_D);
     coluna_aux = coluna;
     while(coluna_aux>0){
@@ -104,7 +108,7 @@ void heapify(fstream& file, double elemento, double heap_size, double coluna){
     }
     if(filho_esquerdo<heap_size && str_maior_elemento.compare(str_filho_esquerdo)<0){
         maior_elemento = filho_esquerdo;
-	str_maior_elemento = str_filho_esquerdo;
+		str_maior_elemento = str_filho_esquerdo;
     }
     if(filho_direito<heap_size && str_maior_elemento.compare(str_filho_direito)<0){
         maior_elemento = filho_direito;
@@ -118,7 +122,7 @@ void heapify(fstream& file, double elemento, double heap_size, double coluna){
         file << backup_M_E;
         file.seekg(conta4,file.beg);
         file << line;
-		heapify(file,maior_elemento,heap_size,coluna);
+		heapify(file,maior_elemento,heap_size,coluna,numero_de_linhas);
     }
 }
 
