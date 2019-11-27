@@ -45,7 +45,7 @@ void heapsort(string arq,double coluna, double heap_size){
     fstream file;
     string line0,line;
 	double qtd_elementos,heap_size_aux,conta;
-    heap_size_aux = 426;
+    heap_size_aux = heap_size;
     qtd_elementos = heap_size_aux-1;
     file.open(arq.c_str());
     build_heap(file,coluna,heap_size_aux);
@@ -104,6 +104,7 @@ void heapify(fstream& file, double elemento, double heap_size, double coluna){
     }
     if(filho_esquerdo<heap_size && str_maior_elemento.compare(str_filho_esquerdo)<0){
         maior_elemento = filho_esquerdo;
+		str_maior_elemento = str_filho_esquerdo;
     }
     if(filho_direito<heap_size && str_maior_elemento.compare(str_filho_direito)<0){
         maior_elemento = filho_direito;
@@ -118,7 +119,6 @@ void heapify(fstream& file, double elemento, double heap_size, double coluna){
         file.seekg(conta4,file.beg);
         file << line;
 		heapify(file,maior_elemento,heap_size,coluna);
-		heapify(file,elemento,heap_size,coluna);
     }
 }
 

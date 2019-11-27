@@ -120,8 +120,12 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <StackReserveSize>=4194304</StackReserveSize>
-      <StackCommitSize>=4194304</StackCommitSize>
+      <StackReserveSize>=14680064</StackReserveSize>
+      <StackCommitSize>=14680064</StackCommitSize>
+      <MinimumRequiredVersion>
+      </MinimumRequiredVersion>
+      <LargeAddressAware>
+      </LargeAddressAware>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
