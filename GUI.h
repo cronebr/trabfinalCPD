@@ -4,7 +4,6 @@
 #include <fstream>
 #include <locale.h>
 #include "data_handler.h"
-
 //************AREA DE CONSTANTES**************************************
 #define BANCO "pokebank.csv"
 namespace TrabalhoCPD {
@@ -306,9 +305,9 @@ namespace TrabalhoCPD {
 				static_cast<System::Byte>(0)));
 			this->label9->Location = System::Drawing::Point(607, 39);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(54, 17);
+			this->label9->Size = System::Drawing::Size(85, 17);
 			this->label9->TabIndex = 21;
-			this->label9->Text = L"Tipo 1";
+			this->label9->Text = L"Habilidade";
 			// 
 			// label10
 			// 
@@ -319,18 +318,43 @@ namespace TrabalhoCPD {
 				static_cast<System::Byte>(0)));
 			this->label10->Location = System::Drawing::Point(732, 39);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(54, 17);
+			this->label10->Size = System::Drawing::Size(40, 17);
 			this->label10->TabIndex = 22;
-			this->label10->Text = L"Tipo 2";
+			this->label10->Text = L"Tipo";
 			// 
 			// comboBox1
 			// 
 			this->comboBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(19) {
-				L"", L"fire", L"water", L"bug", L"poison", L"electric",
-					L"fairy", L"fighting", L"psychic", L"ground", L"normal", L"grass", L"dragon", L"rock", L"dark", L"ghost", L"ice", L"steel", L"flying"
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(233) {
+				L"", L"Overgrow", L"Chlorophyll", L"Blaze", L"Solar Power",
+					L"Torrent", L"Rain Dish", L"Shield Dust", L"Run Away", L"Shed Skin", L"Compoundeyes", L"Tinted Lens", L"Swarm", L"Sniper", L"Keen Eye",
+					L"Tangled Feet", L"Big Pecks", L"Guts", L"Hustle", L"Gluttony", L"Thick Fat", L"Intimidate", L"Unnerve", L"Static", L"Lightningrod",
+					L"Surge Surfer", L"Sand Veil", L"Sand Rush", L"Snow Cloak", L"Slush Rush", L"Poison Point", L"Rivalry", L"Sheer Force", L"Cute Charm",
+					L"Magic Guard", L"Friend Guard", L"Unaware", L"Flash Fire", L"Drought", L"Snow Warning", L"Competitive", L"Frisk", L"Inner Focus",
+					L"Infiltrator", L"Stench", L"Effect Spore", L"Dry Skin", L"Damp", L"Wonder Skin ", L"Arena Trap", L"Sand Force", L"Tangling Hair",
+					L"Pickup", L"Technician", L"Rattled", L"Limber", L"Fur Coat", L"Cloud Nine", L"Swift Swim", L"Vital Spirit", L"Anger Point",
+					L"Defiant", L"Justified", L"Water Absorb", L"Synchronize", L"No Guard", L"Steadfast", L"Clear Body", L"Liquid Ooze", L"Rock Head",
+					L"Sturdy", L"Magnet Pull", L"Galvanize", L"Flame Body", L"Oblivious", L"Own Tempo", L"Regenerator", L"Analytic", L"Early Bird",
+					L"Hydration", L"Ice Body", L"Sticky Hold", L"Poison Touch", L"Power of Alchemy", L"Shell Armor", L"Skill Link", L"Overcoat",
+					L"Levitate", L"Cursed Body", L"Weak Armor", L"Insomnia", L"Forewarn", L"Hyper Cutter", L"Soundproof", L"Aftermath", L"Harvest",
+					L"Battle Armor", L"Reckless", L"Unburden", L"Iron Fist", L"Natural Cure", L"Serene Grace", L"Healer", L"Leaf Guard", L"Scrappy",
+					L"Water Veil", L"Illuminate", L"Filter", L"Mold Breaker", L"Moxie", L"Imposter", L"Adaptability", L"Anticipation", L"Volt Absorb",
+					L"Quick Feet", L"Trace", L"Download", L"Pressure", L"Immunity", L"Marvel Scale", L"Multiscale", L"Super Luck", L"Magic Bounce",
+					L"Plus", L"Huge Power", L"Sap Sipper", L"Drizzle", L"Speed Boost", L"Prankster", L"Shadow Tag", L"Telepathy", L"Light Metal",
+					L"Contrary", L"Pickpocket", L"Honey Gather", L"Magma Armor", L"Moody", L"Suction Cups", L"Sand Stream", L"Poison Heal", L"Truant",
+					L"Wonder Guard", L"Normalize", L"Stall", L"Heavy Metal", L"Pure Power", L"Minus", L"Rough Skin", L"Simple", L"Solid Rock", L"White Smoke",
+					L"Toxic Boost", L"Storm Drain", L"Forecast", L"Color Change", L"Protean", L"Air Lock", L"Flower Gift", L"Flare Boost", L"Klutz",
+					L"Heatproof", L"Motor Drive", L"Slow Start", L"Bad Dreams", L"Multitype", L"Victory Star", L"Zen Mode", L"Mummy", L"Defeatist",
+					L"Illusion", L"Iron Barbs", L"Turboblaze", L"Teravolt", L"Bulletproof", L"Magician", L"Battle Bond", L"Cheek Pouch", L"Gale Wings",
+					L"Flower Veil", L"Symbiosis", L"Grass Pelt", L"Stance Change", L"Aroma Veil", L"Sweet Veil", L"Tough Claws", L"Mega Launcher",
+					L"Strong Jaw", L"Refrigerate", L"Pixilate", L"Gooey", L"Fairy Aura", L"Dark Aura", L"Aura Break", L"Power Construct", L"Long Reach",
+					L"Liquid Voice", L"Stakeout", L"Battery", L"Dancer", L"Schooling", L"Merciless", L"Stamina", L"Water Bubble", L"Corrosion", L"Fluffy",
+					L"Queenly Majesty", L"Triage", L"Receiver", L"Wimp Out", L"Emergency Exit", L"Water Compaction", L"Innards Out", L"RKS System",
+					L"Shields Down", L"Comatose", L"Disguise", L"Dazzling", L"Berserk", L"Steelworker", L"Electric Surge", L"Psychic Surge", L"Grassy Surge",
+					L"Misty Surge", L"Full Metal Body", L"Shadow Shield", L"Beast Boost", L"Prism Armor", L"Soul-Heart", L"Aerilate", L"Delta Stream",
+					L"Desolate Land", L"Primordial Sea", L"Parental Bond"
 			});
 			this->comboBox1->Location = System::Drawing::Point(601, 58);
 			this->comboBox1->Name = L"comboBox1";
@@ -359,8 +383,8 @@ namespace TrabalhoCPD {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->comboBox3->FormattingEnabled = true;
 			this->comboBox3->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-				L"", L"Alfabética", L"Pokédex", L"Alfabética Inversa",
-					L"Geração"
+				L"", L"Alfabetica", L"Pokedex", L"Alfabetica Inversa",
+					L"Geracao"
 			});
 			this->comboBox3->Location = System::Drawing::Point(877, 56);
 			this->comboBox3->Name = L"comboBox3";
@@ -632,18 +656,16 @@ private: System::Void textBox5_TextChanged(System::Object^ sender, System::Event
 private: System::Void textBox6_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-	std::string tipo1;
-	std::string tipo2;
+	std::string habilidade;
+	std::string tipo;
 	std::string ordem;
 	std::string stat;
-	this->MarshalString(comboBox1->Text, tipo1);
-	this->MarshalString(comboBox2->Text, tipo2);
+	Arquivos metodosAux;
+	this->MarshalString(comboBox1->Text, habilidade);
+	this->MarshalString(comboBox2->Text, tipo);
 	this->MarshalString(comboBox3->Text, ordem);
 	this->MarshalString(comboBox4->Text, stat);
-	textBox9->Text = gcnew System::String(tipo1.c_str());
-	textBox9->Text = gcnew System::String(tipo2.c_str());
-	textBox9->Text = gcnew System::String(ordem.c_str());
-	textBox9->Text = gcnew System::String(stat.c_str());
+	textBox9->Text = gcnew System::String(metodosAux.searchFilters(habilidade, tipo, ordem, stat).c_str());
 }
 private: System::Void comboBox3_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }

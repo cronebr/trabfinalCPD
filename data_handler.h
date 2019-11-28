@@ -18,9 +18,15 @@ class Arquivos
 		void createPokemon_AbilityTable(std::string dataBaseName);
 		void createPokemon_TypeTable(std::string dataBaseName);
 		void createPokemon_StatTable(std::string dataBaseName);
+		void writePokemonsNameOnPokedexOrder(std::string namearchive);
 	public:
 		int getId(std::string stringForSearch, int tabelaToSearch);
+		std::string searchFilters(std::string tipo1, std::string tipo2, std::string ordem, std::string stat);
 		std::string getById(std::string stringForSearch, int tabelaToSearch);
+		std::string getListofRelationsById(std::string stringForSearch, int tabelaToSearch , std::string nameArchiveTemp);
+		std::string applyTypefilter(std::string ability);
+		std::string applyabilityfilter(std::string type);
+		std::string applyOrdemfilter(std::string ordem);
 		int creationManager(std::string dataBaseName);//manages the creation of the archives
 		std::vector<std::string> split(std::string s, char delimiter);//separa uma string em vetores baseado em um delimitador
 };
