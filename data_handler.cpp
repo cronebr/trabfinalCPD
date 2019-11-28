@@ -186,13 +186,13 @@ void Arquivos::createTypeTable(std::string dataBaseName)
 	int coluna;						//variavel para saber que atributo esta carregando
 
 	file.open(std::string(DATAARCHIVEPATH).append(TYPETABLE), std::fstream::out);//abre o arquivo final
-	typessearched.open(std::string(DATAARCHIVEPATH).append("guardatipos.bin"), std::ios::in | std::ios::out | std::ios::app);//abre o arquivo 
+	typessearched.open(std::string(DATAARCHIVEPATH).append("guardatipos.csv"), std::ios::in | std::ios::out | std::ios::app);//abre o arquivo 
 	databaseFonte.open(std::string(dataBaseName));	//abre o arquivo fonte
 	file << TYPEHEADER;				//coloca o cabe�alho
 	std::getline(databaseFonte, typeFields);
 	while (std::getline(databaseFonte, typeFields))//itera no arquivo original 
 	{
-		vectorSubs.open(std::string(DATAARCHIVEPATH).append("helper.bin"), std::ios::in | std::ios::out | std::ios::app);//abre o arquivo auxiliar
+		vectorSubs.open(std::string(DATAARCHIVEPATH).append("helper.csv"), std::ios::in | std::ios::out | std::ios::app);//abre o arquivo auxiliar
 		coluna = 0;
 		keepIterating = true;
 		typeFields.erase(std::remove(typeFields.begin(), typeFields.end(), '\n'), typeFields.end());//apaga o \n
@@ -237,11 +237,11 @@ void Arquivos::createTypeTable(std::string dataBaseName)
 			coluna++;
 		}
 		vectorSubs.close();
-		remove(std::string(DATAARCHIVEPATH).append("helper.bin").c_str());//deleta arquivo ajudante
+		remove(std::string(DATAARCHIVEPATH).append("helper.csv").c_str());//deleta arquivo ajudante
 	}
 	//fecha o arquivo
 	typessearched.close();					//fecha o arquivo
-	remove(std::string(DATAARCHIVEPATH).append("guardatipos.bin").c_str());//deleta arquivo ajudante
+	remove(std::string(DATAARCHIVEPATH).append("guardatipos.csv").c_str());//deleta arquivo ajudante
 	file.close();					//fecha o arquivo
 	databaseFonte.close();					//fecha o arquivo
 	return;
@@ -655,7 +655,7 @@ std::string Arquivos::searchFilters(std::string habilidade, std::string tipo, st
 	}
 	if (stat != "")
 	{
-		//respostaStat
+		respostaStat = this->applyStatfilter(stat);
 		todosVazios = 0;
 	}
 	if (todosVazios == 1) {
@@ -678,6 +678,39 @@ std::string Arquivos::applyabilityfilter(std::string ability)
 	int typeiId = this->getId(ability, ABILITY);
 	std::string nomearquivo = this->getListofRelationsById(std::to_string(typeiId), ABILITY, std::string(DATAARCHIVEPATH).append("listTempAbility.csv"));
 	return nomearquivo;
+}
+
+std::string Arquivos::applyStatfilter(std::string stat)
+{
+	std::string resposta;
+	if (stat =="hp") {
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listTempstat.csv"), 6);
+		resposta = std::string(DATAARCHIVEPATH).append("listTempstat.csv");
+	}
+	else if (stat == "attack") {
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listTempstat.csv"), 2);
+		resposta = std::string(DATAARCHIVEPATH).append("listTempstat.csv");
+	}
+	else if (stat == "defense") {
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listTempstat.csv"), 6);
+		resposta = std::string(DATAARCHIVEPATH).append("listTempstat.csv");
+	}
+	else if (stat == "spattack") {
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listTempstat.csv"), 8);
+		resposta = std::string(DATAARCHIVEPATH).append("listTempstat.csv");
+	}
+	else if (stat == "spdefense") {
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listTempstat.csv"), 9);
+		resposta = std::string(DATAARCHIVEPATH).append("listTempstat.csv");
+	}
+	else if (stat == "speed") {
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listTempstat.csv"), 10);
+		resposta = std::string(DATAARCHIVEPATH).append("listTempstat.csv");
+	}
+	else {
+		resposta == "";
+	}
+	return resposta;
 }
 
 std::string Arquivos::getListofRelationsById(std::string stringForSearch, int tabelaToSearch, std::string nameArchiveTemp)
@@ -726,23 +759,29 @@ std::string Arquivos::getListofRelationsById(std::string stringForSearch, int ta
 
 std::string Arquivos::applyOrdemfilter(std::string ordem)
 {
+	std::string resposta;
 	if (ordem == "")
 	{
-
+		resposta = "";
 	}
 	else if (ordem == "Alfabetica") {
-
+		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listTempnamesGeracaooA.csv"));
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append("listTempnamesGeracaooA.csv"), std::string(DATAARCHIVEPATH).append("listTempnamesOalfabetica.csv"), 6);
+		resposta = std::string(DATAARCHIVEPATH).append("listTempnamesOalfabetica.csv");
 	}
 	else if (ordem == "Alfabetica Inversa") {
-
+		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listTempnamesGeracaooAi.csv"));
+		inicia_ordenacaoinvertida(std::string(DATAARCHIVEPATH).append("listTempnamesGeracaooAi.csv"), std::string(DATAARCHIVEPATH).append("listTempnamesOalfabeticaIn.csv"), 6);
+		resposta = std::string(DATAARCHIVEPATH).append("listTempnamesOalfabeticaIn.csv");
 	}
 	else if (ordem == "Geracao") {
-
+		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listTempnamesGeracao.csv"));
 	}else if(ordem == "Pokedex") {
-
+		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listTempnamesPokedex.csv"));
+		resposta = std::string(DATAARCHIVEPATH).append("listTempnamesPokedex.csv");
 	}
 
-	return std::string();
+	return resposta;
 }
 void Arquivos::writePokemonsNameOnPokedexOrder(std::string namearchive)
 {
@@ -752,39 +791,21 @@ void Arquivos::writePokemonsNameOnPokedexOrder(std::string namearchive)
 	std::string pokemons;
 	std::string stringAux;
 	int index = 1;
-	int coluna;
+	int coluna, colunaname = 6;
 
-	databaseFonte.open(std::string(namearchive));//abre o arquivo original para leitura
-	pokemonTable.open(std::string(DATAARCHIVEPATH).append(POKEMONTABLE), std::fstream::out);//abre o arquivo
-	pokemonTable << POKEMONHEADER;
-	std::getline(databaseFonte, pokemons);//le o cabecalho do csv do arquivo fonte
-	while (std::getline(databaseFonte, pokemons))
+	databaseFonte.open(std::string(namearchive), std::fstream::out);//abre o arquivo original para leitura
+	pokemonTable.open(std::string(DATAARCHIVEPATH).append(POKEMONTABLE), std::fstream::in);//abre o arquivo
+	std::getline(pokemonTable, pokemons);//le o cabecalho do csv do arquivo fonte
+	while (std::getline(pokemonTable, pokemons))
 	{
 		coluna = 0;
-		pokemons.erase(std::remove(pokemons.begin(), pokemons.end(), '\n'), pokemons.end());
 		std::stringstream tokenStream(pokemons);//transforma as habilidades em um stream para separacao
-		pokemonTable << "\n" << index;
-		while (std::getline(tokenStream, stringAux, DELIMITER))//itera entre todas as habilidades dentro do toKenStream
-		{
-			switch (coluna)
-			{
-			case CAPTURERATE:
-			case CLASSIFICATION:
-			case EXPERIENCEGROWTH:
-			case HEIGHTM:
-			case NAME:
-			case PERCENTAGEMALE:
-			case POKEDEXNUMBER:
-			case WEIGHTKG:
-			case GENERATION:
-			case ISLEGENDARY:
-			case HASMEGA:
-				pokemonTable << DELIMITER << stringAux;
-				break;
-			}
-			coluna++;
+		for (int i = 0; i < colunaname;i++) {
+			std::getline(tokenStream, stringAux, DELIMITER);
 		}
-		index++;
+		databaseFonte  << stringAux << "\n";
+		std::getline(tokenStream, stringAux);//itera entre todas as habilidades dentro do toKenStream
+		
 	}
 	databaseFonte.close();					//fecha o arquivo
 	pokemonTable.close();					//fecha o arquivo
