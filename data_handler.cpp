@@ -669,14 +669,14 @@ std::string Arquivos::searchFilters(std::string habilidade, std::string tipo, st
 std::string Arquivos::applyTypefilter(std::string type)
 {
 	int typeiId = this->getId(type,TYPE);
-	std::string nomearquivo = this->getListofRelationsById(std::to_string(typeiId), TYPE, std::string(DATAARCHIVEPATH).append("listTempType.csv"));
+	std::string nomearquivo = this->getListofRelationsById(std::to_string(typeiId), TYPE, std::string(DATAARCHIVEPATH).append("listOrdByType.csv"));
 	return nomearquivo;
 }
 
 std::string Arquivos::applyabilityfilter(std::string ability)
 {
 	int typeiId = this->getId(ability, ABILITY);
-	std::string nomearquivo = this->getListofRelationsById(std::to_string(typeiId), ABILITY, std::string(DATAARCHIVEPATH).append("listTempAbility.csv"));
+	std::string nomearquivo = this->getListofRelationsById(std::to_string(typeiId), ABILITY, std::string(DATAARCHIVEPATH).append("listOrdByAbility.csv"));
 	return nomearquivo;
 }
 
@@ -684,31 +684,28 @@ std::string Arquivos::applyStatfilter(std::string stat)
 {
 	std::string resposta;
 	if (stat =="hp") {
-		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listTempstat.csv"), 6);
-		resposta = std::string(DATAARCHIVEPATH).append("listTempstat.csv");
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"), 6);
+		resposta = std::string(DATAARCHIVEPATH).append("listOrdByStat.csv");
 	}
 	else if (stat == "attack") {
-		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listTempstat.csv"), 2);
-		resposta = std::string(DATAARCHIVEPATH).append("listTempstat.csv");
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"), 2);
+		resposta = std::string(DATAARCHIVEPATH).append("listOrdByStat.csv");
 	}
 	else if (stat == "defense") {
-		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listTempstat.csv"), 6);
-		resposta = std::string(DATAARCHIVEPATH).append("listTempstat.csv");
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"), 6);
+		resposta = std::string(DATAARCHIVEPATH).append("listOrdByStat.csv");
 	}
 	else if (stat == "spattack") {
-		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listTempstat.csv"), 8);
-		resposta = std::string(DATAARCHIVEPATH).append("listTempstat.csv");
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"), 8);
+		resposta = std::string(DATAARCHIVEPATH).append("listOrdByStat.csv");
 	}
 	else if (stat == "spdefense") {
-		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listTempstat.csv"), 9);
-		resposta = std::string(DATAARCHIVEPATH).append("listTempstat.csv");
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"), 9);
+		resposta = std::string(DATAARCHIVEPATH).append("listOrdByStat.csv");
 	}
 	else if (stat == "speed") {
-		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listTempstat.csv"), 10);
-		resposta = std::string(DATAARCHIVEPATH).append("listTempstat.csv");
-	}
-	else {
-		resposta == "";
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"), 10);
+		resposta = std::string(DATAARCHIVEPATH).append("listOrdByStat.csv");
 	}
 	return resposta;
 }
@@ -760,19 +757,15 @@ std::string Arquivos::getListofRelationsById(std::string stringForSearch, int ta
 std::string Arquivos::applyOrdemfilter(std::string ordem)
 {
 	std::string resposta;
-	if (ordem == "")
-	{
-		resposta = "";
-	}
-	else if (ordem == "Alfabetica") {
-		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listTempnamesGeracaooA.csv"));
-		inicia_ordenacao(std::string(DATAARCHIVEPATH).append("listTempnamesGeracaooA.csv"), std::string(DATAARCHIVEPATH).append("listTempnamesOalfabetica.csv"), 6);
-		resposta = std::string(DATAARCHIVEPATH).append("listTempnamesOalfabetica.csv");
+	 if (ordem == "Alfabetica") {
+		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabetica.csv"));
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabetica.csv"), std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabetica.csv"), 6);
+		resposta = std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabetica.csv");
 	}
 	else if (ordem == "Alfabetica Inversa") {
-		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listTempnamesGeracaooAi.csv"));
-		inicia_ordenacaoinvertida(std::string(DATAARCHIVEPATH).append("listTempnamesGeracaooAi.csv"), std::string(DATAARCHIVEPATH).append("listTempnamesOalfabeticaIn.csv"), 6);
-		resposta = std::string(DATAARCHIVEPATH).append("listTempnamesOalfabeticaIn.csv");
+		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabeticaInversa.csv"));
+		inicia_ordenacaoinvertida(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabeticaInversa.csv"), std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabeticaInversa.csv"), 6);
+		resposta = std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabeticaInversa.csv");
 	}
 	else if (ordem == "Geracao") {
 		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listTempnamesGeracao.csv"));
@@ -780,7 +773,6 @@ std::string Arquivos::applyOrdemfilter(std::string ordem)
 		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listTempnamesPokedex.csv"));
 		resposta = std::string(DATAARCHIVEPATH).append("listTempnamesPokedex.csv");
 	}
-
 	return resposta;
 }
 void Arquivos::writePokemonsNameOnPokedexOrder(std::string namearchive)

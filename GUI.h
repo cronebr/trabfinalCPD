@@ -4,6 +4,7 @@
 #include <fstream>
 #include <locale.h>
 #include "data_handler.h"
+#include "processamento.h"
 //************AREA DE CONSTANTES**************************************
 #define BANCO "pokebank.csv"
 namespace TrabalhoCPD {
@@ -382,8 +383,8 @@ namespace TrabalhoCPD {
 			this->comboBox3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->comboBox3->FormattingEnabled = true;
-			this->comboBox3->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-				L"", L"Alfabetica", L"Pokedex", L"Alfabetica Inversa",
+			this->comboBox3->Items->AddRange(gcnew cli::array< System::Object^  >(4) {
+				L"Alfabetica", L"Pokedex", L"Alfabetica Inversa",
 					L"Geracao"
 			});
 			this->comboBox3->Location = System::Drawing::Point(877, 56);
@@ -410,9 +411,9 @@ namespace TrabalhoCPD {
 			this->comboBox4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->comboBox4->FormattingEnabled = true;
-			this->comboBox4->Items->AddRange(gcnew cli::array< System::Object^  >(7) {
-				L"", L"hp", L"attack", L"defense", L"spattack",
-					L"spdefense", L"speed"
+			this->comboBox4->Items->AddRange(gcnew cli::array< System::Object^  >(6) {
+				L"hp", L"attack", L"defense", L"spattack", L"spdefense",
+					L"speed"
 			});
 			this->comboBox4->Location = System::Drawing::Point(1021, 56);
 			this->comboBox4->Name = L"comboBox4";
@@ -485,6 +486,7 @@ namespace TrabalhoCPD {
 			this->textBox8->Name = L"textBox8";
 			this->textBox8->Size = System::Drawing::Size(452, 229);
 			this->textBox8->TabIndex = 32;
+			this->textBox8->TextChanged += gcnew System::EventHandler(this, &GUI::textBox8_TextChanged);
 			// 
 			// label15
 			// 
@@ -639,6 +641,8 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	this->MarshalString(textBox4->Text, pokemon4);
 	this->MarshalString(textBox5->Text, pokemon5);
 	this->MarshalString(textBox6->Text, pokemon6);
+	std::string pokemons[] = { pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6 };
+	textBox8->Text = gcnew System::String(devolve_time_contra(pokemons).c_str());
 	//fazer aqui o processamento dos pokemons
 }
  private: void MarshalString(System::String^ s, std::string& os) {
@@ -670,6 +674,8 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void comboBox3_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void textBox9_TextChanged(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void textBox8_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

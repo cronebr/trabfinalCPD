@@ -20,7 +20,7 @@
 #define TYPEINDEX				5
 #define DELIMITER				','
 
-void devolve_time_contra(std::string arq1, std::string arq2, std::string index, std::string pokemons[]);
+std::string devolve_time_contra(std::string pokemons[]);
 std::string getTypeById(std::string stringForSearch, std::fstream&);
 int getId(std::string stringForSearch, int tabelaToSearch);
 std::string verificaPokemonsContra(std::string pokemons[], std::string types[]);

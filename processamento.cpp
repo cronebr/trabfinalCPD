@@ -1,6 +1,6 @@
 ﻿#include "processamento.h"
 
-void devolve_time_contra(std::string arq1,std::string arq2,std::string index,std::string pokemons[]) {
+std::string devolve_time_contra(std::string pokemons[]) {
 	int ids[6],i;
 	std::fstream file;
 	std::string types[12],teste,pokemonsBonsContra;
@@ -24,12 +24,13 @@ void devolve_time_contra(std::string arq1,std::string arq2,std::string index,std
 		}
 	}
 	pokemonsBonsContra = verificaPokemonsContra(pokemons, types);
+	return pokemonsBonsContra;
 }
 
 std::string verificaPokemonsContra(std::string pokemons[], std::string types[]){
 	std::string pokemonsBonsContra,bomContraType1[18],bomContraType2[18],linha,valor1,valor2,aux;
 	std::fstream file;
-	int i,j,coluna1,coluna2,coluna1_aux,coluna2_aux,type1_aux,type2_aux,type1,type2,j_aux;
+	int i=0,j=0,coluna1=0,coluna2=0,coluna1_aux=0,coluna2_aux=0,type1_aux=0,type2_aux=0,type1=0,type2=0,j_aux=0;
 	float bomContraTypeTotal[18],type1convert,type2convert;
 	for (i = 0; i < 6; i++) {
 		std::cout << pokemons[i] << "," << types[i * 2] << "," << types[(i * 2) + 1] << "-";
