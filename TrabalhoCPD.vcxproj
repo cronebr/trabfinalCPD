@@ -134,10 +134,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="algoritmos_de_ordenacao.cpp" />
     <ClCompile Include="data_handler.cpp" />
     <ClCompile Include="GUI.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="algoritmos_de_ordenacao.h" />
     <ClInclude Include="data_handler.h" />
     <ClInclude Include="GUI.h">
       <FileType>CppForm</FileType>

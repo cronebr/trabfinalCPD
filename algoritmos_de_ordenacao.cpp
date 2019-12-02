@@ -140,7 +140,7 @@ void heapsortInvertido(std::string arq, double coluna, double heap_size) {
 	heap_size_aux = heap_size;
 	qtd_elementos = heap_size_aux - 1;
 	file.open(arq.c_str());
-	build_heap(file, coluna, heap_size_aux, heap_size);
+	build_heap_Invertido(file, coluna, heap_size_aux, heap_size);
 
 	for (qtd_elementos; qtd_elementos > 0; qtd_elementos--) {
 		file.seekg(0, file.beg);
@@ -158,6 +158,13 @@ void heapsortInvertido(std::string arq, double coluna, double heap_size) {
 	file.close();
 }
 
+void build_heap_Invertido(std::fstream& file, double coluna, double heap_size_aux, double numero_de_linhas) {
+	double ultimo_pai;
+	ultimo_pai = floor(heap_size_aux / 2) - 1;
+	for (ultimo_pai; ultimo_pai > -1; ultimo_pai--) {
+		heapifyInvertido(file, ultimo_pai, heap_size_aux, coluna, numero_de_linhas);
+	}
+}
 
 
 void heapifyInvertido(std::fstream& file, double elemento, double heap_size, double coluna, double numero_de_linhas) {
@@ -208,6 +215,6 @@ void heapifyInvertido(std::fstream& file, double elemento, double heap_size, dou
 		file << backup_M_E;
 		file.seekg(conta4, file.beg);
 		file << line;
-		heapify(file, maior_elemento, heap_size, coluna, numero_de_linhas);
+		heapifyInvertido(file, maior_elemento, heap_size, coluna, numero_de_linhas);
 	}
 }
