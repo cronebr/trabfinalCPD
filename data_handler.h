@@ -19,6 +19,10 @@ class Arquivos
 		void createPokemon_TypeTable(std::string dataBaseName);
 		void createPokemon_StatTable(std::string dataBaseName);
 		void writePokemonsNameOnPokedexOrder(std::string namearchive);
+		std::string mergeResults(std::string habilidade, std::string tipo, std::string ordem, std::string stat);
+		std::vector<std::string> intersection(std::vector<std::string>& nums1, std::vector<std::string>& nums2);
+		std::vector<std::string> chargeVector(std::vector<std::string>& vector1, std::string list);
+		std::string Arquivos::getByNamebyStat(std::string tabelaToSearch);
 	public:
 		int getId(std::string stringForSearch, int tabelaToSearch);
 		std::string searchFilters(std::string tipo1, std::string tipo2, std::string ordem, std::string stat);
@@ -30,4 +34,5 @@ class Arquivos
 		std::string applyOrdemfilter(std::string ordem);
 		int creationManager(std::string dataBaseName);//manages the creation of the archives
 		std::vector<std::string> split(std::string s, char delimiter);//separa uma string em vetores baseado em um delimitador
+		std::string getNamefromTabelawithdot( std::string tabela);
 };

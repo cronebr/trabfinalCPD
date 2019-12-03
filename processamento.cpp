@@ -1,6 +1,6 @@
 ﻿#include "processamento.h"
 
-std::string devolve_time_contra(std::string pokemons[]) {
+std::string devolve_time_contra(std::string arq1,std::string arq2,std::string index,std::string pokemons[]) {
 	int ids[6],i;
 	std::fstream file;
 	std::string types[12],teste,pokemonsBonsContra;
@@ -28,57 +28,50 @@ std::string devolve_time_contra(std::string pokemons[]) {
 }
 
 std::string verificaPokemonsContra(std::string pokemons[], std::string types[]){
-	std::string pokemonsBonsContra,bomContraType1[18],bomContraType2[18],linha,valor1,valor2,aux;
-	std::fstream file;
-	int i=0,j=0,coluna1=0,coluna2=0,coluna1_aux=0,coluna2_aux=0,type1_aux=0,type2_aux=0,type1=0,type2=0,j_aux=0;
+	std::string pokemonsBonsContra,bomContraType1[18],bomContraType2[18],linhalida1,linhalida2,valor1,valor2,aux,idTypeString,linhalida3,nome_pokemon_bom_contra;
+	std::fstream file,file2;
+	int i,j,linha1,linha2,linha1_aux,linha2_aux,types_bons_contra[18],numero_de_tipos_bons_contra,r,idType,numero_de_linhas;
 	float bomContraTypeTotal[18],type1convert,type2convert;
+	srand(time(NULL));
 	for (i = 0; i < 6; i++) {
-		std::cout << pokemons[i] << "," << types[i * 2] << "," << types[(i * 2) + 1] << "-";
 	}
 	file.open(std::string(DATAARCHIVEPATH).append(TYPETABLE), std::fstream::out | std::ios::in | std::ios::app);
 	for (i = 0; i < 6; i++) {
-		coluna1 = definecoluna(types[i*2]);
-		coluna2 = definecoluna(types[(i * 2)+1]);
-		std::cout << "\n" << coluna1 << " " << coluna2 << "\n";
-		for (j = 0; j < 18; j++) {
-			j_aux = j;
-			coluna1_aux = coluna1;
-			coluna2_aux = coluna2;
-			file.seekg(0, file.beg);
-			std::getline(file, linha);
-			while (j_aux>-1) {
-				std::getline(file, linha);
-				j_aux = j_aux - 1;
-			}
-			std::stringstream tokenStream(linha);
-			std::getline(tokenStream, valor1, DELIMITER);
-			std::getline(tokenStream, valor1, DELIMITER);
-			while(coluna1_aux>0){
-				std::getline(tokenStream, valor1, DELIMITER);
-				coluna1_aux = coluna1_aux - 1;
-			}
-			bomContraType1[j] = valor1;
-
-			if (coluna2 == 0) {
-				bomContraType2[j] = "-1";
-			}else {
-				j_aux = j;
-				file.seekg(0, file.beg);
-				std::getline(file, linha);
-				while (j_aux > -1) {
-					std::getline(file, linha);
-					j_aux = j_aux - 1;
-				}
-				std::stringstream tokenStream1(linha);
-				std::getline(tokenStream1, valor2, DELIMITER);
-				std::getline(tokenStream1, valor2, DELIMITER);
-				while (coluna2_aux > 0) {
-					std::getline(tokenStream1, valor2, DELIMITER);
-					coluna2_aux = coluna2_aux - 1;
-				}
-				bomContraType2[j] = valor2;
+		linha1 = stoi(types[i*2]);
+		linha2 = stoi(types[(i * 2)+1]);
+		linha1_aux = linha1;
+		linha2_aux = linha2;
+		file.seekg(0, file.beg);
+		std::getline(file, linhalida1);
+		while (linha1_aux > 0) {
+			std::getline(file, linhalida1);
+			linha1_aux = linha1_aux - 1;
+		}
+		file.seekg(0, file.beg);
+		std::getline(file, linhalida2);
+		if (linha2 > 0) {
+			while (linha2_aux > 0) {
+				std::getline(file, linhalida2);
+				linha2_aux = linha2_aux - 1;
 			}
 		}
+		std::stringstream tokenStream1(linhalida1);
+		std::getline(tokenStream1, valor1, DELIMITER);
+		std::getline(tokenStream1, valor1, DELIMITER);
+		std::stringstream tokenStream(linhalida2);
+		std::getline(tokenStream, valor2, DELIMITER);
+		std::getline(tokenStream, valor2, DELIMITER);
+		for (j = 0; j < 18; j++) {
+			if (linha2 == 0) {
+				bomContraType2[j] = "-1";
+			}else {
+				std::getline(tokenStream, valor2, DELIMITER);
+				bomContraType2[j] = valor2;
+			}
+			std::getline(tokenStream1, valor1, DELIMITER);
+			bomContraType1[j] = valor1;
+		}
+		numero_de_tipos_bons_contra = 0;
 		for (j = 0; j < 18; j++) {
 			aux = bomContraType1[j];
 			type1convert = std::strtof((aux).c_str(), 0);
@@ -90,76 +83,96 @@ std::string verificaPokemonsContra(std::string pokemons[], std::string types[]){
 			else {
 				bomContraTypeTotal[j] = type1convert * type2convert;
 			}
-			std::cout << "\n" << type1convert << " " << type2convert << " " << bomContraTypeTotal[j] << "\n";
+			if (bomContraTypeTotal[j] > 1) {
+				types_bons_contra[numero_de_tipos_bons_contra] = j+1;
+				numero_de_tipos_bons_contra = numero_de_tipos_bons_contra + 1;
+			}
 		}
+		j = 0;
+		while (numero_de_tipos_bons_contra > j) {
+			j = j + 1;
+		}
+		r = rand() % numero_de_tipos_bons_contra;
+		idType = definelinha(types_bons_contra[r]);
+		idTypeString = std::to_string(idType);
+		numero_de_linhas = getListofRelationsById(idTypeString,TYPE, std::string(DATAARCHIVEPATH).append(LISTGOODPOKEMONAGAINST));
+		r = rand() % numero_de_linhas;
+		file2.open(std::string(DATAARCHIVEPATH).append(LISTGOODPOKEMONAGAINST));
+		while (r > 0) {
+			std::getline(file2,linhalida3);
+			r = r - 1;
+		}
+		nome_pokemon_bom_contra = getNameById(linhalida3, POKEMON);
+		file2.close();
+		remove(std::string(DATAARCHIVEPATH).append(LISTGOODPOKEMONAGAINST).c_str());
+		pokemonsBonsContra = pokemonsBonsContra + nome_pokemon_bom_contra + "\r\n";
 	}
 	file.close();
 	return pokemonsBonsContra;
 }
 
-int definecoluna(std::string type){
-	int typeconvert,coluna = 0;
-	typeconvert = std::stoi(type);
-	switch (typeconvert) {
+int definelinha(int coluna){
+	int linha = 0;
+	switch (coluna) {
 		case 0:
-			coluna = 0;
+			linha = 0;
 			break;
 		case 1:
-			coluna = 7;
+			linha = 3;
 			break;
 		case 2:
-			coluna = 18;
+			linha = 14;
 			break;
 		case 3:
-			coluna = 1;
+			linha = 12;
 			break;
 		case 4:
-			coluna = 14;
+			linha = 5;
 			break;
 		case 5:
-			coluna = 4;
+			linha = 6;
 			break;
 		case 6:
-			coluna = 5;
+			linha = 7;
 			break;
 		case 7:
-			coluna = 6;
+			linha = 1;
 			break;
 		case 8:
-			coluna = 15;
+			linha = 18;
 			break;
 		case 9:
-			coluna = 11;
+			linha = 15;
 			break;
 		case 10:
-			coluna = 13;
+			linha = 11;
 			break;
 		case 11:
-			coluna = 10;
+			linha = 9;
 			break;
 		case 12:
-			coluna = 3;
+			linha = 16;
 			break;
 		case 13:
-			coluna = 16;
+			linha = 10;
 			break;
 		case 14:
-			coluna = 2;
+			linha = 4;
 			break;
 		case 15:
-			coluna = 9;
+			linha = 8;
 			break;
 		case 16:
-			coluna = 12;
+			linha = 13;
 			break;
 		case 17:
-			coluna = 17;
+			linha = 17;
 			break;
 		case 18:
-			coluna = 8;
+			linha = 2;
 			break;
 	}
-	return coluna;
+	return linha;
 }
 
 std::string getTypeById(std::string stringForSearch, std::fstream& file)
@@ -236,5 +249,101 @@ int getId(std::string stringForSearch, int tabelaToSearch)// SE RETORNAR -1 O ID
 	{
 		resposta = -1;//a palavra não existe na tabela
 	}
+	return resposta;
+}
+
+int getListofRelationsById(std::string stringForSearch, int tabelaToSearch, std::string nameArchiveTemp)
+{
+
+	std::string resposta;
+	std::fstream file;
+	std::fstream filetemp;
+	std::string stringSearcher;
+	int numero_de_linhas = 0;
+
+
+	filetemp.open(nameArchiveTemp, std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+
+	switch (tabelaToSearch)
+	{
+	case 1:
+		file.open(std::string(INDEXARCHIVEPATH).append(POKEMONABILITYTABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		break;
+	case 3:
+		file.open(std::string(INDEXARCHIVEPATH).append(POKEMONSTATTABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		break;
+	case 4:
+		file.open(std::string(INDEXARCHIVEPATH).append(POKEMONTYPETABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		break;
+	}
+	std::getline(file, stringSearcher);//retira o cabecalho
+	while (std::getline(file, stringSearcher))//faz o laco enquanto deve
+	{
+		std::stringstream tokenStream(stringSearcher);//pega o stream
+		std::getline(tokenStream, stringSearcher, DELIMITER);
+		std::getline(tokenStream, stringSearcher, DELIMITER);
+		resposta = stringSearcher;		//atribui a linha, que talvez seja a resposta 
+		while (std::getline(tokenStream, stringSearcher, DELIMITER))// vai pegando as partes do stream ate a ,
+		{
+			if (stringForSearch == stringSearcher)// se encontrou o id, para de procurar
+			{
+				filetemp << resposta << '\n';
+				numero_de_linhas = numero_de_linhas + 1;
+			}
+		}
+	}
+	file.close();
+	filetemp.close();
+	return numero_de_linhas;
+}
+
+std::string getNameById(std::string stringForSearch, int tabelaToSearch)
+{
+	std::string resposta;
+	std::fstream file;
+	std::string stringSearcher;
+	bool isFoundIt = false;
+	bool isTerminateIt = false;
+	int aux = 5;
+
+	switch (tabelaToSearch)
+	{
+	case 1:
+		file.open(std::string(DATAARCHIVEPATH).append(ABILITYTABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		break;
+	case 2:
+		file.open(std::string(DATAARCHIVEPATH).append(POKEMONTABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		break;
+	case 3:
+		file.open(std::string(DATAARCHIVEPATH).append(STATTABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		break;
+	case 4:
+		file.open(std::string(DATAARCHIVEPATH).append(TYPETABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		break;
+	}
+	std::getline(file, stringSearcher);//retira o cabecalho
+	while (std::getline(file, stringSearcher) && !isTerminateIt)//faz o laco enquanto deve
+	{
+		std::stringstream tokenStream(stringSearcher);//pega o stream
+		while (std::getline(tokenStream, stringSearcher, DELIMITER) && !isFoundIt)// vai pegando as partes do stream ate a ,
+		{
+			if (stringForSearch == stringSearcher)// se encontrou o id, para de procurar
+			{
+				isTerminateIt = true;
+				isFoundIt = true;
+				while (aux > 0) {
+					std::getline(tokenStream, stringSearcher, DELIMITER);
+					aux = aux - 1;
+				}
+				resposta = stringSearcher;
+			}
+			else
+			{
+				isFoundIt = true;//senão verifica o proximo id
+			}
+		}
+		isFoundIt = false;
+	}
+	file.close();
 	return resposta;
 }

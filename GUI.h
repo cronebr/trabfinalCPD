@@ -65,8 +65,8 @@ namespace TrabalhoCPD {
 	private: System::Windows::Forms::Label^ label11;
 	private: System::Windows::Forms::ComboBox^ comboBox4;
 	private: System::Windows::Forms::Label^ label12;
-	private: System::Windows::Forms::TextBox^ textBox7;
-	private: System::Windows::Forms::Label^ label13;
+
+
 	private: System::Windows::Forms::Label^ label14;
 	private: System::Windows::Forms::TextBox^ textBox8;
 	private: System::Windows::Forms::Label^ label15;
@@ -116,8 +116,6 @@ namespace TrabalhoCPD {
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->comboBox4 = (gcnew System::Windows::Forms::ComboBox());
 			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->label14 = (gcnew System::Windows::Forms::Label());
 			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
 			this->label15 = (gcnew System::Windows::Forms::Label());
@@ -328,8 +326,8 @@ namespace TrabalhoCPD {
 			this->comboBox1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(233) {
-				L"", L"Overgrow", L"Chlorophyll", L"Blaze", L"Solar Power",
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(232) {
+				L"Overgrow", L"Chlorophyll", L"Blaze", L"Solar Power",
 					L"Torrent", L"Rain Dish", L"Shield Dust", L"Run Away", L"Shed Skin", L"Compoundeyes", L"Tinted Lens", L"Swarm", L"Sniper", L"Keen Eye",
 					L"Tangled Feet", L"Big Pecks", L"Guts", L"Hustle", L"Gluttony", L"Thick Fat", L"Intimidate", L"Unnerve", L"Static", L"Lightningrod",
 					L"Surge Surfer", L"Sand Veil", L"Sand Rush", L"Snow Cloak", L"Slush Rush", L"Poison Point", L"Rivalry", L"Sheer Force", L"Cute Charm",
@@ -368,8 +366,8 @@ namespace TrabalhoCPD {
 			this->comboBox2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(19) {
-				L"", L"fire", L"water", L"bug", L"poison", L"electric",
+			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(18) {
+				L"fire", L"water", L"bug", L"poison", L"electric",
 					L"fairy", L"fighting", L"psychic", L"ground", L"normal", L"grass", L"dragon", L"rock", L"dark", L"ghost", L"ice", L"steel", L"flying"
 			});
 			this->comboBox2->Location = System::Drawing::Point(735, 57);
@@ -434,33 +432,6 @@ namespace TrabalhoCPD {
 			this->label12->TabIndex = 28;
 			this->label12->Text = L"Stat";
 			// 
-			// textBox7
-			// 
-			this->textBox7->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->textBox7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox7->Location = System::Drawing::Point(530, 438);
-			this->textBox7->Multiline = true;
-			this->textBox7->Name = L"textBox7";
-			this->textBox7->Size = System::Drawing::Size(612, 134);
-			this->textBox7->TabIndex = 29;
-			// 
-			// label13
-			// 
-			this->label13->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->label13->AutoSize = true;
-			this->label13->Font = (gcnew System::Drawing::Font(L"Arial", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label13->Location = System::Drawing::Point(526, 404);
-			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(219, 19);
-			this->label13->TabIndex = 30;
-			this->label13->Text = L"Pokemons ja pesquisados:";
-			// 
 			// label14
 			// 
 			this->label14->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
@@ -481,6 +452,8 @@ namespace TrabalhoCPD {
 			// 
 			this->textBox8->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left));
+			this->textBox8->Font = (gcnew System::Drawing::Font(L"David Libre", 13.8F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(177)));
 			this->textBox8->Location = System::Drawing::Point(14, 343);
 			this->textBox8->Multiline = true;
 			this->textBox8->Name = L"textBox8";
@@ -504,17 +477,19 @@ namespace TrabalhoCPD {
 			// 
 			// textBox9
 			// 
-			this->textBox9->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+			this->textBox9->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->textBox9->Location = System::Drawing::Point(530, 153);
 			this->textBox9->Multiline = true;
 			this->textBox9->Name = L"textBox9";
-			this->textBox9->Size = System::Drawing::Size(612, 234);
+			this->textBox9->Size = System::Drawing::Size(612, 419);
 			this->textBox9->TabIndex = 33;
 			this->textBox9->TextChanged += gcnew System::EventHandler(this, &GUI::textBox9_TextChanged);
 			// 
 			// button1
 			// 
+			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Right));
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->Location = System::Drawing::Point(1032, 92);
@@ -548,8 +523,6 @@ namespace TrabalhoCPD {
 			this->Controls->Add(this->textBox9);
 			this->Controls->Add(this->textBox8);
 			this->Controls->Add(this->label14);
-			this->Controls->Add(this->label13);
-			this->Controls->Add(this->textBox7);
 			this->Controls->Add(this->label12);
 			this->Controls->Add(this->comboBox4);
 			this->Controls->Add(this->label11);
@@ -642,8 +615,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 	this->MarshalString(textBox5->Text, pokemon5);
 	this->MarshalString(textBox6->Text, pokemon6);
 	std::string pokemons[] = { pokemon1, pokemon2, pokemon3, pokemon4, pokemon5, pokemon6 };
-	textBox8->Text = gcnew System::String(devolve_time_contra(pokemons).c_str());
-	//fazer aqui o processamento dos pokemons
+	textBox8->Text = gcnew System::String(devolve_time_contra(POKEMONTABLE,TYPETABLE,POKEMONTYPETABLE,pokemons).c_str());
 }
  private: void MarshalString(System::String^ s, std::string& os) {
    const char* chars =

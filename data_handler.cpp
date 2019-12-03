@@ -5,11 +5,13 @@
 #include <filesystem>
 #include <algorithm>
 #include <fstream>
+#include <unordered_set>
 //********************************************************************
 
 //****************AREA DE LIBS CRIADAS PELA GENTE*********************
 #include "data_handler.h"
 #include "algoritmos_de_ordenacao.h"
+#include "processamento.h"
 //********************************************************************
 
 //************AREA DE CONSTANTES**************************************
@@ -377,6 +379,37 @@ std::vector<std::string> Arquivos::split(std::string s, char delimiter)
 	}
 	return tokens;
 }
+std::string Arquivos::getNamefromTabelawithdot(std::string tabela)
+{
+	std::fstream fileToOpen;
+	std::fstream definitiveFile;
+	std::string stringToBurnDots;
+	std::string resposta;
+	remove(std::string(DATAARCHIVEPATH).append("listaNamesByOrdemAlfabetica.csv").c_str());
+	remove(std::string(DATAARCHIVEPATH).append("listaNamesByOrdemAlfabeticaInversa.csv").c_str());
+	fileToOpen.open(std::string(tabela), std::fstream::out | std::ios::in | std::ios::app);
+	if (tabela == std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabetica.csv"))
+	{
+		definitiveFile.open(std::string(DATAARCHIVEPATH).append("listaNamesByOrdemAlfabetica.csv"), std::fstream::out | std::ios::in | std::ios::app);
+		std::getline(fileToOpen, stringToBurnDots);
+		resposta = std::string(DATAARCHIVEPATH).append("listaNamesByOrdemAlfabetica.csv");
+	}
+	else
+	{
+		definitiveFile.open(std::string(DATAARCHIVEPATH).append("listaNamesByOrdemAlfabeticaInversa.csv"), std::fstream::out | std::ios::in | std::ios::app);
+		resposta = std::string(DATAARCHIVEPATH).append("listaNamesByOrdemAlfabeticaInversa.csv");
+	}
+	while (std::getline(fileToOpen, stringToBurnDots, '.'))
+	{
+		definitiveFile << stringToBurnDots << "\n";
+		std::getline(fileToOpen, stringToBurnDots);
+	}
+	fileToOpen.close();
+	remove(tabela.c_str());
+	definitiveFile.seekg(0, std::ios::beg);
+	definitiveFile.close();
+	return resposta;
+}
 //**************************************************************
 
 //********************LIMPA OS CARACTERES INDESEJADOS DO CSV***************************
@@ -662,7 +695,7 @@ std::string Arquivos::searchFilters(std::string habilidade, std::string tipo, st
 		resposta = "";
 	}
 	else {
-	//mergeResults(tipo1,tipo2,ordem,stat);
+	resposta = this->mergeResults(respostaHabilidade, respostaTipo, respostaOrdem, respostaStat);
 	}
 	return resposta;
 }
@@ -684,29 +717,25 @@ std::string Arquivos::applyStatfilter(std::string stat)
 {
 	std::string resposta;
 	if (stat =="hp") {
-		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"), 6);
-		resposta = std::string(DATAARCHIVEPATH).append("listOrdByStat.csv");
+		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"), 7);
 	}
 	else if (stat == "attack") {
 		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"), 2);
-		resposta = std::string(DATAARCHIVEPATH).append("listOrdByStat.csv");
 	}
 	else if (stat == "defense") {
 		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"), 6);
-		resposta = std::string(DATAARCHIVEPATH).append("listOrdByStat.csv");
 	}
 	else if (stat == "spattack") {
 		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"), 8);
-		resposta = std::string(DATAARCHIVEPATH).append("listOrdByStat.csv");
 	}
 	else if (stat == "spdefense") {
 		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"), 9);
-		resposta = std::string(DATAARCHIVEPATH).append("listOrdByStat.csv");
 	}
 	else if (stat == "speed") {
 		inicia_ordenacao(std::string(DATAARCHIVEPATH).append(STATTABLE), std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"), 10);
-		resposta = std::string(DATAARCHIVEPATH).append("listOrdByStat.csv");
 	}
+	resposta = this->getByNamebyStat(std::string(DATAARCHIVEPATH).append("listOrdByStat.csv"));
+	remove(std::string(DATAARCHIVEPATH).append("listOrdByStat.csv").c_str());
 	return resposta;
 }
 
@@ -717,20 +746,19 @@ std::string Arquivos::getListofRelationsById(std::string stringForSearch, int ta
 	std::fstream file;
 	std::fstream filetemp;
 	std::string stringSearcher;
+	remove(nameArchiveTemp.c_str());
 
-
-	filetemp.open(nameArchiveTemp, std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
-
+	filetemp.open(nameArchiveTemp, std::ios::out | std::ios::in | std::ios::app);//abre o arquivo
 	switch (tabelaToSearch)
 	{
 	case 1:
-		file.open(std::string(INDEXARCHIVEPATH).append(POKEMONABILITYTABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		file.open(std::string(INDEXARCHIVEPATH).append(POKEMONABILITYTABLE), std::ios::out | std::ios::in | std::ios::app);//abre o arquivo
 		break;
 	case 3:
-		file.open(std::string(INDEXARCHIVEPATH).append(POKEMONSTATTABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		file.open(std::string(INDEXARCHIVEPATH).append(POKEMONSTATTABLE), std::ios::out | std::ios::in | std::ios::app);//abre o arquivo
 		break;
 	case 4:
-		file.open(std::string(INDEXARCHIVEPATH).append(POKEMONTYPETABLE), std::fstream::out | std::ios::in | std::ios::app);//abre o arquivo
+		file.open(std::string(INDEXARCHIVEPATH).append(POKEMONTYPETABLE), std::ios::out | std::ios::in | std::ios::app);//abre o arquivo
 		break;
 	}
 	std::getline(file, stringSearcher);//retira o cabecalho
@@ -744,7 +772,7 @@ std::string Arquivos::getListofRelationsById(std::string stringForSearch, int ta
 		{
 			if (stringForSearch == stringSearcher)// se encontrou o id, para de procurar
 			{
-				filetemp << resposta << '\n';
+				filetemp << getNameById(resposta,POKEMON) << '\n';
 			}
 		}
 	}
@@ -758,20 +786,36 @@ std::string Arquivos::applyOrdemfilter(std::string ordem)
 {
 	std::string resposta;
 	 if (ordem == "Alfabetica") {
-		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabetica.csv"));
-		inicia_ordenacao(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabetica.csv"), std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabetica.csv"), 6);
-		resposta = std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabetica.csv");
+		if (std::filesystem::exists(std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabetica.csv"))) {
+
+		}
+		else {
+			this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabetica.csv"));
+			inicia_ordenacao(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabetica.csv"), std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabetica.csv"), 6);
+		}
+		remove(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabetica.csv").c_str());//deleta arquivo ajudante
+		resposta = this->getNamefromTabelawithdot(std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabetica.csv"));
 	}
 	else if (ordem == "Alfabetica Inversa") {
-		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabeticaInversa.csv"));
-		inicia_ordenacaoinvertida(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabeticaInversa.csv"), std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabeticaInversa.csv"), 6);
-		resposta = std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabeticaInversa.csv");
-	}
-	else if (ordem == "Geracao") {
-		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listTempnamesGeracao.csv"));
-	}else if(ordem == "Pokedex") {
-		this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listTempnamesPokedex.csv"));
-		resposta = std::string(DATAARCHIVEPATH).append("listTempnamesPokedex.csv");
+		if (std::filesystem::exists(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabeticaInversa.csv"))) {
+
+		}
+		else {
+			this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabeticaInversa.csv"));
+			inicia_ordenacaoinvertida(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabeticaInversa.csv"), std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabeticaInversa.csv"), 6);
+		}
+		remove(std::string(DATAARCHIVEPATH).append("listaAuxOrdemAlfabeticaInversa.csv").c_str());//deleta arquivo ajudante
+		resposta = this->getNamefromTabelawithdot(std::string(DATAARCHIVEPATH).append("listNamesByOrdemAlfabeticaInversa.csv"));
+	 
+	 }
+	else if (ordem == "Geracao"|| ordem == "Pokedex") {
+		 if (std::filesystem::exists(std::string(DATAARCHIVEPATH).append("listTempnamesPokedex.csv"))) {
+
+		 }
+		 else {
+		  this->writePokemonsNameOnPokedexOrder(std::string(DATAARCHIVEPATH).append("listTempnamesPokedex.csv"));
+		 }
+		 resposta = std::string(DATAARCHIVEPATH).append("listTempnamesPokedex.csv");
 	}
 	return resposta;
 }
@@ -802,4 +846,68 @@ void Arquivos::writePokemonsNameOnPokedexOrder(std::string namearchive)
 	databaseFonte.close();					//fecha o arquivo
 	pokemonTable.close();					//fecha o arquivo
 	return;
+}
+
+std::string Arquivos::mergeResults(std::string habilidade, std::string tipo, std::string ordem, std::string stat)
+{
+	std::vector<std::string> vetorOficial;
+	std::vector<std::string> vetorAux;
+	std::string resposta;
+
+
+	vetorOficial = this->chargeVector(vetorOficial, ordem);
+	vetorAux = this->chargeVector(vetorAux, habilidade);
+	vetorOficial = this->intersection(vetorAux, vetorOficial);
+	vetorAux.clear();
+	vetorAux = this->chargeVector(vetorAux, tipo);
+	vetorOficial = this->intersection(vetorAux, vetorOficial);
+	//vetorAux.clear();
+	//vetorAux = this->chargeVector(vetorAux, stat);
+	//vetorOficial = this->intersection(vetorAux, vetorOficial);
+	for (auto i : vetorOficial)
+	{
+		resposta += i + "\r\n";
+	}
+	vetorOficial.clear();
+	vetorAux.clear();
+	return resposta;
+}
+
+std::string Arquivos::getByNamebyStat(std::string tabelaToSearch )
+{
+	std::string resposta = std::string(DATAARCHIVEPATH).append("orderByStat.csv");
+	std::fstream file;
+	std::fstream fileDef;
+	std::string stringSearcher;
+
+	file.open(tabelaToSearch, std::ios::out | std::ios::in | std::ios::app);//abre o arquivo
+	fileDef.open(std::string(std::string(DATAARCHIVEPATH).append("orderByStat.csv")), std::ios::out | std::ios::in | std::ios::app);//abre o arquivo
+	while (std::getline(file, stringSearcher,DELIMITER))//faz o laco enquanto deve
+	{
+		fileDef << getNameById(stringSearcher, POKEMON) << "\n";
+		std::getline(file, stringSearcher);
+	}
+	file.close();
+	fileDef.close();
+	return resposta;
+}
+
+std::vector<std::string> Arquivos::intersection(std::vector<std::string>& nums1, std::vector<std::string>& nums2) {
+	std::unordered_set<std::string> s;
+	for (auto i : nums1) s.insert(i);
+	nums1.clear();
+	for (auto i : nums2) if (s.count(i)) { nums1.push_back(i); s.erase(i); }
+	return nums1;
+}
+
+std::vector<std::string> Arquivos::chargeVector(std::vector<std::string>& vector1, std::string list) {
+	std::fstream file;
+	std::string stringSearcher;
+	file.open(list, std::fstream::out | std::ios::in | std::ios::app);
+	file.seekg(0, std::ios::beg);
+	while(std::getline(file, stringSearcher))
+	{
+		vector1.push_back(stringSearcher);
+	}
+	return vector1;
 }
